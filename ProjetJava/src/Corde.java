@@ -1,6 +1,6 @@
 public class Corde extends Instrument{
-    int longueur;
-    int largeur;
+    protected int longueur;
+    protected int largeur;
 
     public Corde() {
         super();

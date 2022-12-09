@@ -1,7 +1,7 @@
 public class Instrument {
-    String nom;
-    float prixAchat;
-    float prixVente;
+    protected String nom;
+    protected float prixAchat;
+    protected float prixVente;
 
     public Instrument() {
     }

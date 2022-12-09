@@ -1,5 +1,5 @@
 public class Vent extends Instrument{
-    String type; // ptre changer ça en enum pour plus de propreté
+    protected String type; // ptre changer ça en enum pour plus de propreté
 
     public Vent() {
         super();

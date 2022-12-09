@@ -1,6 +1,6 @@
 public class GuitareElectrique extends Corde{
-    boolean avecAmpli;
-    boolean avecPedals;
+    private boolean avecAmpli;
+    private boolean avecPedals;
 
     public GuitareElectrique() {
         super();
