@@ -1,6 +1,6 @@
 public abstract class Batiment {
-    String adresse;
-    float surfaceHab;
+    protected String adresse;
+    protected float surfaceHab;
     public Batiment(){
 
     }

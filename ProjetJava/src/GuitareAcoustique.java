@@ -1,6 +1,6 @@
 public class GuitareAcoustique extends Corde{
-    String position;
-    int tirant;
+    private String position;
+    private int tirant;
     public GuitareAcoustique(){
         super();
     }
