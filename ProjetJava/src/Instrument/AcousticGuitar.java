@@ -1,3 +1,5 @@
+package Instrument;
+
 public class AcousticGuitar extends StringInstru {
     private String hand; // left or right (maybe change the name of this var)
     private int pull; // maybe change that also

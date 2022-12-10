@@ -1,4 +1,8 @@
-public class StringInstru extends Instrument{
+package Instrument;
+
+import Instrument.Instrument;
+
+public class StringInstru extends Instrument {
     protected int length;
     protected int width;
 

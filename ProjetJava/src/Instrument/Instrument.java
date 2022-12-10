@@ -1,3 +1,5 @@
+package Instrument;
+
 public class Instrument {
     protected String nameInstru;
     protected float purchasePrice;

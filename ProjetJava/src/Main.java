@@ -1,3 +1,6 @@
+import Buildings.*;
+import Instrument.*; // if not used at the end of the project, we can remove the import
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");

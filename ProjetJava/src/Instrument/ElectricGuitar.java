@@ -1,3 +1,5 @@
+package Instrument;
+
 public class ElectricGuitar extends StringInstru {
     private boolean avecAmpli;
     private boolean avecPedals;

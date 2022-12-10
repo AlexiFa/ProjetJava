@@ -1,4 +1,8 @@
-public class WindInstru extends Instrument{
+package Instrument;
+
+import Instrument.Instrument;
+
+public class WindInstru extends Instrument {
     protected String type; // maybe change that to "enum" to make it cleaner
 
     public WindInstru() {

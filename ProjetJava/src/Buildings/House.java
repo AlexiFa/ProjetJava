@@ -1,11 +1,13 @@
+package Buildings;
+import Person.Person;
 public class House extends Building {
     int nbPart;
     float gardenArea;
     public House(){
         super();
     }
-    public House(String address, float livingSpace, int nbPart, float gardenArea) {
-        super(address, livingSpace);
+    public House(String address, float livingSpace, int nbPart, float gardenArea, Person owner) {
+        super(address, livingSpace, owner);
         this.nbPart = nbPart;
         this.gardenArea = gardenArea;
     }
