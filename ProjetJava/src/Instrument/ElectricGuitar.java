@@ -5,7 +5,6 @@ public class ElectricGuitar extends StringInstru {
     private boolean avecPedals;
 
     public ElectricGuitar() {
-        super();
     }
     public ElectricGuitar(String nom, float prixAchat, float prixVente, int longueur, int largeur, boolean avecAmpli, boolean avecPedals) {
         super(nom, prixAchat, prixVente, longueur, largeur);

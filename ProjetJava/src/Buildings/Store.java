@@ -7,7 +7,12 @@ public class Store extends Building {
     ArrayList<Instrument> instruments;
 
     public Store(){
-        super();
+        // super() is called by default if we don't call any constructor from super (if there is a default constructor)
         instruments = new ArrayList<Instrument>();
+    }
+
+    public Store(String address, float livingSpace, Person owner, ArrayList<Instrument> instruments) {
+        super(address, livingSpace, owner);
+        this.instruments = instruments;
     }
 }

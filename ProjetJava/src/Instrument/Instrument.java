@@ -1,6 +1,6 @@
 package Instrument;
 
-public class Instrument {
+public abstract class Instrument {
     protected String nameInstru;
     protected float purchasePrice;
     protected float sellingPrice;

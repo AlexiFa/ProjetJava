@@ -6,7 +6,6 @@ public abstract class Building {
     protected float livingSpace;
     protected Person owner;
     public Building(){
-
     }
     public Building(String address, float livingSpace, Person owner) {
         this.address = address;
