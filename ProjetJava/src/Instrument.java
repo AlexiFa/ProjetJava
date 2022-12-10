@@ -1,13 +1,13 @@
 public class Instrument {
-    protected String nom;
-    protected float prixAchat;
-    protected float prixVente;
+    protected String nameInstru;
+    protected float purchasePrice;
+    protected float sellingPrice;
 
     public Instrument() {
     }
-    public Instrument(String nom, float prixAchat, float prixVente) {
-        this.nom = nom;
-        this.prixAchat = prixAchat;
-        this.prixVente = prixVente;
+    public Instrument(String nameInstru, float purchasePrice, float sellingPrice) {
+        this.nameInstru = nameInstru;
+        this.purchasePrice = purchasePrice;
+        this.sellingPrice = sellingPrice;
     }
 }

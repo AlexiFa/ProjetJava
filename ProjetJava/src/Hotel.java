@@ -1,11 +1,11 @@
-public class Hotel extends Batiment {
-    int nbChambre;
+public class Hotel extends Building {
+    int nbRoom;
     public Hotel(){
         super();
     }
 
-    public Hotel(String adresse, float surfaceHab, int nbChambre) {
-        super(adresse, surfaceHab);
-        this.nbChambre = nbChambre;
+    public Hotel(String address, float livingSpace, int nbRoom) {
+        super(address, livingSpace);
+        this.nbRoom = nbRoom;
     }
 }

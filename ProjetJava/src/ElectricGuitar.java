@@ -1,11 +1,11 @@
-public class GuitareElectrique extends Corde{
+public class ElectricGuitar extends StringInstru {
     private boolean avecAmpli;
     private boolean avecPedals;
 
-    public GuitareElectrique() {
+    public ElectricGuitar() {
         super();
     }
-    public GuitareElectrique(String nom, float prixAchat, float prixVente, int longueur, int largeur, boolean avecAmpli, boolean avecPedals) {
+    public ElectricGuitar(String nom, float prixAchat, float prixVente, int longueur, int largeur, boolean avecAmpli, boolean avecPedals) {
         super(nom, prixAchat, prixVente, longueur, largeur);
         this.avecAmpli = avecAmpli;
         this.avecPedals = avecPedals;

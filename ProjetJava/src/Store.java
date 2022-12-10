@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class Magasin extends Batiment{
+public class Store extends Building {
     ArrayList<Instrument> instruments;
-    Personne proprio;
+    Person owner; // we can put it in building directly
 
-    public Magasin(){
+    public Store(){
         super();
         instruments = new ArrayList<Instrument>();
     }
-    public Magasin(Personne proprietaire){
+    public Store(Person owner){
         super();
         instruments = new ArrayList<Instrument>();
-        this.proprio = proprietaire;
+        this.owner = owner;
     }
 
 }
