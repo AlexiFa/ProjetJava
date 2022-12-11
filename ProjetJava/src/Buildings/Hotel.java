@@ -1,5 +1,5 @@
 package Buildings;
-import Person.Person;
+import Person.Owner;
 
 public class Hotel extends Building {
     int nbStars;
@@ -7,8 +7,10 @@ public class Hotel extends Building {
     int nbSpa; // only for 4 stars hotel (else = 0)
     int nbPool; // only for 5 or 4 stars hotel (else = 0)
     int nbSuite; // idem for 5 stars
-    public Hotel(){
+
+    public Hotel() {
     }
+
     public Hotel(int stars){ // create hotel with default values
         nbStars = stars;
         nbSpa = 0;
@@ -27,7 +29,7 @@ public class Hotel extends Building {
                 System.out.println("Error, number of stars can be 1 to 5");
         }
     }
-    public Hotel(String address, float livingSpace, int nbRoom, Person owner) {
+    public Hotel(String address, float livingSpace, int nbRoom, Owner owner) {
         super(address, livingSpace, owner);
         this.nbRoom = nbRoom;
     }
