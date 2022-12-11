@@ -26,7 +26,7 @@ public class Functions {
         for (Person people : owners){
             if (people instanceof Occupant)
                 continue;
-            System.out.println(i + " " + people.toString());
+            System.out.println(i + " " + people.toString()); // TODO : fct Person.toString()
             i++;
             int choice = sc.nextInt();
         }
