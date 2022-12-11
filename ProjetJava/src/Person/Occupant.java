@@ -8,6 +8,7 @@ import Rental.Rental;
 public class Occupant extends Person {
     Rental rental;
     public Occupant() {
+        this.rental = null;
     }
     public Occupant(String name, String surname, Rental rental) {
         super(name, surname);
