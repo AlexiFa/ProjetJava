@@ -16,4 +16,14 @@ public class Rental {
         this.occupant = occupant;
         this.noRoom = noRoom;
     }
+
+    public void setOccupant(Occupant occupant) {
+        if (this.occupant == null)
+            this.occupant = occupant;
+        else
+            System.out.println("error, there is already someone in this rental");
+    }
+    public void stopRental(){
+        this.occupant.setRental(null);
+    }
 }

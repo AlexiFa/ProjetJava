@@ -13,4 +13,8 @@ public class Occupant extends Person {
         super(name, surname);
         this.rental = rental;
     }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
+    }
 }

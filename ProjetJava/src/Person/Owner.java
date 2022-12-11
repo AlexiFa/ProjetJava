@@ -17,6 +17,11 @@ public class Owner extends Person{
         buildings = new ArrayList<Building>();
     }
 
+    /**
+     * Function to add a building to the list of the buildings he own
+     * @param building : building to add
+     * @return : false if the building is already in this list and true if not
+     */
     public boolean addBuilding(Building building){
         for (Building building1 : buildings){
             if (building1==building){
@@ -25,6 +30,11 @@ public class Owner extends Person{
         }
         return buildings.add(building);
     }
+
+    /**
+     * Function to remove a building of the list (if someone else buys it)
+     * @param building : building to remove
+     */
     public void removeBuilding(Building building){
         buildings.remove(building);
     }

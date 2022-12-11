@@ -29,6 +29,12 @@ public class Main {
         System.out.println(hou.toString());
         Instrument test = new AcousticGuitar();
         System.out.println(test.toString());
+//        // Tests pour le setOwner
+//        Person test = new Owner("jean", "Paul");
+//        Person owner2 = new Owner("Luc", "Voila");
+//        Building building = new House();
+//        building.setOwner((Owner)test);
+//        building.setOwner((Owner)owner2);
 
 
         // MAIN LOOP
