@@ -1,10 +1,12 @@
 package Person;
+import Buildings.Building;
 
-public class Owner {
-    Batiment batiment;
+public class Owner extends Person{
+    Building building;
     public Owner() {
     }
-    public Owner(String name, String surname, Batiment batiment) {
+    public Owner(String name, String surname, Building building) {
         super(name, surname);
-        this batiment= batiment;
+        this.building = building;
     }
+}
