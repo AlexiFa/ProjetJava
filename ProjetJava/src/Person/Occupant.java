@@ -1,3 +1,7 @@
+/** Mele-Mele Island
+ *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
+ *
+ */
 package Person;
 import Rental.Rental;
 

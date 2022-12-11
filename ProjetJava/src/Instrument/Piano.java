@@ -1,3 +1,7 @@
+/** Mele-Mele Island
+ *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
+ *
+ */
 package Instrument;
 
 public class Piano extends StringInstru {

@@ -1,3 +1,7 @@
+/** Mele-Mele Island
+ *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
+ *
+ */
 package Buildings;
 import Instrument.Instrument; // because a store have a stock of instrument
 import Person.Owner;

@@ -1,5 +1,6 @@
-/**
- *
+/** Mele-Mele Island
+ *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
+ *  Parent class of every building with the common attributes
  */
 package Buildings;
 import Person.Owner;
