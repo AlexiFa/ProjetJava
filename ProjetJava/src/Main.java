@@ -1,12 +1,11 @@
 /** Mele-Mele Island
  *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
- *
+ *  The main loop of the application
  */
 import Buildings.*;
 import Instrument.*;
 import Person.*;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Scanner;
 // if not used at the end of the project, we can remove the import
@@ -35,6 +34,15 @@ public class Main {
 //        Building building = new House();
 //        building.setOwner((Owner)test);
 //        building.setOwner((Owner)owner2);
+//        // Tests to list all the buildings of an owner
+//        Person debby = new Owner("Debby", "Lité");
+//        ArrayList<Instrument> instru = new ArrayList<Instrument>();
+//        Building B1 = new House("7 av trkl", 120, 5, 500, (Owner)debby);
+//        Building B2 = new Store("12 bd mele-mele", 50, (Owner)debby, instru);
+//        Building B3 = new Hotel("45 ad fr", 540, 2, (Owner)debby);
+//        Building B4 = new ApartmentBuilding("56 st here", 804, 24, (Owner)debby);
+//        for (Building own : ((Owner)debby).getBuildings())
+//            System.out.println(own.toString());
 
 
         // MAIN LOOP

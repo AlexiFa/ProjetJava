@@ -15,6 +15,7 @@ public abstract class Building {
         this.address = address;
         this.livingSpace = livingSpace;
         this.owner = owner;
+        owner.addBuilding(this); // to also add the building in the owner's list
     }
 
     @Override

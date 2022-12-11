@@ -38,4 +38,12 @@ public class Owner extends Person{
     public void removeBuilding(Building building){
         buildings.remove(building);
     }
+
+    /**
+     * Function to list all the buildings of an owner
+     * @return : the list of the buildings he owns
+     */
+    public ArrayList<Building> getBuildings() {
+        return buildings;
+    }
 }

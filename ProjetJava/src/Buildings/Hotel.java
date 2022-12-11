@@ -39,9 +39,27 @@ public class Hotel extends Building {
     }
     public Hotel() {
     }
-    public Hotel(String address, float livingSpace, int nbRoom, Owner owner) {
+    public Hotel(String address, float livingSpace, int stars, Owner owner) {
         super(address, livingSpace, owner);
-        this.nbRoom = nbRoom;
+        nbStars = stars;
+        nbSpa = 0; // first set the special attributes to 0 and change them after depending on stars number
+        nbPool = 0;
+        nbSuite = 0;
+        switch (nbStars){
+            case 1 : nbRoom = 10;break;
+            case 2 : nbRoom = 15;break;
+            case 3 : nbRoom = 20;break;
+            case 4 : // nbSpa will be set after the constructor in the main
+                nbPool = 1;
+                nbRoom = 25;
+                break;
+            case 5 :
+                nbRoom = 30;
+                break;
+            default:
+                System.out.println("Error, number of stars can be 1 to 5");
+                break;
+        }
     }
 
     /**
