@@ -1,14 +1,14 @@
 package Instrument;
 
 public class ElectricGuitar extends StringInstru {
-    private boolean avecAmpli;
-    private boolean avecPedals;
+    private boolean withAmpli;
+    private boolean withPedals;
 
     public ElectricGuitar() {
     }
-    public ElectricGuitar(String nom, float prixAchat, float prixVente, int longueur, int largeur, boolean avecAmpli, boolean avecPedals) {
-        super(nom, prixAchat, prixVente, longueur, largeur);
-        this.avecAmpli = avecAmpli;
-        this.avecPedals = avecPedals;
+    public ElectricGuitar(String nom, float purchasePrice, float sellingPrice, int length, int width, boolean withAmpli, boolean withPedals) {
+        super(nom, purchasePrice, sellingPrice, length, width);
+        this.withAmpli = withAmpli;
+        this.withPedals = withPedals;
     }
 }
