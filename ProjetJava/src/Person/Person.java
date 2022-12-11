@@ -14,19 +14,14 @@ public class Person {
         this.surname = surname;
     }
 
+    /**
+     * Getter and setters to create an or an occupant from a person (with new Owner(getName,getSurname, ...))
+     */
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 }

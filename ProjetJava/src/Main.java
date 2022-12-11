@@ -37,7 +37,9 @@ public class Main {
         System.out.print("Surname :");
         String surname = sc.nextLine();
         Person admin = new Person(name, surname);
-        ArrayList<Building> residence;
+        ArrayList<Building> residence = new ArrayList<Building>();
+        ArrayList<Person> population = new ArrayList<Person>();
+        population.add(admin);
 
         while(true){
             System.out.println();
@@ -50,7 +52,7 @@ public class Main {
             int choice = sc.nextInt();
             switch (choice){
                 case 1 :
-                    System.out.println("Enter the address of the house");
+                    Functions.infoBuilding(sc, population); // to set the info common to all buildings
             }
             break;
         }
