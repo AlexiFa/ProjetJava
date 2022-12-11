@@ -16,4 +16,16 @@ public class Owner extends Person{
         super(name, surname);
         buildings = new ArrayList<Building>();
     }
+
+    public boolean addBuilding(Building building){
+        for (Building building1 : buildings){
+            if (building1==building){
+                return false; // if the building is already in the array return false of maybe don't do anything (we can change that after)
+            }
+        }
+        return buildings.add(building);
+    }
+    public void removeBuilding(Building building){
+        buildings.remove(building);
+    }
 }

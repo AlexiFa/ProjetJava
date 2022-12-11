@@ -23,4 +23,11 @@ public abstract class Building {
                 ", livingSpace=" + livingSpace +
                 ", owner=" + owner;
     }
+
+    public void setOwner(Owner owner) {
+        if (this.owner!=null){ // TODO : check if owner != null works in this function
+            this.owner.removeBuilding(this); // if the owner change, we need to remove this building from the buildings owned by this owner
+        }
+        this.owner = owner;
+    }
 }

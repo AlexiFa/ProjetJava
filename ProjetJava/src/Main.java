@@ -27,6 +27,8 @@ public class Main {
         Store sto = new Store();
         System.out.println("building classes created.");
         System.out.println(hou.toString());
+        Instrument test = new AcousticGuitar();
+        System.out.println(test.toString());
 
 
         // MAIN LOOP
