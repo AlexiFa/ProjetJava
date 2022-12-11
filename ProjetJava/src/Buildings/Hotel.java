@@ -15,14 +15,14 @@ public class Hotel extends Building {
         nbPool = 0;
         nbSuite = 0;
         switch (nbStars){
-            case 1 : nbRoom = 10;
-            case 2 : nbRoom = 15;
-            case 3 : nbRoom = 20;
+            case 1 : nbRoom = 10;break;
+            case 2 : nbRoom = 15;break;
+            case 3 : nbRoom = 20;break;
             case 4 : // nbSpa will be set after the constructor in the main
                 nbPool = 1;
-                nbRoom = 25;
+                nbRoom = 25;break;
             case 5 :
-                nbRoom = 30;
+                nbRoom = 30;break;
             default:
                 System.out.println("Error, number of stars can be 1 to 5");
         }
