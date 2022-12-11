@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Owner extends Person{
     ArrayList<Building> buildings;
     public Owner() {
+        super();
         buildings = new ArrayList<Building>();
     }
     public Owner(String name, String surname) {
@@ -19,16 +20,16 @@ public class Owner extends Person{
 
     /**
      * Function to add a building to the list of the buildings he own
+     *
      * @param building : building to add
-     * @return : false if the building is already in this list and true if not
      */
-    public boolean addBuilding(Building building){
+    public void addBuilding(Building building){
         for (Building building1 : buildings){
             if (building1==building){
-                return false; // if the building is already in the array return false of maybe don't do anything (we can change that after)
+                return; // if the building is already in the array return false of maybe don't do anything (we can change that after)
             }
         }
-        return buildings.add(building);
+        buildings.add(building);
     }
 
     /**

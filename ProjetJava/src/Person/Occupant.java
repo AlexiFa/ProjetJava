@@ -8,6 +8,7 @@ import Rental.Rental;
 public class Occupant extends Person {
     Rental rental;
     public Occupant() {
+        super();
         this.rental = null;
     }
     public Occupant(String name, String surname, Rental rental) {
@@ -17,5 +18,8 @@ public class Occupant extends Person {
 
     public void setRental(Rental rental) {
         this.rental = rental;
+    }
+    public Rental getRental(){
+        return this.rental;
     }
 }

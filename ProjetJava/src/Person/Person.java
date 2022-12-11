@@ -8,6 +8,8 @@ public class Person {
     String name;
     String surname;
     public Person() {
+        this.name="";
+        this.surname="";
     }
     public Person(String name, String surname) {
         this.name = name;
@@ -23,5 +25,10 @@ public class Person {
     public String getSurname() {
         return surname;
     }
-
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setSurname(String surname){
+        this.surname = surname;
+    }
 }

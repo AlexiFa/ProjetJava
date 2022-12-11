@@ -10,7 +10,7 @@ public class Rental {
     Building rent;
     Occupant occupant;
     int noRoom;
-
+    public Rental(){}
     public Rental(Building rent, Occupant occupant, int noRoom) {
         this.rent = rent;
         this.occupant = occupant;

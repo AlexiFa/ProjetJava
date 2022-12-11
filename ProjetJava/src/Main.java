@@ -5,8 +5,10 @@
 import Buildings.*;
 import Instrument.*;
 import Person.*;
+import Rental.Rental;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -61,28 +63,36 @@ public class Main {
     }
 
     //test method for the profile creation: owners, renters/occupants, and unspecified-role people
-
-
     private static void testPerson() throws InterruptedException {
         //verify you can create empty profiles
+        System.out.print("   ");
         Person p0 = new Person();
         Owner own0 = new Owner();
         Occupant occ0 = new Occupant();
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
+        printResult(p0.getName().equalsIgnoreCase(""));
+        printResult(p0.getSurname().equalsIgnoreCase(""));
+        printResult(own0.getName().equalsIgnoreCase(""));
+        printResult(own0.getBuildings().isEmpty());
+        printResult(occ0.getName().equalsIgnoreCase(""));
+        printResult(occ0.getRental()==null);
+        //verify you can set name-infos
+        p0.setName("Maria");p0.setSurname("Carmen");
+        own0.setName("James"); own0.setSurname("Bond");
+        occ0.setName("Jack"); occ0.setSurname("Sparrow");
+        printResult(p0.getName().equalsIgnoreCase("MARIA"));
+        printResult(own0.getSurname().equalsIgnoreCase("BOND"));
+        printResult(occ0.getName().equalsIgnoreCase("JACK"));
+        //verify full constructors works
+        Person p1 = new Person("Santa", "Clous");
+        Owner own1 = new Owner("Harry", "Potter");
+        Rental rental = new Rental();
+        Occupant occ1 = new Occupant("John", "Lennon", rental);
+        printResult(p1.getSurname().equalsIgnoreCase("CLOUS"));
+        printResult(own1.getName().equalsIgnoreCase("HARRY"));
+        printResult(occ1.getSurname().equalsIgnoreCase("lennon"));
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
+    }
 
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
-    }
-    //test method for all instrument creation, and their specificities
-    private static void testInstrument() throws InterruptedException {
-        Instrument test = new AcousticGuitar();
-//        System.out.println(test.toString());
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
-    }
     // test method for all building creation, with their specificities
 
     //        // Tests pour le setOwner
@@ -117,11 +127,27 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
     }
+    //test method for all instrument creation, and their specificities
+    private static void testInstrument() throws InterruptedException {
+        Instrument test = new AcousticGuitar();
+//        System.out.println(test.toString());
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
+    }
     //test method for relations between people-rental-building and store-instruments
     private static void testRelation() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
+    }
+    
+    //method printing out the result of the test in console: '>' when all is good, '!' when an error occurs
+    private static void printResult(boolean check) throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(250);
+        if (check) System.out.print(">");
+        else System.out.print("!");
     }
 }
