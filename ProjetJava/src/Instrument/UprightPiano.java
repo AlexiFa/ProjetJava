@@ -13,6 +13,13 @@ public class UprightPiano extends Piano{
         super(nameInstru, purchasePrice, sellingPrice, length, width, nbKey);
     }
 
+    @Override
+    public String toString() {
+        return "UprightPiano{" +
+                super.toString() +
+                '}';
+    }
+
     public void setSilence(boolean silence){
         this.silence = silence;
     }

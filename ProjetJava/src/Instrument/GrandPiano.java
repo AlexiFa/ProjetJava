@@ -9,6 +9,13 @@ public class GrandPiano extends Piano{
         super(nameInstru, purchasePrice, sellingPrice, length, width, nbKey);
     }
 
+    @Override
+    public String toString() {
+        return "GrandPiano{" +
+                super.toString() +
+                '}';
+    }
+
     public void setSize(int s){
         switch (s) {
             case 1: this.size = sizeType.FULL;break;

@@ -15,4 +15,12 @@ public abstract class StringInstru extends Instrument {
         this.length = length;
         this.width = width;
     }
+    @Override
+    public String toString() {
+        return "StringInstru{" +
+                super.toString() +
+                "length=" + length +
+                "width=" + width +
+                '}';
+    }
 }

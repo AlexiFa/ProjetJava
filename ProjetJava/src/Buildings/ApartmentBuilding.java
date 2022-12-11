@@ -15,4 +15,13 @@ public class ApartmentBuilding extends Building {
         super(address, livingSpace, owner);
         this.nbApart = nbApart;
     }
+
+    @Override
+    public String toString() {
+        return "ApartmentBuilding{" +
+                super.toString() +
+                "nbApart=" + nbApart +
+                '}';
+    }
+
 }

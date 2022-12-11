@@ -13,4 +13,11 @@ public abstract class WindInstru extends Instrument {
         super(nameInstru, purchasePrice, sellingPrice);
         this.type = type;
     }
+    @Override
+    public String toString() {
+        return "WindInstru{" +
+                super.toString() +
+                "type=" + type +
+                '}';
+    }
 }

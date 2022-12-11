@@ -14,4 +14,13 @@ public class AcousticGuitar extends StringInstru {
         this.hand = hand;
         this.pull = pull;
     }
+    @Override
+    public String toString() {
+        return "AcousticGuitar{" +
+                super.toString() +
+                "hand=" + hand +
+                "pull=" + pull +
+
+                '}';
+    }
 }

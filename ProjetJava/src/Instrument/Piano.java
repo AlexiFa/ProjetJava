@@ -13,4 +13,12 @@ public class Piano extends StringInstru {
         super(nameInstru,purchasePrice,sellingPrice,length,width);
         this.nbKey =nbKey;
     }
+
+    @Override
+    public String toString() {
+        return "Piano{" +
+                super.toString() +
+                "nbKey=" + nbKey +
+                '}';
+    }
 }

@@ -8,6 +8,13 @@ public class DigitalPiano extends Piano{
     public DigitalPiano(String nameInstru, float purchasePrice, float sellingPrice, int length, int width, int nbKey) {
         super(nameInstru, purchasePrice, sellingPrice, length, width, nbKey);
     }
+
+    @Override
+    public String toString() {
+        return "DigitalPiano{" +
+                super.toString() +
+                '}';
+    }
     public void setHeavyTouch(boolean ht){
         this.heavyTouch = ht;
     }
