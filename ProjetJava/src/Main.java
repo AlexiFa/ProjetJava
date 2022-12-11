@@ -32,13 +32,13 @@ public class Main {
         // MAIN LOOP
         Scanner sc = new Scanner(System.in);
         System.out.println("########### WELCOME TO MELE-MELE ISLAND ###########" +"\n");
-        System.out.println("What is your name, dear real estate developer?");
+        System.out.println("What is your name, dear real estate developer?"); //adding the main guy, asking his infos
         System.out.print(" First Name :");
         String name = sc.nextLine();
         System.out.print("Last Name :");
         String lastName = sc.nextLine();
-        Person admin = new Owner(name, lastName);
-        population.add(admin);
+        Person admin = new Owner(name, lastName); //he will be the default owner of all buildings created in the future
+        population.add(admin); //adding him in the overall population of the island
 
         while(true){
             System.out.println();
