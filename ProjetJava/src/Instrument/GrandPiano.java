@@ -1,8 +1,8 @@
 package Instrument;
 
 public class GrandPiano extends Piano{
-    enum sizeType {FULL, HALF, QUARTER, CRAPAUD}
-    sizeType size;
+    private enum sizeType {FULL, HALF, QUARTER, CRAPAUD}
+    protected sizeType size;
     public GrandPiano(){} //default constructor
 
     public GrandPiano(String nameInstru, float purchasePrice, float sellingPrice, int length, int width, int nbKey) {
@@ -22,7 +22,7 @@ public class GrandPiano extends Piano{
             case 2: this.size = sizeType.HALF;break;
             case 3: this.size = sizeType.QUARTER;break;
             case 4: this.size= sizeType.CRAPAUD; break;
-            default: System.out.println("Please choose the right type of size: 4/4, 1/2, 1/4 or Crapaud");
+            default: System.out.println("Please choose the right type of size: '4/4' (1), '1/2' (2), '1/4' (3) or 'Crapaud' (4)");
         }
     }
 }

@@ -1,10 +1,10 @@
 package Instrument;
 
 public class DigitalPiano extends Piano{
+    private enum sQuality {ONE, TWO, THREE};
+    protected boolean heavyTouch;
+    protected sQuality sampQ;
     public DigitalPiano(){} //default constructor
-    boolean heavyTouch;
-    int sQuality;
-
     public DigitalPiano(String nameInstru, float purchasePrice, float sellingPrice, int length, int width, int nbKey) {
         super(nameInstru, purchasePrice, sellingPrice, length, width, nbKey);
     }
@@ -20,8 +20,11 @@ public class DigitalPiano extends Piano{
     }
 
     public void setsQuality(int sampling) {
-        if (sampling <= 3 && sampling >= 1) this.sQuality = sampling;
-        else System.out.println("Error: Sampling of "+sampling+" impossible." +
-                " Please enter a sampling quality between 1 and 3");
+        switch (sampling){
+            case 1: this.sampQ = sQuality.ONE;break;
+            case 2: this.sampQ = sQuality.TWO; break;
+            case 3: this.sampQ = sQuality.THREE; break;
+            default: System.out.println("Error: Please choose an existing sampling quality: 1, 2, or 3.");
+        }
     }
 }

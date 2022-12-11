@@ -14,12 +14,14 @@ import java.util.Scanner;
 * The main class is used to verify that the whole project is working without errors
 */
 public class Main {
+    protected static ArrayList<Building> residence = new ArrayList<Building>();
+    protected static ArrayList<Person> population = new ArrayList<Person>();
     public static void main(String[] args) {
         System.out.println("Hello world!");
         System.out.println();
         Building hot = new Hotel();
         Person James = new Person("Bond", "James");
-        James = new Owner(James.getName(), James.getSurname(), hot);
+        James = new Owner(James.getName(), James.getSurname());
         House hou = new House("21 baker street", 120, 6, 500, (Owner)James); // toString of Owner not created yet so print is not correct
         ApartmentBuilding flatBlock = new ApartmentBuilding();
         Store sto = new Store();
@@ -29,17 +31,14 @@ public class Main {
 
         // MAIN LOOP
         Scanner sc = new Scanner(System.in);
-        System.out.println("########### WELCOME TO MELE-MELE ISLAND ###########");
-        System.out.println();
-        System.out.println("What is your name (you will be the default owner of each building you create)");
-        System.out.print("Name :");
+        System.out.println("########### WELCOME TO MELE-MELE ISLAND ###########" +"\n");
+        System.out.println("What is your name, dear real estate developer?"); //adding the main guy, asking his infos
+        System.out.print(" First Name :");
         String name = sc.nextLine();
-        System.out.print("Surname :");
-        String surname = sc.nextLine();
-        Person admin = new Person(name, surname);
-        ArrayList<Building> residence = new ArrayList<Building>();
-        ArrayList<Person> population = new ArrayList<Person>();
-        population.add(admin);
+        System.out.print("Last Name :");
+        String lastName = sc.nextLine();
+        Person admin = new Owner(name, lastName); //he will be the default owner of all buildings created in the future
+        population.add(admin); //adding him in the overall population of the island
 
         while(true){
             System.out.println();

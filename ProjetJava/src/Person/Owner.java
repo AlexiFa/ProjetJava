@@ -12,9 +12,8 @@ public class Owner extends Person{
     public Owner() {
         buildings = new ArrayList<Building>();
     }
-    public Owner(String name, String surname, Building building) {
+    public Owner(String name, String surname) {
         super(name, surname);
         buildings = new ArrayList<Building>();
-        this.buildings.add(building);
     }
 }
