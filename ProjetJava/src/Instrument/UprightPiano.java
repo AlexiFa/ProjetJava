@@ -3,9 +3,9 @@ package Instrument;
 import java.util.Objects;
 
 public class UprightPiano extends Piano{
-    enum stringsType {STRAIGHT, CROSSED};
-    boolean silence;
-    stringsType sType;
+    private enum stringsType {STRAIGHT, CROSSED};
+    protected boolean silence;
+    protected stringsType sType;
 
     public UprightPiano(){} //default constructor
 
@@ -24,6 +24,6 @@ public class UprightPiano extends Piano{
         else if (strings == 2){
             this.sType = stringsType.CROSSED;
         }
-        else System.out.println("Please choose the right type of strings: straight or crossed");
+        else System.out.println("Please choose the right type of strings: 'straight' (1) or 'crossed' (2)");
     }
 }
