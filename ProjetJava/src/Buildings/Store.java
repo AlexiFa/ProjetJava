@@ -1,6 +1,10 @@
+/** Mele-Mele Island
+ *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
+ *
+ */
 package Buildings;
 import Instrument.Instrument; // because a store have a stock of instrument
-import Person.Person;
+import Person.Owner;
 import java.util.ArrayList;
 
 public class Store extends Building {
@@ -11,7 +15,7 @@ public class Store extends Building {
         instruments = new ArrayList<Instrument>();
     }
 
-    public Store(String address, float livingSpace, Person owner, ArrayList<Instrument> instruments) {
+    public Store(String address, float livingSpace, Owner owner, ArrayList<Instrument> instruments) {
         super(address, livingSpace, owner);
         this.instruments = instruments;
     }
