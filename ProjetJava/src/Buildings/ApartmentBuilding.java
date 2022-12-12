@@ -23,5 +23,8 @@ public class ApartmentBuilding extends Building {
                 "nbApart=" + nbApart +
                 '}';
     }
-
+    //getter for nbAppart
+    public int getNbApart(){
+        return this.nbApart;
+    }
 }

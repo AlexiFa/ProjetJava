@@ -23,4 +23,11 @@ public class House extends Building {
                 ", gardenArea=" + gardenArea +
                 '}';
     }
+    //getters
+    public int getNbPart(){
+        return this.nbPart;
+    }
+    public float getGardenArea(){
+        return this.gardenArea;
+    }
 }

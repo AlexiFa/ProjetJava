@@ -27,4 +27,8 @@ public class Store extends Building {
                 "instruments=" + instruments +
                 '}';
     }
+    //getters
+    public ArrayList<Instrument> getInstruments(){
+        return this.instruments;
+    }
 }

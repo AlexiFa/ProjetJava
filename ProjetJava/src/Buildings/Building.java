@@ -36,4 +36,11 @@ public abstract class Building {
         this.owner = owner;
         this.owner.addBuilding(this); // add this building in the properties of the owner
     }
+//getters for parameters
+    public String getAddress(){
+        return this.address;
+    }
+    public float getLivingSpace(){
+        return this.livingSpace;
+    }
 }

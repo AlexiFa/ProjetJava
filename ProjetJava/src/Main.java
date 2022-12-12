@@ -25,12 +25,14 @@ public class Main {
         System.out.print("------------ Verifying application structure ------------\n");
         System.out.print("-- Testing profile creation:\n");
         testPerson();
-        System.out.print("-- Testing instruments creation:\n");
-        testInstrument();
         System.out.print("-- Testing buildings creation:\n");
         testBuilding();
-        System.out.print("-- Testing relations:\n");
-        testRelation();
+        System.out.print("-- Testing relations person and buildings:\n");
+        testRelation1();
+        System.out.print("-- Testing instruments creation:\n");
+        testInstrument();
+        System.out.print("-- Testing relations store and instruments:\n");
+        testRelation2();
         System.out.print("------------------- Verification over -------------------\n");
 
         // MAIN LOOP: Start Application
@@ -112,16 +114,8 @@ public class Main {
         printResult(true);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
-    //test method for all instrument creation, and their specificities
-    private static void testInstrument() throws InterruptedException {
-        System.out.print("   ");
-        Instrument test = new AcousticGuitar();
-//        System.out.println(test.toString());
-        printResult(true);
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
-    }
-    //test method for relations between people-rental-building and store-instruments
-    private static void testRelation() throws InterruptedException {
+    //test method for relations between people-rental/owning-building
+    private static void testRelation1() throws InterruptedException {
         System.out.print("   ");
 //        // Tests pour le setOwner
 //        Person test = new Owner("jean", "Paul");
@@ -142,7 +136,23 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
 
-    //method printing out the result of the test in console: '>' when all is good, '!' when an error occurs
+    //test method for all instrument creation, and their specificities
+    private static void testInstrument() throws InterruptedException {
+        System.out.print("   ");
+        Instrument test = new AcousticGuitar();
+//        System.out.println(test.toString());
+        printResult(true);
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
+    }
+
+    //test method for relations between  store and instruments
+    private static void testRelation2() throws InterruptedException {
+        System.out.print("   ");
+        printResult(true);
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
+    }
+
+    //method printing out the result of the test in console: '>' when all is good, '!' when a problem occurs
     private static void printResult(boolean check) throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(250);
         if (check) System.out.print(">");

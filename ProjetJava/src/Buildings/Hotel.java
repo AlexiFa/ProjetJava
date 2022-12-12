@@ -79,4 +79,20 @@ public class Hotel extends Building {
     public void setNbSuite(int nbSuite) {
         this.nbSuite = nbStars == 5 ? nbSuite : 0; // verification if the hotel is 5 stars
     }
+    //getters
+    public int getNbStars(){
+        return this.nbStars;
+    }
+    public int getNbRoom(){
+        return this.nbRoom;
+    }
+    public int getNbPool(){
+        return this.nbPool;
+    }
+    public int getNbSpa() {
+        return this.nbSpa;
+    }
+    public int getNbSuite() {
+        return this.nbSuite;
+    }
 }
