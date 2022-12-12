@@ -7,9 +7,9 @@ import Buildings.Building;
 import Person.Occupant;
 
 public class Rental {
-    Building rent;
+    Building rent; // building where the room is rent (must be a Hotel or an ApartmentBuilding)
     Occupant occupant;
-    int noRoom;
+    int noRoom; // the number of the room or the flat
     public Rental(){}
     public Rental(Building rent, Occupant occupant, int noRoom) {
         this.rent = rent;
