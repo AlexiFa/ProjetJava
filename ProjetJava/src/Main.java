@@ -121,6 +121,17 @@ public class Main {
         printResult(sto1.getOwner().getName().equalsIgnoreCase("JAMES"));
         printResult(flat1.getNbApart() == 6);
         //verify differences between stars hotels
+        hot1.setNbPool(2);hot1.setNbSpa(2); hot1.setNbSuite(2); //should keep everything at 0
+        Hotel hot2 = new Hotel(4);
+        hot2.setNbPool(5); hot2.setNbSuite(3); hot2.setNbSpa(8); //should only change nbSpa to 8 and nbPool to 1
+        Hotel hot3 = new Hotel(5);
+        hot3.setNbPool(5); hot3.setNbSuite(3); hot3.setNbSpa(5);//should only change nbPool to 5 and nbSuite to 3
+        printResult(hot1.getNbRoom() == 20);
+        printResult(hot2.getNbRoom() == 25);
+        printResult(hot3.getNbRoom() == 30);
+        printResult(hot1.getNbStars()==3 && hot1.getNbPool()==0 && hot1.getNbSpa()==0 && hot1.getNbSuite()==0);
+        printResult(hot2.getNbStars()==4 && hot2.getNbPool()==1 && hot2.getNbSuite()==0 && hot2.getNbSpa()==8);
+        printResult(hot3.getNbStars()==5 && hot3.getNbPool()==5 && hot3.getNbSuite()==3 && hot3.getNbSpa()==0);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
     //test method for relations between people-rental/owning-building
