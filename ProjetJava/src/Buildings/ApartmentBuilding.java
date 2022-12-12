@@ -20,7 +20,7 @@ public class ApartmentBuilding extends Building {
     public String toString() {
         return "ApartmentBuilding{" +
                 super.toString() +
-                "nbApart=" + nbApart +
+                ", nbApart=" + nbApart +
                 '}';
     }
     //getter for nbAppart

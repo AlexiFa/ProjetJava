@@ -15,7 +15,11 @@ public class Person {
         this.name = name;
         this.surname = surname;
     }
-
+    @Override
+    public String toString() {
+        return name +
+                " " + surname;
+    }
     /**
      * Getter and setters to create an or an occupant from a person (with new Owner(getName,getSurname, ...))
      */

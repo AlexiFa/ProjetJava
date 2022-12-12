@@ -19,7 +19,7 @@ public class House extends Building {
     public String toString() {
         return "House{" +
                 super.toString() +
-                "nbPart=" + nbPart +
+                ", nbPart=" + nbPart +
                 ", gardenArea=" + gardenArea +
                 '}';
     }

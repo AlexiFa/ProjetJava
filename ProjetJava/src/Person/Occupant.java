@@ -22,4 +22,9 @@ public class Occupant extends Person {
     public Rental getRental(){
         return this.rental;
     }
+    @Override
+    public String toString() {
+        return super.toString() +
+                ": has rented " + rental.getRent().toString();
+    }
 }

@@ -28,4 +28,14 @@ public class Rental {
     public void stopRental(){
         this.occupant.setRental(null);
     }
+    //getters
+    public Building getRent(){
+        return this.rent;
+    }
+    public Occupant getOccupant(){
+        return this.occupant;
+    }
+    public int getNoRoom(){
+        return this.noRoom;
+    }
 }

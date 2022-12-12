@@ -17,7 +17,12 @@ public class Owner extends Person{
         super(name, surname);
         buildings = new ArrayList<Building>();
     }
-
+    @Override
+    public String toString() {
+        return super.toString() +
+                ": owns " + buildings.size() +
+                " buildings";
+    }
     /**
      * Function to add a building to the list of the buildings he own
      *

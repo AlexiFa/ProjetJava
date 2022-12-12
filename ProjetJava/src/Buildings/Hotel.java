@@ -95,4 +95,12 @@ public class Hotel extends Building {
     public int getNbSuite() {
         return this.nbSuite;
     }
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                super.toString() +
+                ", nbStars=" + nbStars +
+                ", nbRooms=" + nbRoom +
+                '}';
+    }
 }

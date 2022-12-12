@@ -115,6 +115,7 @@ public class Main {
         ApartmentBuilding flat1 = new ApartmentBuilding("911 help boulevard", 218, 6,James);
         printResult(hou1.getAddress().equalsIgnoreCase("21 BAKER STREET"));
         printResult(hou1.getGardenArea() == (float)500);
+        printResult(hou1.getNbPart()==6);
         printResult(hot1.getLivingSpace()== (float)444);
         printResult(hot1.getNbStars() == 3);
         printResult(sto1.getInstruments().isEmpty());
@@ -137,22 +138,31 @@ public class Main {
     //test method for relations between people-rental/owning-building
     private static void testRelation1() throws InterruptedException {
         System.out.print("   ");
-//        // Tests pour le setOwner
-//        Person test = new Owner("jean", "Paul");
-//        Person owner2 = new Owner("Luc", "Voila");
-//        Building building = new House();
-//        building.setOwner((Owner)test);
-//        building.setOwner((Owner)owner2);
-//        // Tests to list all the buildings of an owner
-//        Person debby = new Owner("Debby", "Lité");
-//        ArrayList<Instrument> instru = new ArrayList<Instrument>();
-//        Building B1 = new House("7 av trkl", 120, 5, 500, (Owner)debby);
-//        Building B2 = new Store("12 bd mele-mele", 50, (Owner)debby, instru);
-//        Building B3 = new Hotel("45 ad fr", 540, 2, (Owner)debby);
-//        Building B4 = new ApartmentBuilding("56 st here", 804, 24, (Owner)debby);
-//        for (Building own : ((Owner)debby).getBuildings())
-//            System.out.println(own.toString());
-        printResult(true);
+        // Test that owner has list all the buildings he/she owns
+        Person debby = new Owner("Debby", "Lité");
+        ArrayList<Instrument> instru = new ArrayList<Instrument>();
+        Building B1 = new House("7 av trkl", 120, 5, 500, (Owner)debby);
+        Building B2 = new Store("12 bd mele-mele", 50, (Owner)debby, instru);
+        Building B3 = new Hotel("45 ad fr", 540, 2, (Owner)debby);
+        Building B4 = new ApartmentBuilding("56 st here", 804, 24, (Owner)debby);
+        printResult(((Owner) debby).getBuildings().size()==4);
+        printResult(((Owner) debby).getBuildings().contains(B1));
+        printResult(((Owner) debby).getBuildings().contains(B2));
+        printResult(((Owner) debby).getBuildings().contains(B3));
+        printResult(((Owner) debby).getBuildings().contains(B4));
+        // Test fonction setOwner
+        Person test = new Owner("jean", "Paul");
+        Person owner2 = new Owner("Luc", "Voila");
+        Building building = new House();
+        building.setOwner((Owner)test);
+        printResult(building.getOwner().getSurname().equalsIgnoreCase("PAUL"));
+        printResult(((Owner) test).getBuildings().contains(building) && ((Owner) test).getBuildings().size()==1);
+        building.setOwner((Owner)owner2);
+        printResult(building.getOwner().getName().equalsIgnoreCase("LUC"));
+        printResult(!((Owner) test).getBuildings().contains(building) && ((Owner) test).getBuildings().size()==0);
+        printResult(((Owner) owner2).getBuildings().contains(building) && ((Owner) owner2).getBuildings().size()==1);
+        System.out.print(" ");
+        printResult(false);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
 
