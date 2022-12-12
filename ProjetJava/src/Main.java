@@ -76,7 +76,7 @@ public class Main {
         printResult(occ0.getName().equalsIgnoreCase(""));
         printResult(occ0.getRental()==null);
         //verify you can set name-infos
-        p0.setName("Maria");p0.setSurname("Carmen");
+        p0.setName("Maria"); p0.setSurname("Carmen");
         own0.setName("James"); own0.setSurname("Bond");
         occ0.setName("Jack"); occ0.setSurname("Sparrow");
         printResult(p0.getName().equalsIgnoreCase("MARIA"));
@@ -90,12 +90,40 @@ public class Main {
         printResult(p1.getSurname().equalsIgnoreCase("CLOUS"));
         printResult(own1.getName().equalsIgnoreCase("HARRY"));
         printResult(occ1.getSurname().equalsIgnoreCase("lennon"));
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
 
     // test method for all building creation, with their specificities
+    public static void testBuilding() throws InterruptedException {
+        System.out.print("   ");
+        //verify all buildings can be created empty
+        House hou0 = new House();
+        Hotel hot0 = new Hotel();
+        Store sto0 = new Store();
+        ApartmentBuilding flat0 = new ApartmentBuilding();
+        printResult(true);
+        //verify you can add info to empty buildings
 
-    //        // Tests pour le setOwner
+        printResult(true);
+        //verify that with-parameters constructors works, for main and subclasses
+        Person James = new Owner("Bond", "James");
+        House hou1 = new House("21 baker street", 120, 6, 500, (Owner) James);
+//        System.out.println(hou.toString());
+        printResult(true);
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
+    }
+    //test method for all instrument creation, and their specificities
+    private static void testInstrument() throws InterruptedException {
+        System.out.print("   ");
+        Instrument test = new AcousticGuitar();
+//        System.out.println(test.toString());
+        printResult(true);
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
+    }
+    //test method for relations between people-rental-building and store-instruments
+    private static void testRelation() throws InterruptedException {
+        System.out.print("   ");
+//        // Tests pour le setOwner
 //        Person test = new Owner("jean", "Paul");
 //        Person owner2 = new Owner("Luc", "Voila");
 //        Building building = new House();
@@ -110,40 +138,10 @@ public class Main {
 //        Building B4 = new ApartmentBuilding("56 st here", 804, 24, (Owner)debby);
 //        for (Building own : ((Owner)debby).getBuildings())
 //            System.out.println(own.toString());
-    public static void testBuilding() throws InterruptedException {
-        //verify all buildings can be created empty
-        House hou0 = new House();
-        Hotel hot0 = new Hotel();
-        Store sto0 = new Store();
-        ApartmentBuilding flat0 = new ApartmentBuilding();
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
-        //verify you can add info to empty buildings
+        printResult(true);
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
+    }
 
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        //verify that with-parameters constructors works, for main and subclasses
-        Person James = new Owner("Bond", "James");
-        House hou1 = new House("21 baker street", 120, 6, 500, (Owner) James);
-//        System.out.println(hou.toString());
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
-    }
-    //test method for all instrument creation, and their specificities
-    private static void testInstrument() throws InterruptedException {
-        Instrument test = new AcousticGuitar();
-//        System.out.println(test.toString());
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
-    }
-    //test method for relations between people-rental-building and store-instruments
-    private static void testRelation() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print("   >");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(">");
-        TimeUnit.MILLISECONDS.sleep(250);System.out.print(" Good To Go!\n");
-    }
-    
     //method printing out the result of the test in console: '>' when all is good, '!' when an error occurs
     private static void printResult(boolean check) throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(250);
