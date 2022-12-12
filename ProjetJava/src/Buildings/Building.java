@@ -43,4 +43,7 @@ public abstract class Building {
     public float getLivingSpace(){
         return this.livingSpace;
     }
+    public Owner getOwner(){
+        return this.owner;
+    }
 }

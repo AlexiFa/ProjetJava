@@ -8,7 +8,6 @@ import Person.*;
 import Rental.Rental;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -103,15 +102,25 @@ public class Main {
         Hotel hot0 = new Hotel();
         Store sto0 = new Store();
         ApartmentBuilding flat0 = new ApartmentBuilding();
-        printResult(true);
-        //verify you can add info to empty buildings
-
-        printResult(true);
+        printResult(!hou0.toString().isEmpty());
+        printResult(!hot0.toString().isEmpty());
+        printResult(!sto0.toString().isEmpty());
+        printResult(!flat0.toString().isEmpty());
         //verify that with-parameters constructors works, for main and subclasses
-        Person James = new Owner("Bond", "James");
-        House hou1 = new House("21 baker street", 120, 6, 500, (Owner) James);
-//        System.out.println(hou.toString());
-        printResult(true);
+        Owner James = new Owner("James", "Bond");
+        ArrayList<Instrument> insts = new ArrayList<>();
+        House hou1 = new House("21 baker street", 120, 6, 500, James);
+        Hotel hot1 = new Hotel("666 devil road", 444, 3, James);
+        Store sto1 = new Store("79 holly street", 123, James, insts);
+        ApartmentBuilding flat1 = new ApartmentBuilding("911 help boulevard", 218, 6,James);
+        printResult(hou1.getAddress().equalsIgnoreCase("21 BAKER STREET"));
+        printResult(hou1.getGardenArea() == (float)500);
+        printResult(hot1.getLivingSpace()== (float)444);
+        printResult(hot1.getNbStars() == 3);
+        printResult(sto1.getInstruments().isEmpty());
+        printResult(sto1.getOwner().getName().equalsIgnoreCase("JAMES"));
+        printResult(flat1.getNbApart() == 6);
+        //verify differences between stars hotels
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
     //test method for relations between people-rental/owning-building
