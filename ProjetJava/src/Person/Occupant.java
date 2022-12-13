@@ -20,6 +20,11 @@ public class Occupant extends Person {
         this.rent = rent;
         this.noRoom = noRoom;
     }
+    public Occupant(String name, String surname){
+        super(name, surname);
+        noRoom = 0;
+        rent = null;
+    }
 
 //    public void setRental(Rental rental) {
 //        this.rental = rental;
@@ -46,7 +51,6 @@ public class Occupant extends Person {
 
     @Override
     public String toString() {
-        return super.toString() +
-                ": has rented " + this.rent.toString();
+        return super.toString() + (rent != null ? ": has rented " + this.rent.toString() : " has no rent");
     }
 }

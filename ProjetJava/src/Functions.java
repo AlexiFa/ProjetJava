@@ -5,7 +5,6 @@
 import Buildings.*;
 import Person.*;
 import Instrument.*;
-import Person.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -38,7 +37,7 @@ public class Functions {
 
     //method printing out the result of the test in console: '>' when all is good, '!' when a problem occurs
     private static void printResult(boolean check) throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(250);
+        //TimeUnit.MILLISECONDS.sleep(250);
         if (check) System.out.print(">");
         else System.out.print("!");
     }
@@ -141,6 +140,11 @@ public class Functions {
         printResult(building.getOwner().getName().equalsIgnoreCase("LUC"));
         printResult(!((Owner) test).getBuildings().contains(building) && ((Owner) test).getBuildings().size()==0);
         printResult(((Owner) owner2).getBuildings().contains(building) && ((Owner) owner2).getBuildings().size()==1);
+        // test rental of a Hotel room
+        Building H1 = new Hotel("15 av Repu", 500, 3, (Owner)test);
+        Person voila = new Occupant("Jean", "Dujardin");
+        ((Hotel)H1).rent((Occupant)voila, 10);
+
         System.out.print(" ");
         printResult(false);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
