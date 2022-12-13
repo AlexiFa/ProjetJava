@@ -1,11 +1,10 @@
 /** Mele-Mele Island
  *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
- *
  */
+
 package Person;
 import Buildings.Building;
 import Rental.Rental;
-
 import java.util.HashMap;
 
 public class Occupant extends Person {
