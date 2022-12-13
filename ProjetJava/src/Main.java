@@ -75,7 +75,7 @@ public class Main {
         printResult(own0.getName().equalsIgnoreCase(""));
         printResult(own0.getBuildings().isEmpty());
         printResult(occ0.getName().equalsIgnoreCase(""));
-        printResult(occ0.getRental()==null);
+        printResult(occ0.getRent()==null);
         //verify you can set name-infos
         p0.setName("Maria"); p0.setSurname("Carmen");
         own0.setName("James"); own0.setSurname("Bond");
@@ -86,11 +86,12 @@ public class Main {
         //verify full constructors works
         Person p1 = new Person("Santa", "Clous");
         Owner own1 = new Owner("Harry", "Potter");
-        Rental rental = new Rental();
-        Occupant occ1 = new Occupant("John", "Lennon", rental);
+        Hotel build = new Hotel(1);
+        Occupant occ1 = new Occupant("John", "Lennon", build, 8);
         printResult(p1.getSurname().equalsIgnoreCase("CLOUS"));
         printResult(own1.getName().equalsIgnoreCase("HARRY"));
         printResult(occ1.getSurname().equalsIgnoreCase("lennon"));
+        printResult(occ1.getNoRoom() == 8);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
 
