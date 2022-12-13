@@ -6,6 +6,7 @@ import Buildings.*;
 import Person.*;
 import Instrument.*;
 
+import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -142,9 +143,20 @@ public class Functions {
         printResult(((Owner) owner2).getBuildings().contains(building) && ((Owner) owner2).getBuildings().size()==1);
         // test rental of a Hotel room
         Building H1 = new Hotel("15 av Repu", 500, 3, (Owner)test);
+        Building H2 = new Hotel("14 bd Monod", 12, 1, (Owner)test);
         Person voila = new Occupant("Jean", "Dujardin");
-        ((Hotel)H1).rent((Occupant)voila, 10);
-
+        try{
+            ((Hotel)H1).rent((Occupant)voila, 10);
+        }catch (Exception e){
+            printResult(false);
+        }
+        try{
+            ((Hotel)H2).rent((Occupant) voila, 11);
+        }catch (Exception e){
+            printResult(true); // suppose to throw an exception
+        }
+        printResult(((Occupant)voila).getRent() == H1 && ((Occupant)voila).getNoRoom() == 10);
+        printResult(((Hotel)H1).getRentals().containsKey(10) && ((Hotel)H1).getRentals().containsValue(voila));
         System.out.print(" ");
         printResult(false);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
