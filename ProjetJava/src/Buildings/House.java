@@ -19,8 +19,15 @@ public class House extends Building {
     public String toString() {
         return "House{" +
                 super.toString() +
-                "nbPart=" + nbPart +
+                ", nbPart=" + nbPart +
                 ", gardenArea=" + gardenArea +
                 '}';
+    }
+    //getters
+    public int getNbPart(){
+        return this.nbPart;
+    }
+    public float getGardenArea(){
+        return this.gardenArea;
     }
 }

@@ -15,4 +15,14 @@ public class ElectricGuitar extends StringInstru {
         this.withAmpli = withAmpli;
         this.withPedals = withPedals;
     }
+
+    @Override
+    public String toString() {
+        return "ElectricGuitar{" +
+                super.toString() +
+                "withAmpli=" + withAmpli +
+                "withPedals=" + withPedals +
+
+                '}';
+    }
 }

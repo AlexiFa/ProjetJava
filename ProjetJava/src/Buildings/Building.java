@@ -15,6 +15,7 @@ public abstract class Building {
         this.address = address;
         this.livingSpace = livingSpace;
         this.owner = owner;
+        owner.addBuilding(this); // to also add the building in the owner's list
     }
 
     @Override
@@ -22,5 +23,27 @@ public abstract class Building {
         return "address='" + address + '\'' +
                 ", livingSpace=" + livingSpace +
                 ", owner=" + owner;
+    }
+
+    /**
+     * Function to set the owner of the building (if there is already an owner, it changes it also in the old owner's list)
+     * @param owner : new owner
+     */
+    public void setOwner(Owner owner) {
+        if (this.owner!=null){
+            this.owner.removeBuilding(this); // if the owner change, we need to remove this building from the buildings owned by this owner
+        }
+        this.owner = owner;
+        this.owner.addBuilding(this); // add this building in the properties of the owner
+    }
+//getters for parameters
+    public String getAddress(){
+        return this.address;
+    }
+    public float getLivingSpace(){
+        return this.livingSpace;
+    }
+    public Owner getOwner(){
+        return this.owner;
     }
 }

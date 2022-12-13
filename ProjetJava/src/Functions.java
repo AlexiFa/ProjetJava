@@ -3,6 +3,8 @@
  *
  */
 import Person.*;
+import Instrument.*;
+import Person.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;

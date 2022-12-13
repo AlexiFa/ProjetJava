@@ -19,4 +19,16 @@ public class Store extends Building {
         super(address, livingSpace, owner);
         this.instruments = instruments;
     }
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                super.toString() +
+                ", instruments=" + instruments +
+                '}';
+    }
+    //getters
+    public ArrayList<Instrument> getInstruments(){
+        return this.instruments;
+    }
 }

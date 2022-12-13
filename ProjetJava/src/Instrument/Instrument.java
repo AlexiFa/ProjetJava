@@ -16,4 +16,12 @@ public abstract class Instrument {
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
     }
+
+    @Override
+    public String toString() {
+        return "nameInstru=" + nameInstru +
+                "purchasePrice=" + purchasePrice +
+                "sellingPrice=" + sellingPrice ;
+    }
+    
 }
