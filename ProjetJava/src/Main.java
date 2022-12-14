@@ -44,7 +44,7 @@ public class Main {
         while(stay_in_app){
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");
-            System.out.println("Please enter your name to log in:"); //registering user, asking his infos
+            System.out.println("Please enter your name to log in:"); //registering user, asking his information
             System.out.print("First Name :");
             String name = sc.nextLine();
             System.out.print("Last Name :");
@@ -81,16 +81,16 @@ public class Main {
                 }
                 System.out.println("----------------------------------------------");
                 break;
-            case 1://fonction menuCreateBuilding
+            case 1://function menuCreateBuilding
                 Owner owner = new Owner(admin);
                 population.get(admin)[0] = owner;
                 menuCreateBuilding(sc, owner);
                 break;
-                case 2://fonction menuRenting()                     //TODO:
+                case 2://function menuRenting()                     //TODO:
                 Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
                 population.get(admin)[1] = occupant;
                 break;
-            case 3: break; //fonction menuBuyInStore()          //TODO:
+            case 3: break; //function menuBuyInStore()          //TODO:
             case 4: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");
                 int q = sc.nextInt();
