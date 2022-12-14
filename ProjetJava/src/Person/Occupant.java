@@ -15,10 +15,6 @@ public class Occupant extends Person {
         super();
         this.rent = null;
     }
-    public Occupant(Person person){
-        super(person);
-        this.rent = null;
-    }
     public Occupant(String name, String surname, Building rent, int noRoom) {
         super(name, surname);
         this.rent = rent;
