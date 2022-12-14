@@ -103,6 +103,10 @@ public class Hotel extends Building {
     public int getNbSuite() {
         return this.nbSuite;
     }
+    public HashMap<Integer, Occupant> getRentals() {
+        return rentals;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -117,11 +121,9 @@ public class Hotel extends Building {
      * @param occ : the occupant of the room
      * @param nb : the number of the room
      */
-    public void rent(Occupant occ, int nb){
-        if (occ.getRent()!=null){ // if he already has a rent send an error
-            System.out.println("error, this occupant already have a rent");
-        }else if(rentals.containsKey(nb)){ // if the room is occupied, send an error
-            System.out.println("error, this room is already occupied");
+    public void rent(Occupant occ, int nb) throws Exception{
+        if (occ.getRent()!=null || rentals.containsKey(nb)){ // if he already has a rent send an error || if the room is occupied, send an error
+            throw new Exception("occupant already have a rent");
         }else{
             rentals.put(nb,occ); // set the occupant and the room in the Hotel class
             occ.setRent(this); // set also in the Occupant class
