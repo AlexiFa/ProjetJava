@@ -171,6 +171,25 @@ public class Functions {
         }
         printResult(((Occupant)voila).getRent() == H1 && ((Occupant)voila).getNoRoom() == 10);
         printResult(((Hotel)H1).getRentals().containsKey(10) && ((Hotel)H1).getRentals().containsValue(voila));
+        try{
+            ((Hotel)H1).stopRent((Occupant) voila);
+        }catch (Exception e){
+            printResult(false);
+        }
+        // test rental in an ApartmentBuilding
+        Building A1 = new ApartmentBuilding("15 av Repu", 500, 3, (Owner)test);
+        try{
+            ((ApartmentBuilding)A1).rent((Occupant)voila, 10); // suppose to throw an exception because the room doesn't exist
+        }catch (Exception e){
+            printResult(true);
+        }
+        try{
+            ((ApartmentBuilding)A1).rent((Occupant)voila, 2);
+            ((ApartmentBuilding)A1).stopRental((Occupant) voila);
+            ((ApartmentBuilding)A1).rent((Occupant)voila, 2);
+        }catch (Exception e){
+            printResult(false);
+        }
         System.out.print(" ");
         printResult(false);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");

@@ -33,13 +33,38 @@ public class ApartmentBuilding extends Building {
         return this.nbApart;
     }
 
+    /**
+     * Method to rent an apartment
+     * @param occ : the occupant who wants to rent
+     * @param nb : the number of the apartment
+     * @throws Exception : if the apartment is already rented or the flat doesn't exist
+     */
     public void rent(Occupant occ, int nb) throws Exception{
         if (occ.getRent()!=null || rentals.containsKey(nb))
             throw new Exception("occupant already has a rent or the flat is already rented");
-        else {
+        else if (nb > nbApart)
+            throw new Exception("the flat doesn't exist");
+        else{
             rentals.put(nb, occ); // set the occupant and the room in the Apart class
             occ.setRent(this); // set also in the Occupant class
             occ.setNoRoom(nb);
+        }
+    }
+
+    /**
+     * Method to stop renting an apartment
+     * @param occ : the occupant who wants to stop renting
+     * @throws Exception : if the occupant doesn't rent an apartment or not in this building
+     */
+    public void stopRental(Occupant occ) throws Exception{
+        if (occ.getRent() == null)
+            throw new Exception("occupant has no rent");
+        else if (occ.getRent() != this)
+            throw new Exception("occupant doesn't rent this building");
+        else{
+            rentals.remove(occ.getNoRoom());
+            occ.setRent(null);
+            occ.setNoRoom(0);
         }
     }
 
