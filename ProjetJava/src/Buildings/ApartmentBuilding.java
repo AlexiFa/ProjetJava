@@ -43,9 +43,10 @@ public class ApartmentBuilding extends Building {
         }
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o){
-        super.equals(o);
+        if (!super.equals(o))
+            return false;
         if (o == this)
             return true;
         if (!(o instanceof ApartmentBuilding))
@@ -62,5 +63,5 @@ public class ApartmentBuilding extends Building {
         }
         else
             return false;
-    }
+    }*/
 }

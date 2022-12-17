@@ -53,9 +53,4 @@ public class Occupant extends Person {
     public String toString() {
         return super.toString() + (rent != null ? ": has rented " + this.rent.toString() : " has no rent");
     }
-
-    @Override
-    public boolean equals(Object o){
-        return super.equals(o); // each occupant has a different name and surname
-    }
 }

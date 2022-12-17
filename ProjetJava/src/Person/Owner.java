@@ -56,9 +56,4 @@ public class Owner extends Person{
     public ArrayList<Building> getBuildings() {
         return buildings;
     }
-
-    @Override
-    public boolean equals(Object o){
-        return super.equals(o); // each person has a unique name and surname so we can use the equals of the parent class
-    }
 }
