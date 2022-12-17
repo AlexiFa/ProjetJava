@@ -6,35 +6,38 @@ import Buildings.*;
 import Person.*;
 import Instrument.*;
 
-import java.security.spec.ECField;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Functions {
-    public static void infoBuilding(Scanner sc, ArrayList<Person> population){
+    public static void infoBuilding(Scanner sc, HashMap<Person, Person[]> population){
         System.out.println("Address :");
         String address = sc.nextLine() + sc.nextLine(); // because after the nextInt, the line is not finished, so it takes the end of the line ("") so we add the nextLine()
         System.out.println("Living space :");
         String livingSpace = sc.nextLine();
-        System.out.println("Owner :");
-        Functions.printAllPerson(sc, population);
     }
 
     /**
-     * Function to print all people in the residence who can be owner (who are not occupant)
-     * @param owners : all the person added to the residence
+     * Function to print all people in the residence
+     * @param population : all the person added to the residence
      */
-    public static void printAllPerson(Scanner sc, ArrayList<Person> owners){ // ATTENTION A TESTER
-        int i = 0;
-        for (Person people : owners){
-            if (people instanceof Occupant)
-                continue;
-            System.out.println(i + " " + people.toString()); // TODO : fct Person.toString()
+    public static void printAllPerson(HashMap<Person, Person[]> population) { // ATTENTION A TESTER
+        System.out.println("\nPopulation List:");
+        System.out.println("----------------------------------------------");
+        int i = 1;
+        for (Person key : population.keySet()) {
+            System.out.print(i + ". " + key.getName() + " " + key.getSurname());
+            if (population.get(key)[0] != null) System.out.print(" | Owner");
+            if (population.get(key)[1] != null) System.out.print(" | Occupant");
+            System.out.print("\n");
             i++;
-            int choice = sc.nextInt();
         }
+        System.out.println("----------------------------------------------");
     }
+
+// TESTS
 
     //method printing out the result of the test in console: '>' when all is good, '!' when a problem occurs
     private static void printResult(boolean check) throws InterruptedException {
