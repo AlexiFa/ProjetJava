@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 * The main class is used to verify that the whole project is working without errors
 */
 public class Main {
-    protected static ArrayList<Building> residence = new ArrayList<Building>();
+    protected static HashMap<String, ArrayList<Building>> residence = new HashMap<String, ArrayList<Building>>();
     protected static HashMap<Person, Person[]> population = new HashMap<Person, Person[]>();
     protected static boolean stay_in_app =true;
     public static void main(String[] args) throws InterruptedException {
@@ -71,17 +71,19 @@ public class Main {
             case 0://list all Persons, with reference to owner/occupant information.
                 Functions.printAllPerson(population);
                 break;
-            case 1://function menuCreateBuilding
+            case 1:
                 Owner owner = new Owner(admin);
                 population.get(admin)[0] = owner;
-                menuCreateBuilding(sc, owner);
+                menuCreateBuilding(sc, owner); //function menuCreateBuilding //TODO:
                 break;
-                case 2://function menuRenting()                     //TODO:
+                case 2:
                 Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
                 population.get(admin)[1] = occupant;
-                menuRentRoom(sc, occupant);
+                menuRentRoom(sc, occupant); //function menuRenting()                     //TODO:
                 break;
-            case 3: break; //function menuBuyInStore()          //TODO:
+            case 3:
+                menuBuyInStore(sc, admin); //function menuBuyInStore()          //TODO:
+                break;
             case 4: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");
                 int q = sc.nextInt();
@@ -104,9 +106,6 @@ public class Main {
         return stay_in_app; //return if breaking or not the main application loop
     }
 
-    private static void menuRentRoom(Scanner sc, Person occupant) {
-    }
-
     public static void menuCreateBuilding(Scanner sc, Owner owner){        //TODO:
         System.out.println("Which type of building do you want to own?");
         System.out.println();
@@ -116,10 +115,24 @@ public class Main {
         System.out.println("4. Create a building");
         int choice = sc.nextInt();
         switch (choice){
-            case 1:;//Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
+            case 1:;    //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
             case 2:;
             case 3:;
             case 4:;
         }
+    }
+    private static void menuRentRoom(Scanner sc, Occupant occupant) {
+        System.out.println("What do you want to rent?");
+        System.out.println();
+        System.out.println("1. a Hotel room");
+        System.out.println("2. an Apartment");
+        int choice = sc.nextInt();
+        switch (choice){
+            case 1:;
+            case 2:;
+        }
+    }
+    private static void menuBuyInStore(Scanner sc, Person person){
+        //
     }
 }

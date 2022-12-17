@@ -12,13 +12,6 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Functions {
-    public static void infoBuilding(Scanner sc, HashMap<Person, Person[]> population){
-        System.out.println("Address :");
-        String address = sc.nextLine() + sc.nextLine(); // because after the nextInt, the line is not finished, so it takes the end of the line ("") so we add the nextLine()
-        System.out.println("Living space :");
-        String livingSpace = sc.nextLine();
-    }
-
     /**
      * Function to print all people in the residence
      * @param population : all the person added to the residence
@@ -35,6 +28,18 @@ public class Functions {
             i++;
         }
         System.out.println("----------------------------------------------");
+    }
+
+    /**
+     * Function to ask for information on the specific building to create
+     * @param sc
+     * @param population
+     */
+    public static void infoBuilding(Scanner sc, HashMap<Person, Person[]> population){
+        System.out.println("Address :");
+        String address = sc.nextLine() + sc.nextLine(); // because after the nextInt, the line is not finished, so it takes the end of the line ("") so we add the nextLine()
+        System.out.println("Living space :");
+        String livingSpace = sc.nextLine();
     }
 
 // TESTS
