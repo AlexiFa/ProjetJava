@@ -62,24 +62,14 @@ public class Main {
             System.out.println("\nYOUR MAIN MENU\n");
             System.out.println(">> Enter a digit to choose what to do:\n");
             System.out.println("0. Get a list of all people in Mele-Mele Island Residence");
-            System.out.println("1. Own/Create/Buy a building");
-            System.out.println("2. Rent an apartment or hotel room");
-            System.out.println("3. Buy an instrument in an existing store");
+            System.out.println("1. Own/Create/Buy a building (function incoming)");
+            System.out.println("2. Rent an apartment or a hotel room (function incoming)");
+            System.out.println("3. Buy an instrument in an existing store (not done)"); //to implement when all is done
             System.out.println("4. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
             case 0://list all Persons, with reference to owner/occupant information.
-                System.out.println("\nPopulation List:");
-                System.out.println("----------------------------------------------");
-                int i =1;
-                for(Person key: population.keySet()){
-                    System.out.print(i+". "+key.getName()+" "+key.getSurname());
-                    if(population.get(key)[0] != null) System.out.print(" | Owner" );
-                    if(population.get(key)[1] != null) System.out.print(" | Occupant");
-                    System.out.print("\n");
-                    i++;
-                }
-                System.out.println("----------------------------------------------");
+                Functions.printAllPerson(population);
                 break;
             case 1://function menuCreateBuilding
                 Owner owner = new Owner(admin);
@@ -89,6 +79,7 @@ public class Main {
                 case 2://function menuRenting()                     //TODO:
                 Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
                 population.get(admin)[1] = occupant;
+                menuRentRoom(sc, occupant);
                 break;
             case 3: break; //function menuBuyInStore()          //TODO:
             case 4: //quit the mainMenu() loop
@@ -111,6 +102,9 @@ public class Main {
             }
         }
         return stay_in_app; //return if breaking or not the main application loop
+    }
+
+    private static void menuRentRoom(Scanner sc, Person occupant) {
     }
 
     public static void menuCreateBuilding(Scanner sc, Owner owner){        //TODO:
