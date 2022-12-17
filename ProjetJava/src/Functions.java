@@ -113,6 +113,17 @@ public class Functions {
         printResult(hot1.getNbStars()==3 && hot1.getNbPool()==0 && hot1.getNbSpa()==0 && hot1.getNbSuite()==0);
         printResult(hot2.getNbStars()==4 && hot2.getNbPool()==1 && hot2.getNbSuite()==0 && hot2.getNbSpa()==8);
         printResult(hot3.getNbStars()==5 && hot3.getNbPool()==5 && hot3.getNbSuite()==3 && hot3.getNbSpa()==0);
+        // test equals :
+        // ApartmentBuilding
+        Occupant occ1 = new Occupant("John", "Lennon");
+        Building Ap1 = new ApartmentBuilding("12 av jsp", 152, 20, James);
+        Building Ap2 = new ApartmentBuilding("12 av jsp", 152, 20, James);
+        try{
+            ((ApartmentBuilding) Ap1).rent(occ1, 5);
+        }catch (Exception e){
+            System.out.println("Error in testBuilding: "+e.getMessage());
+        }
+        printResult(Ap1.equals(Ap2));
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
     //test method for relations between people-rental/owning-building
@@ -146,12 +157,15 @@ public class Functions {
         Building H2 = new Hotel("14 bd Monod", 12, 1, (Owner)test);
         Person voila = new Occupant("Jean", "Dujardin");
         try{
+            ((Hotel)H2).rent((Occupant)voila, 10);
+            ((Hotel)H2).stopRent((Occupant) voila);
             ((Hotel)H1).rent((Occupant)voila, 10);
         }catch (Exception e){
             printResult(false);
         }
         try{
             ((Hotel)H2).rent((Occupant) voila, 11);
+            printResult(false); // if the line bellow don't throw an exception
         }catch (Exception e){
             printResult(true); // suppose to throw an exception
         }

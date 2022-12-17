@@ -117,13 +117,13 @@ public class Hotel extends Building {
     }
 
     /**
-     * Function to allow someone to rent a room in the hotel
+     * Function to allow someone to rent a room in the hotel and throw an exception if the occupant already has a rent somewhere
      * @param occ : the occupant of the room
      * @param nb : the number of the room
      */
     public void rent(Occupant occ, int nb) throws Exception{
         if (occ.getRent()!=null || rentals.containsKey(nb)){ // if he already has a rent send an error || if the room is occupied, send an error
-            throw new Exception("occupant already have a rent");
+            throw new Exception("occupant already has a rent or the room is already rented");
         }else{
             rentals.put(nb,occ); // set the occupant and the room in the Hotel class
             occ.setRent(this); // set also in the Occupant class
@@ -135,9 +135,9 @@ public class Hotel extends Building {
      * Function to end a rental and change the hotel and occupant classes
      * @param occ : the occupant who want to stop his rental
      */
-    public void stopRent(Occupant occ){
+    public void stopRent(Occupant occ) throws Exception{
         if (occ.getRent() == null || occ.getRent() != this){
-            System.out.println("error, this occupant don't have any rent here");
+            throw new Exception("error, this occupant don't have any rent here");
         } else {
             rentals.remove(occ.getNoRoom(),occ);
             occ.setRent(null);
