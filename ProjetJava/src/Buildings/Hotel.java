@@ -13,6 +13,8 @@ public class Hotel extends Building {
     int nbRoom;
     int nbSpa; // only for 4 stars hotel (else = 0)
     int nbPool; // only for 5 or 4 stars hotel (else = 0)
+    // the number of the suite are nbRoom + (1, 2, ...)
+    // for example, if there are 10 rooms, the suite are 11, 12, 13, ...
     int nbSuite; // idem for 5 stars
 
     HashMap<Integer,Occupant> rentals; // Integer : the number of the room | Occupant : the occupant of the room
@@ -44,7 +46,7 @@ public class Hotel extends Building {
         }
     }
     public Hotel() {
-        //roomsOccupied = new ArrayList<Integer>();
+        rentals = new HashMap<Integer, Occupant>();
     }
     public Hotel(String address, float livingSpace, int stars, Owner owner) {
         super(address, livingSpace, owner);
@@ -122,11 +124,13 @@ public class Hotel extends Building {
      * @param nb : the number of the room
      */
     public void rent(Occupant occ, int nb) throws Exception{
-        if (occ.getRent()!=null || rentals.containsKey(nb)){ // if he already has a rent send an error || if the room is occupied, send an error
+        if (occ.getRent()!=null || rentals.containsKey(nb)) // if he already has a rent send an error || if the room is occupied, send an error
             throw new Exception("occupant already has a rent or the room is already rented");
-        }else{
+        else if (nb > nbRoom + nbSuite) // if the room doesn't exist, send an error
+            throw new Exception("the room doesn't exist");
+        else{
             rentals.put(nb,occ); // set the occupant and the room in the Hotel class
-            occ.setRent(this); // set also in the Occupant class
+            occ.setRent(this); // set the rent of the occupant
             occ.setNoRoom(nb);
         }
     }
