@@ -111,16 +111,17 @@ public class Main {
         System.out.println();
         System.out.println("1. Create a house");
         System.out.println("2. Create a hotel");
-        System.out.println("3. Create a store");
-        System.out.println("4. Create a building");
+        System.out.println("3. Create a apartment building");
+        System.out.println("4. Create a store");
         int choice = sc.nextInt();
         switch (choice){
-            case 1:;    //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
-            case 2:;
-            case 3:;
-            case 4:;
+            case 1: Functions.mCBHouse(); break;   //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
+            case 2: Functions.mCBHotel(); break;
+            case 3: Functions.mCBApartment();break;
+            case 4: Functions.mCBStore(); break;
         }
     }
+
     private static void menuRentRoom(Scanner sc, Occupant occupant) {
         System.out.println("What do you want to rent?");
         System.out.println();
@@ -128,8 +129,8 @@ public class Main {
         System.out.println("2. an Apartment");
         int choice = sc.nextInt();
         switch (choice){
-            case 1:;
-            case 2:;
+            case 1:break;
+            case 2: break;
         }
     }
     private static void menuBuyInStore(Scanner sc, Person person){

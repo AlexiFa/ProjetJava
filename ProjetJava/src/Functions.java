@@ -16,7 +16,7 @@ public class Functions {
      * Function to print all people in the residence
      * @param population : all the person added to the residence
      */
-    public static void printAllPerson(HashMap<Person, Person[]> population) { // ATTENTION A TESTER
+    public static void printAllPerson(HashMap<Person, Person[]> population) {
         System.out.println("\nPopulation List:");
         System.out.println("----------------------------------------------");
         int i = 1;
@@ -40,6 +40,17 @@ public class Functions {
         String address = sc.nextLine() + sc.nextLine(); // because after the nextInt, the line is not finished, so it takes the end of the line ("") so we add the nextLine()
         System.out.println("Living space :");
         String livingSpace = sc.nextLine();
+    }
+    public static void mCBHouse() {
+    }
+    public static void mCBHotel(){
+
+    }
+    public static void mCBApartment(){
+
+    }
+    public static void mCBStore(){
+
     }
 
 // TESTS
@@ -218,4 +229,5 @@ public class Functions {
         printResult(true);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
+
 }
