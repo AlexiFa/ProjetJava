@@ -28,9 +28,13 @@ public class ApartmentBuilding extends Building {
                 ", nbApart=" + nbApart +
                 '}';
     }
-    //getter for nbAppart
+    //getters
     public int getNbApart(){
         return this.nbApart;
+    }
+
+    public HashMap<Integer, Occupant> getRentals() {
+        return rentals;
     }
 
     /**
@@ -56,12 +60,12 @@ public class ApartmentBuilding extends Building {
      * @param occ : the occupant who wants to stop renting
      * @throws Exception : if the occupant doesn't rent an apartment or not in this building
      */
-    public void stopRental(Occupant occ) throws Exception{
+    public void stopRent(Occupant occ) throws Exception{
         if (occ.getRent() == null)
             throw new Exception("occupant has no rent");
         else if (occ.getRent() != this)
             throw new Exception("occupant doesn't rent this building");
-        else{
+        else{ // because we can't rent a flat when it doesn't exist, we don't need to test if nb < nbApart
             rentals.remove(occ.getNoRoom());
             occ.setRent(null);
             occ.setNoRoom(0);

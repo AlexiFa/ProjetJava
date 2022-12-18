@@ -362,43 +362,57 @@ public class Functions {
         // test rental of a Hotel room
         Building H1 = new Hotel("15 av Repu", 500, 3, (Owner)test);
         Building H2 = new Hotel("14 bd Monod", 12, 1, (Owner)test);
-        Person voila = new Occupant("Jean", "Dujardin");
+        Person JeanTest = new Occupant("Jean", "Dujardin");
+        Person JackTest = new Occupant("Jack", "Jefferson");
         try{
-            ((Hotel)H2).rent((Occupant)voila, 10);
-            ((Hotel)H2).stopRent((Occupant) voila);
-            ((Hotel)H1).rent((Occupant)voila, 10);
+            ((Hotel)H2).rent((Occupant)JeanTest, 10); // test rent and stopRent
+            ((Hotel)H2).stopRent((Occupant) JeanTest);
+            ((Hotel)H1).rent((Occupant)JeanTest, 10);
         }catch (Exception e){
             printResult(false);
         }
         try{
-            ((Hotel)H2).rent((Occupant) voila, 11);
+            ((Hotel)H2).rent((Occupant) JeanTest, 11); // test rent when the renter already has a room
             printResult(false); // if the line bellow don't throw an exception
         }catch (Exception e){
             printResult(true); // suppose to throw an exception
         }
-        printResult(((Occupant)voila).getRent() == H1 && ((Occupant)voila).getNoRoom() == 10);
-        printResult(((Hotel)H1).getRentals().containsKey(10) && ((Hotel)H1).getRentals().containsValue(voila));
+        printResult(((Occupant)JeanTest).getRent() == H1 && ((Occupant)JeanTest).getNoRoom() == 10); // test if the occupant has the right room
+        printResult(((Hotel)H1).getRentals().containsKey(10) && ((Hotel)H1).getRentals().containsValue(JeanTest)); // same in the Hotel class
         try{
-            ((Hotel)H1).stopRent((Occupant) voila);
+            ((Hotel)H1).stopRent((Occupant) JeanTest); // just to clear for the next tests (to use JeanTest and not create a new one)
         }catch (Exception e){
             printResult(false);
         }
         // test rental in an ApartmentBuilding
         Building A1 = new ApartmentBuilding("15 av Repu", 500, 3, (Owner)test);
+        Building A2 = new ApartmentBuilding("12 av Gorki", 600, 10, (Owner)test);
         try{
-            ((ApartmentBuilding)A1).rent((Occupant)voila, 10); // suppose to throw an exception because the room doesn't exist
+            ((ApartmentBuilding)A1).rent((Occupant)JeanTest, 10); // suppose to throw an exception because the flat doesn't exist
         }catch (Exception e){
             printResult(true);
         }
         try{
-            ((ApartmentBuilding)A1).rent((Occupant)voila, 2);
-            ((ApartmentBuilding)A1).stopRental((Occupant) voila);
-            ((ApartmentBuilding)A1).rent((Occupant)voila, 2);
+            ((ApartmentBuilding)A1).rent((Occupant)JeanTest, 2); // test of rent and stopRent
+            ((ApartmentBuilding)A1).stopRent((Occupant) JeanTest);
+            ((ApartmentBuilding)A1).rent((Occupant)JeanTest, 2);
         }catch (Exception e){
             printResult(false);
         }
-        System.out.print(" ");
-        printResult(false);
+        try{
+            ((ApartmentBuilding)A1).rent((Occupant) JeanTest, 2); // test rent when the renter already has a flat
+            printResult(false); // if the line bellow don't throw an exception
+        }catch (Exception e){
+            printResult(true); // suppose to throw an exception
+        }
+        try{
+            ((ApartmentBuilding)A1).rent((Occupant) JackTest, 2); // test rent when the flat is already rented
+            printResult(false); // if the line bellow don't throw an exception
+        }catch (Exception e){
+            printResult(true);
+        }
+        printResult(((Occupant)JeanTest).getRent() == A1 && ((Occupant)JeanTest).getNoRoom() == 2); // test if the occupant has the right flat
+        printResult(((ApartmentBuilding)A1).getRentals().containsKey(2) && ((ApartmentBuilding)A1).getRentals().containsValue(JeanTest)); // same in the ApartmentBuilding class
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
 

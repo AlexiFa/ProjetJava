@@ -5,7 +5,6 @@
 import Buildings.*;
 import Instrument.*;
 import Person.*;
-import Rental.Rental;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
