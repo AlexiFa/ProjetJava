@@ -54,47 +54,47 @@ public class Main {
             String name = sc.nextLine();
             System.out.print("Last Name : ");
             String lastName = sc.nextLine();
-            Person admin = new Person(name, lastName);  //TODO: régler l'apparition de doublons dans Hashmap
+            Person admin = new Person(name, lastName);  //todo: régler l'apparition de doublons dans Hashmap
             population.putIfAbsent(admin, new Person[]{null,null}); //adding user to rez BUT verify if already registered, old information stays
 
             System.out.println("\n_____________________________________________________________");
             stay_in_app = mainMenu(sc, admin);
         }
     }
-    public static boolean mainMenu(Scanner sc, Person admin) throws InterruptedException {
+    public static boolean mainMenu(Scanner sc, Person admin) throws InterruptedException { //todo: for all menus, create a default case, for entering wrong digit
         boolean loop=true;
         System.out.println(admin.getName()+" "+ admin.getSurname()+", You have been successfully logged in !");
         while(loop){
             System.out.println("\nYOUR MAIN MENU\n");
             System.out.println(">> Enter a digit to choose what to do:\n");
-            System.out.println("0. Get a list of all people in Mele-Mele Island Residence");
-            System.out.println("1. Get a list of all buildings existing in Mele-Mele Island Residence");
-            System.out.println("2. Own/Create/Buy a building");
-            System.out.println("3. Rent an apartment or a hotel room");
-            System.out.println("4. Buy an instrument in an existing store (not available for now)"); //to implement when all is done
-            System.out.println("5. Log out\n");
+            System.out.println("1. Get a list of all people in Mele-Mele Island Residence");
+            System.out.println("2. Get a list of all buildings existing in Mele-Mele Island Residence");
+            System.out.println("3. Own/Create/Buy a building");
+            System.out.println("4. Rent an apartment or a hotel room");
+            System.out.println("5. Buy an instrument in an existing store (not available for now)"); //to implement when all is done
+            System.out.println("0. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
-            case 0://list all Persons, with reference to owner/occupant information.
+            case 1://list all Persons, with reference to owner/occupant information.
                 Functions.printAllPerson(population);
                 break;
-            case 1://list all buildings, with their description.
+            case 2://list all buildings, with their description.
                 Functions.printAllBuildings(residence);
                 break;
-            case 2:
+            case 3:
                 Owner owner = new Owner(admin);
                 population.get(admin)[0] = owner;
                 menuCreateBuilding(sc, owner); //function menuCreateBuilding creating the building in the name of the owner
                 break;
-                case 3:
+            case 4:
                 Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
                 population.get(admin)[1] = occupant;
-                menuRentRoom(sc, occupant); //function menuRenting()//TODO:
+                menuRentRoom(sc, occupant); //function menuRenting()//TODO: ingoing
                 break;
-            case 4:
-                menuBuyInStore(sc, admin); //function menuBuyInStore()//TODO:
+            case 5:
+                menuBuyInStore(sc, admin); //function menuBuyInStore()//TODO: not started
                 break;
-            case 5: //quit the mainMenu() loop
+            case 0: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");
                 int q = sc.nextInt();
                 if (q == 0) { //PATH TO QUIT PROGRAM
@@ -131,7 +131,7 @@ public class Main {
                 residence.get("House").add(house);
                 break;
             case 2:
-                Hotel hotel = Functions.mCBHotel(sc, owner);//TODO
+                Hotel hotel = Functions.mCBHotel(sc, owner);//TODO: ingoing
                 residence.get("Hotel").add(hotel);
                 break;
             case 3:
@@ -139,11 +139,11 @@ public class Main {
                 residence.get("Apartment Building").add(ap_building);
                 break;
             case 4:
-                Store store = Functions.mCBStore(sc, owner);//TODO
+                Store store = Functions.mCBStore(sc, owner);
                 residence.get("Store").add(store);
                 break;
         }
-        System.out.println("Your building has been successfully added to the residence !"); //todo: not yet actually
+        System.out.println("Your building has been successfully added to the residence !"); //todo: not yet for hotels
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
@@ -158,10 +158,10 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){
             case 1:
-                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));//TODO
+                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));//TODO: not started
                 break;
             case 2:
-                Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO
+                Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO: not started
                 break;
         }
         System.out.println("Your booking has been accepted !"); //todo: not yet actually
@@ -170,7 +170,7 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
-    private static void menuBuyInStore(Scanner sc, Person person){
+    private static void menuBuyInStore(Scanner sc, Person person){ //TODO : when all other menus are done
         //
     }
 }
