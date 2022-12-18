@@ -11,6 +11,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Index of all the functions todo when all the functions are done
+ *
+ */
+
 public class Functions {
 
     /**
@@ -51,7 +56,8 @@ public class Functions {
     }
 
     /**
-     * TODO: this function has been tested in main but hasn't a proper like test auto (don't know if we need to do one, if not : delete this TODO comment)
+     * TODO : this function has been tested in main but hasn't a proper like test auto (don't know if we need to do one, if not : delete this TODO comment)
+     * TODO : maybe add the functionality to do it in the main loop
      * Function to printo out the buildings of a specific owner
      * @param owner : the owner we want to print the buildings
      */
@@ -62,6 +68,37 @@ public class Functions {
         for (Building building : owner.getBuildings()){
             System.out.println(" "+i+". "+ building.toString());
             i++;
+        }
+        System.out.println("----------------------------------------------");
+    }
+
+    /**
+     * TODO : function finished i think (check if the tests in main are good enough)
+     * Function to list all the rooms and flats rented
+     */
+    public static void printAllRented(HashMap<String, ArrayList<Building>> residence){
+        System.out.println("\nRented Rooms and Flats:");
+        System.out.println("----------------------------------------------");
+        for (String key : residence.keySet()) {
+            int i = 1;
+            if (key.equals("Hotel") || key.equals("Apartment Building")){
+                System.out.println("All " + key + "s: ");
+                for(Building build: residence.get(key)){ // for each Hotel or Apartment Building in the residence
+                    if (build instanceof Hotel){
+                        for (Integer noRoom : ((Hotel)build).getRentals().keySet()) { // for each room rented in the hotel
+                            System.out.println(" " + i + ". " + ((Hotel) build).getRentals().get(noRoom).toString());
+                            i++;
+                        }
+                    }
+                    else if (build instanceof ApartmentBuilding){
+                        for (Integer noFlat : ((ApartmentBuilding)build).getRentals().keySet()) { // for each flat rented in the apartment building
+                            System.out.println(" " + i + ". " + ((ApartmentBuilding) build).getRentals().get(noFlat).toString());
+                            i++;
+                        }
+                    }
+                }
+                System.out.println();
+            }
         }
         System.out.println("----------------------------------------------");
     }

@@ -29,6 +29,28 @@ public class Main {
         residence.put("Apartment Building", new ArrayList<Building>());
         residence.put("Store", new ArrayList<Building>());
 
+//        // test afficher les buildings d'un owner todo : je vais le suppr quand j'aurai fini (j'aurai ptre du le mettre dans une autre classe test mais trkl)
+//        Owner owner = new Owner("Alexis", "Faure");
+//        ApartmentBuilding a1 = new ApartmentBuilding("a1", 10, 100, owner);
+//        Hotel h2 = new Hotel("h2", 100, 2, owner);
+//        Hotel h3 = new Hotel("h3", 100, 3, owner);
+//        residence.get("Apartment Building").add(a1);
+//        residence.get("Hotel").add(h2);
+//        residence.get("Hotel").add(h3);
+//        Occupant occupant = new Occupant("Rebecca", "Morel");
+//        Occupant occupant2 = new Occupant("Marion", "Galfard");
+//        Occupant occupant3 = new Occupant("Vinciane", "Loy");
+//        Occupant occupant4 = new Occupant("Romain", "Léoture");
+//        try{
+//            h2.rent(occupant, 1);
+//            h2.rent(occupant2, 2);
+//            a1.rent(occupant3, 1);
+//            a1.rent(occupant4, 2);
+//        }catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//        Functions.printAllRented(residence);
+
         while(stay_in_app){
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");

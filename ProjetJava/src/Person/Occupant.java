@@ -51,6 +51,6 @@ public class Occupant extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + (rent != null ? ": has rented " + this.rent.toString() : " has no rent");
+        return super.toString() + (rent != null ? ": has rented the number "+ this.noRoom + " in " + this.rent.toString() : " has no rent");
     }
 }
