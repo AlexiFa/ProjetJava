@@ -68,7 +68,7 @@ public class Functions {
 
         return null;
     }
-    public static ApartmentBuilding mCBApartment(Scanner sc, Owner owner){// creation of an apartment building and return it //TODO
+    public static ApartmentBuilding mCBApartment(Scanner sc, Owner owner){// creation of an apartment building and return it
         System.out.println("You chose to build an Apartment Building.\nTo complete your demand, please give us the following information:");
         System.out.print("> The Address: ");
         String address = sc.nextLine();
@@ -79,14 +79,14 @@ public class Functions {
         System.out.print("Thank you. ");
         return new ApartmentBuilding(address, liv_area, nb_rooms, owner);
     }
-    public static Store mCBStore(Scanner sc, Owner owner){//creation of a store and return it //TODO
+    public static Store mCBStore(Scanner sc, Owner owner){//creation of a store and return it
         System.out.println("You chose to build a Store.\nTo complete your demand, please give us the following information:");
         System.out.print("> The Address: ");
         String address = sc.nextLine();
         System.out.print("> The size of the total living space: ");
         float liv_area = sc.nextFloat();
         System.out.print("Please chose a few instruments to add to your store:\n");
-        ArrayList<Instrument> instruments = addInstruments(sc);
+        ArrayList<Instrument> instruments = addInstruments(sc); //TODO
         System.out.print("Thank you. ");
         return new Store(address, liv_area, owner, instruments);
     }
@@ -94,6 +94,7 @@ public class Functions {
         ArrayList<Instrument> instruments = new ArrayList<Instrument>();
         System.out.print("How many instruments do you want to add ?\nEnter a number: ");
         int nb = sc.nextInt();
+        sc.nextLine(); //PRIMORDIAL, to be able to read strings after reading an int/float
         for(int i = 0; i < nb; i++){
             System.out.println("Instrument "+(i+1));
             System.out.print("Give it a name: ");

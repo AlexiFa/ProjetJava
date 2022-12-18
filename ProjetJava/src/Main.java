@@ -41,11 +41,12 @@ public class Main {
         // MAIN LOOP: Start Application
         Scanner sc;
         System.out.println("\n#############################################################");
+        residence.put("House",new ArrayList<Building>()); //create empty residence
+        residence.put("Hotel", new ArrayList<Building>());
+        residence.put("Apartment Building", new ArrayList<Building>());
+        residence.put("Store", new ArrayList<Building>());
+
         while(stay_in_app){
-            residence.put("House",new ArrayList<Building>()); //create empty residence
-            residence.put("Hotel", new ArrayList<Building>());
-            residence.put("Apartment Building", new ArrayList<Building>());
-            residence.put("Store", new ArrayList<Building>());
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");
             System.out.println("Please enter your name to log in:"); //registering user, asking his information
@@ -123,9 +124,10 @@ public class Main {
         System.out.println("3. Create a apartment building");
         System.out.println("4. Create a store");
         int choice = sc.nextInt();
-        switch (choice){ //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
+        sc.nextLine(); //PRIMORDIAL, to be able to read strings after reading an int/float
+        switch (choice){
             case 1:
-                House house = Functions.mCBHouse(sc, owner);//TODO
+                House house = Functions.mCBHouse(sc, owner);
                 residence.get("House").add(house);
                 break;
             case 2:
@@ -133,7 +135,7 @@ public class Main {
                 residence.get("Hotel").add(hotel);
                 break;
             case 3:
-                ApartmentBuilding ap_building = Functions.mCBApartment(sc, owner);//TODO
+                ApartmentBuilding ap_building = Functions.mCBApartment(sc, owner);
                 residence.get("Apartment Building").add(ap_building);
                 break;
             case 4:
