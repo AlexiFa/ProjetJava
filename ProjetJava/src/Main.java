@@ -42,6 +42,10 @@ public class Main {
         Scanner sc;
         System.out.println("\n#############################################################");
         while(stay_in_app){
+            residence.put("House",new ArrayList<Building>()); //create empty residence
+            residence.put("Hotel", new ArrayList<Building>());
+            residence.put("Apartment Building", new ArrayList<Building>());
+            residence.put("Store", new ArrayList<Building>());
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");
             System.out.println("Please enter your name to log in:"); //registering user, asking his information
@@ -51,6 +55,7 @@ public class Main {
             String lastName = sc.nextLine();
             Person admin = new Person(name, lastName);  //TODO: régler l'apparition de doublons dans Hashmap
             population.putIfAbsent(admin, new Person[]{null,null}); //adding user to rez BUT verify if already registered, old information stays
+
             System.out.println("\n_____________________________________________________________");
             stay_in_app = mainMenu(sc, admin);
         }
@@ -62,29 +67,32 @@ public class Main {
             System.out.println("\nYOUR MAIN MENU\n");
             System.out.println(">> Enter a digit to choose what to do:\n");
             System.out.println("0. Get a list of all people in Mele-Mele Island Residence");
-            System.out.println("1. Own/Create/Buy a building (function incoming)");
-            System.out.println("2. Rent an apartment or a hotel room (function incoming)");
-            System.out.println("3. Buy an instrument in an existing store (not done)"); //to implement when all is done
-            System.out.println("4. Log out\n");
+            System.out.println("1. Get a list of all buildings existing in Mele-Mele Island Residence");
+            System.out.println("2. Own/Create/Buy a building (function incoming)");
+            System.out.println("3. Rent an apartment or a hotel room (function incoming)");
+            System.out.println("4. Buy an instrument in an existing store (not done)"); //to implement when all is done
+            System.out.println("5. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
             case 0://list all Persons, with reference to owner/occupant information.
                 Functions.printAllPerson(population);
                 break;
             case 1:
+                Functions.printAllBuildings(residence);
+            case 2:
                 Owner owner = new Owner(admin);
                 population.get(admin)[0] = owner;
                 menuCreateBuilding(sc, owner); //function menuCreateBuilding //TODO:
                 break;
-                case 2:
+                case 3:
                 Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
                 population.get(admin)[1] = occupant;
                 menuRentRoom(sc, occupant); //function menuRenting()                     //TODO:
                 break;
-            case 3:
+            case 4:
                 menuBuyInStore(sc, admin); //function menuBuyInStore()          //TODO:
                 break;
-            case 4: //quit the mainMenu() loop
+            case 5: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");
                 int q = sc.nextInt();
                 if (q == 0) { //PATH TO QUIT PROGRAM
@@ -106,7 +114,7 @@ public class Main {
         return stay_in_app; //return if breaking or not the main application loop
     }
 
-    public static void menuCreateBuilding(Scanner sc, Owner owner){        //TODO:
+    public static void menuCreateBuilding(Scanner sc, Owner owner) throws InterruptedException {        //TODO:
         System.out.println("Which type of building do you want to own?");
         System.out.println();
         System.out.println("1. Create a house");
@@ -114,12 +122,29 @@ public class Main {
         System.out.println("3. Create a apartment building");
         System.out.println("4. Create a store");
         int choice = sc.nextInt();
-        switch (choice){
-            case 1: Functions.mCBHouse(); break;   //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
-            case 2: Functions.mCBHotel(); break;
-            case 3: Functions.mCBApartment();break;
-            case 4: Functions.mCBStore(); break;
+        switch (choice){ //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
+            case 1:
+                House house = Functions.mCBHouse();
+                residence.get("House").add(house);
+                break;
+            case 2:
+                Hotel hotel = Functions.mCBHotel();
+                residence.get("Hotel").add(hotel);
+                break;
+            case 3:
+                ApartmentBuilding ap_building = Functions.mCBApartment();
+                residence.get("Apartment Building").add(ap_building);
+                break;
+            case 4:
+                Store store = Functions.mCBStore();
+                residence.get("Store").add(store);
+                break;
         }
+        System.out.println("Your building has been successfully added to the residence !");
+        System.out.print("Going back to main menu");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
 
     private static void menuRentRoom(Scanner sc, Occupant occupant) {

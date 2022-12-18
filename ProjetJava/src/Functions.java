@@ -30,6 +30,20 @@ public class Functions {
         System.out.println("----------------------------------------------");
     }
 
+    public static void printAllBuildings(HashMap<String, ArrayList<Building>> residence) {
+        System.out.println("\nBuildings List:");
+        System.out.println("----------------------------------------------");
+        for (String key : residence.keySet()) {
+            int i = 1;
+            System.out.print("All " + key + "s: ");
+            for(Building build: residence.get(key)){
+                System.out.println(" "+i+". "+ build.toString());
+                i++;
+            }
+            System.out.print("\n");
+        }
+        System.out.println("----------------------------------------------");
+    }
     /**
      * Function to ask for information on the specific building to create
      * @param sc
@@ -41,16 +55,20 @@ public class Functions {
         System.out.println("Living space :");
         String livingSpace = sc.nextLine();
     }
-    public static void mCBHouse() {
+    public static House mCBHouse() {
+        return null;
     }
-    public static void mCBHotel(){
+    public static Hotel mCBHotel(){
 
+        return null;
     }
-    public static void mCBApartment(){
+    public static ApartmentBuilding mCBApartment(){
 
+        return null;
     }
-    public static void mCBStore(){
+    public static Store mCBStore(){
 
+        return null;
     }
 
 // TESTS
@@ -229,5 +247,4 @@ public class Functions {
         printResult(true);
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
-
 }
