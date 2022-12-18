@@ -20,24 +20,8 @@ public class Main {
     protected static HashMap<Person, Person[]> population = new HashMap<Person, Person[]>();
     protected static boolean stay_in_app =true;
     public static void main(String[] args) throws InterruptedException {
-        //first, testing that all classes, functions and variables are working correctly. All testing methods are below
-        System.out.println("=============================================================");
-        System.out.print("               Verifying application structure               \n");
-        System.out.println("-------------------------------------------------------------");
-        System.out.print("-- Testing profile creation:\n");
-        Functions.testPerson();
-        System.out.print("-- Testing buildings creation:\n");
-        Functions.testBuilding();
-        System.out.print("-- Testing relations person and buildings:\n");
-        Functions.testRelation1();
-        System.out.print("-- Testing instruments creation:\n");
-        Functions.testInstrument();
-        System.out.print("-- Testing relations store and instruments:\n");
-        Functions.testRelation2();
-        System.out.println("-------------------------------------------------------------");
-        System.out.print("                      Verification over                      \n");
-        System.out.println("=============================================================");
-
+        //first, testing that all classes, functions and variables are working correctly. All testing methods are in Functions
+        Functions.LaunchingTests(); //TODO: tests functions not complete
         // MAIN LOOP: Start Application
         Scanner sc;
         System.out.println("\n#############################################################");
@@ -115,7 +99,6 @@ public class Main {
         }
         return stay_in_app; //return if breaking or not the main application loop
     }
-
     public static void menuCreateBuilding(Scanner sc, Owner owner) throws InterruptedException {
         System.out.println("Which type of building do you want to own?");
         System.out.println();
@@ -149,7 +132,6 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
-
     private static void menuRentRoom(Scanner sc, Occupant occupant) throws InterruptedException {
         System.out.println("What do you want to rent?");
         System.out.println();

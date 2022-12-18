@@ -224,7 +224,25 @@ public class Functions {
     }
 
 // TESTS //TODO: ALL TESTS ARE NOT MADE
+    public static void LaunchingTests() throws InterruptedException {
+        System.out.println("=============================================================");
+        System.out.print("               Verifying application structure               \n");
+        System.out.println("-------------------------------------------------------------");
+        System.out.print("-- Testing profile creation:\n");
+        testPerson();
+        System.out.print("-- Testing buildings creation:\n");
+        testBuilding();
+        System.out.print("-- Testing relations person and buildings:\n");
+        testRelation1();
+        System.out.print("-- Testing instruments creation:\n");
+        testInstrument();
+        System.out.print("-- Testing relations store and instruments:\n");
+        testRelation2();
+        System.out.println("-------------------------------------------------------------");
+        System.out.print("                      Verification over                      \n");
+        System.out.println("=============================================================");
 
+    }
     //method printing out the result of the test in console: '>' when all is good, '!' when a problem occurs
     private static void printResult(boolean check) throws InterruptedException {
         //TimeUnit.MILLISECONDS.sleep(250);
