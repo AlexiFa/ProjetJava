@@ -55,18 +55,18 @@ public class Functions {
         System.out.println("Living space :");
         String livingSpace = sc.nextLine();
     }
-    public static House mCBHouse() {
+    public static House mCBHouse() {//creation of a house
         return null;
     }
-    public static Hotel mCBHotel(){
+    public static Hotel mCBHotel(){//creation of a hotel
 
         return null;
     }
-    public static ApartmentBuilding mCBApartment(){
+    public static ApartmentBuilding mCBApartment(){// creation of an apartment building
 
         return null;
     }
-    public static Store mCBStore(){
+    public static Store mCBStore(){//creation of a store
 
         return null;
     }

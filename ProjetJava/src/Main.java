@@ -77,8 +77,9 @@ public class Main {
             case 0://list all Persons, with reference to owner/occupant information.
                 Functions.printAllPerson(population);
                 break;
-            case 1:
+            case 1://list all buildings, with their description.
                 Functions.printAllBuildings(residence);
+                break;
             case 2:
                 Owner owner = new Owner(admin);
                 population.get(admin)[0] = owner;
