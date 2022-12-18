@@ -1,30 +1,37 @@
 /** Mele-Mele Island
  *  Rebecca Morel, Marion Galfard, Vinciane Loy, Romain Léoture, Alexis Faure
- *
  */
+
 package Person;
 import Buildings.Building;
 import Rental.Rental;
+import java.util.HashMap;
 
 public class Occupant extends Person {
-    Rental rental;
+//    Rental rental;
     Building rent;
     int noRoom;
     public Occupant() {
         super();
-        this.rental = null;
+        this.rent = null;
     }
-    public Occupant(String name, String surname, Rental rental) {
+    public Occupant(String name, String surname, Building rent, int noRoom) {
         super(name, surname);
-        this.rental = rental;
+        this.rent = rent;
+        this.noRoom = noRoom;
+    }
+    public Occupant(String name, String surname){
+        super(name, surname);
+        noRoom = 0;
+        rent = null;
     }
 
-    public void setRental(Rental rental) {
-        this.rental = rental;
-    }
-    public Rental getRental(){
-        return this.rental;
-    }
+//    public void setRental(Rental rental) {
+//        this.rental = rental;
+//    }
+//    public Rental getRental(){
+//        return this.rental;
+//    }
 
     public Building getRent() {
         return rent;
@@ -44,7 +51,6 @@ public class Occupant extends Person {
 
     @Override
     public String toString() {
-        return super.toString() +
-                ": has rented " + rental.getRent().toString();
+        return super.toString() + (rent != null ? ": has rented " + this.rent.toString() : " has no rent");
     }
 }

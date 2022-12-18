@@ -46,4 +46,14 @@ public abstract class Building {
     public Owner getOwner(){
         return this.owner;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof Building))
+            return  false;
+        Building temp = (Building) o;
+        return temp.address.equals(address) && temp.livingSpace == livingSpace && temp.owner.equals(owner);
+    }
 }

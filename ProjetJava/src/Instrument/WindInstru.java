@@ -4,11 +4,11 @@
  */
 package Instrument;
 
-public abstract class WindInstru extends Instrument {
+public class WindInstru extends Instrument {
     private enum WindI {
-        FLUTE("with a beveled side"),
-        CLARINET("with a single reed"),
-        OBOE("with a double reed");
+        FLUTE("flute, with a beveled side"),
+        CLARINET("clarinet, with a single reed"),
+        OBOE("oboe, with a double reed");
         private final String t;
         WindI(String twind) {
             this.t = twind;
@@ -27,7 +27,7 @@ public abstract class WindInstru extends Instrument {
     public String toString() {
         return "WindInstru{" +
                 super.toString() +
-                "type=" + type +
+                "type=" + type.getT() +
                 '}';
     }
 }

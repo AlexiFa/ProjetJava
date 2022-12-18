@@ -13,6 +13,10 @@ public class Owner extends Person{
         super();
         buildings = new ArrayList<Building>();
     }
+    public Owner(Person person){
+        super(person);
+        buildings = new ArrayList<Building>();
+    }
     public Owner(String name, String surname) {
         super(name, surname);
         buildings = new ArrayList<Building>();

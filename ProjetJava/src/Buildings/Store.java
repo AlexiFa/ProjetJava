@@ -24,7 +24,7 @@ public class Store extends Building {
     public String toString() {
         return "Store{" +
                 super.toString() +
-                ", instruments=" + instruments +
+                ", instruments=" + instruments +//todo: corriger apparition (on voit rien dans console)
                 '}';
     }
     //getters

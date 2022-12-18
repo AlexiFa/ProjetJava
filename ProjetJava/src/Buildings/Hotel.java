@@ -3,26 +3,29 @@
  *  hotel class with the numbers of rooms, spa, pools ... (depends of the type of the hotel)
  */
 package Buildings;
-import Person.Owner;
 import Person.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Hotel extends Building {
     int nbStars;
     int nbRoom;
     int nbSpa; // only for 4 stars hotel (else = 0)
     int nbPool; // only for 5 or 4 stars hotel (else = 0)
+    // the number of the suite are nbRoom + (1, 2, ...)
+    // for example, if there are 10 rooms, the suite are 11, 12, 13, ...
     int nbSuite; // idem for 5 stars
-    ArrayList<Integer> roomsOccupied; // to stock every room which are occupied
-    ArrayList<Occupant> occupants; // list of all occupants (find a way to link each occupant with his noRoom) (maybe the index in the array is the same in the rooms array)
+
+    HashMap<Integer,Occupant> rentals; // Integer : the number of the room | Occupant : the occupant of the room
+
     /**
      * Main constructor to set default values
      * @param stars : number of stars of the hotel
      */
     public Hotel(int stars){
         nbStars = stars;
-        roomsOccupied = new ArrayList<Integer>();
+        //roomsOccupied = new ArrayList<Integer>();
         nbSpa = 0; // first set the special attributes to 0 and change them after depending on stars number
         nbPool = 0;
         nbSuite = 0;
@@ -43,11 +46,11 @@ public class Hotel extends Building {
         }
     }
     public Hotel() {
-        roomsOccupied = new ArrayList<Integer>();
+        rentals = new HashMap<Integer, Occupant>();
     }
     public Hotel(String address, float livingSpace, int stars, Owner owner) {
         super(address, livingSpace, owner);
-        roomsOccupied = new ArrayList<Integer>();
+        rentals = new HashMap<Integer, Occupant>();
         nbStars = stars;
         nbSpa = 0; // first set the special attributes to 0 and change them after depending on stars number
         nbPool = 0;
@@ -102,6 +105,10 @@ public class Hotel extends Building {
     public int getNbSuite() {
         return this.nbSuite;
     }
+    public HashMap<Integer, Occupant> getRentals() {
+        return rentals;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -111,27 +118,34 @@ public class Hotel extends Building {
                 '}';
     }
 
-    public void rent(Occupant occ, int nb){
-        if (occ.getRent()!=null){ // if he already has a rent send an error
-            System.out.println("error, this occupant already have a rent");
-        }else if(roomsOccupied.contains(nb)){ // if the room is occupied, send an error
-            System.out.println("error, this room is already occupied");
-        }else{
-            occupants.add(occ); // set the occupant and the room in the Hotel class
-            roomsOccupied.add(nb);
-            occ.setRent(this); // set also in the Occupant class
+    /**
+     * Function to allow someone to rent a room in the hotel and throw an exception if the occupant already has a rent somewhere
+     * @param occ : the occupant of the room
+     * @param nb : the number of the room
+     */
+    public void rent(Occupant occ, int nb) throws Exception{
+        if (occ.getRent()!=null || rentals.containsKey(nb)) // if he already has a rent send an error || if the room is occupied, send an error
+            throw new Exception("occupant already has a rent or the room is already rented");
+        else if (nb > nbRoom + nbSuite) // if the room doesn't exist, send an error
+            throw new Exception("the room doesn't exist");
+        else{
+            rentals.put(nb,occ); // set the occupant and the room in the Hotel class
+            occ.setRent(this); // set the rent of the occupant
             occ.setNoRoom(nb);
         }
     }
 
     /**
-     * TODO : function not finished yet
-     * @param occ
+     * Function to end a rental and change the hotel and occupant classes
+     * @param occ : the occupant who want to stop his rental
      */
-    public void stopRent(Occupant occ){
-        if (occ.getRent()==null || occ.getRent() != this){
-            System.out.println("error, this occupant don't have any rent here");
+    public void stopRent(Occupant occ) throws Exception{
+        if (occ.getRent() == null || occ.getRent() != this){
+            throw new Exception("error, this occupant don't have any rent here");
         } else {
+            rentals.remove(occ.getNoRoom(),occ);
+            occ.setRent(null);
+            occ.setNoRoom(0);
             // occupants.remove(occ);
             // take the index and remove also in the room array or make hashmap (but personally idk how to do hashmap so ask the others)
         }
