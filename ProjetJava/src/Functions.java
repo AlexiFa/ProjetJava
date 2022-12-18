@@ -74,6 +74,7 @@ public class Functions {
 
     /**
      * TODO : function finished i think (check if the tests in main are good enough)
+     * TODO : en fait pas sur car dans l'enoncé il met juste les appart et afficher les room/suites dispo (donc le modif pour ne faire que les appart)
      * Function to list all the rooms and flats rented
      */
     public static void printAllRented(HashMap<String, ArrayList<Building>> residence){
