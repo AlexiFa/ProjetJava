@@ -4,7 +4,7 @@
  */
 package Instrument;
 
-public abstract class WindInstru extends Instrument {
+public class WindInstru extends Instrument {
     private enum WindI {
         FLUTE("with a beveled side"),
         CLARINET("with a single reed"),

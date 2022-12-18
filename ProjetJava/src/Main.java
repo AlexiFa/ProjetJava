@@ -49,9 +49,9 @@ public class Main {
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");
             System.out.println("Please enter your name to log in:"); //registering user, asking his information
-            System.out.print("First Name :");
+            System.out.print("First Name : ");
             String name = sc.nextLine();
-            System.out.print("Last Name :");
+            System.out.print("Last Name : ");
             String lastName = sc.nextLine();
             Person admin = new Person(name, lastName);  //TODO: régler l'apparition de doublons dans Hashmap
             population.putIfAbsent(admin, new Person[]{null,null}); //adding user to rez BUT verify if already registered, old information stays

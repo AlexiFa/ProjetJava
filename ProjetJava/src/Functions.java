@@ -39,7 +39,7 @@ public class Functions {
         System.out.println("----------------------------------------------");
         for (String key : residence.keySet()) {
             int i = 1;
-            System.out.print("All " + key + "s: ");
+            System.out.println("All " + key + "s: ");
             for(Building build: residence.get(key)){
                 System.out.println(" "+i+". "+ build.toString());
                 i++;
@@ -51,20 +51,110 @@ public class Functions {
     /**
      * Functions to create all type of buildings in the residence, and assign them to owner
      */
-    public static House mCBHouse(Scanner sc, Owner owner) {//creation of a house and return it//TODO
-        return null;
+    public static House mCBHouse(Scanner sc, Owner owner) {//creation of a house and return it
+        System.out.println("You chose to build a House.\nTo complete your demand, please give us the following information:");
+        System.out.print("> The Address: ");
+        String address = sc.nextLine();
+        System.out.print("> The size of the total living space: ");
+        float liv_area = sc.nextFloat();
+        System.out.print("> The number of rooms: ");
+        int nb_rooms = sc.nextInt();
+        System.out.print("> The size of the garden area: ");
+        float garden_area = sc.nextFloat();
+        System.out.print("Thank you. ");
+        return new House(address, liv_area, nb_rooms, garden_area, owner);
     }
     public static Hotel mCBHotel(Scanner sc, Owner owner){//creation of a hotel and return it //TODO
 
         return null;
     }
     public static ApartmentBuilding mCBApartment(Scanner sc, Owner owner){// creation of an apartment building and return it //TODO
-
-        return null;
+        System.out.println("You chose to build an Apartment Building.\nTo complete your demand, please give us the following information:");
+        System.out.print("> The Address: ");
+        String address = sc.nextLine();
+        System.out.print("> The size of the total living space: ");
+        float liv_area = sc.nextFloat();
+        System.out.print("> The total number of apartments: ");
+        int nb_rooms = sc.nextInt();
+        System.out.print("Thank you. ");
+        return new ApartmentBuilding(address, liv_area, nb_rooms, owner);
     }
     public static Store mCBStore(Scanner sc, Owner owner){//creation of a store and return it //TODO
-
-        return null;
+        System.out.println("You chose to build a Store.\nTo complete your demand, please give us the following information:");
+        System.out.print("> The Address: ");
+        String address = sc.nextLine();
+        System.out.print("> The size of the total living space: ");
+        float liv_area = sc.nextFloat();
+        System.out.print("Please chose a few instruments to add to your store:\n");
+        ArrayList<Instrument> instruments = addInstruments(sc);
+        System.out.print("Thank you. ");
+        return new Store(address, liv_area, owner, instruments);
+    }
+    public static ArrayList<Instrument> addInstruments(Scanner sc){
+        ArrayList<Instrument> instruments = new ArrayList<Instrument>();
+        System.out.print("How many instruments do you want to add ?\nEnter a number: ");
+        int nb = sc.nextInt();
+        for(int i = 0; i < nb; i++){
+            System.out.println("Instrument "+(i+1));
+            System.out.print("Give it a name: ");
+            String name = sc.nextLine();
+            System.out.print("Give out its purchase price: ");
+            float purchase_p = sc.nextFloat();
+            System.out.print("Give it a selling price: ");
+            float selling_p = sc.nextFloat();
+            System.out.println("Please chose your instrument type: ");
+            System.out.println("1. Electric Guitar");
+            System.out.println("2. Acoustic Guitar");
+            System.out.println("3. Upright Piano");
+            System.out.println("4. Digital Piano");
+            System.out.println("5. Grand Piano");
+            System.out.println("6. Flute");
+            System.out.println("7. Clarinet");
+            System.out.println("8. Oboe");
+            int intr = sc.nextInt();
+            switch(intr){
+                case 1:
+                    //manque des trucs
+                    ElectricGuitar eg = new ElectricGuitar();
+                    instruments.add(eg);
+                    break;
+                case 2:
+                    //manque des trucs
+                    AcousticGuitar ag = new AcousticGuitar();
+                    instruments.add(ag);
+                    break;
+                case 3:
+                    //manque des trucs
+                    UprightPiano up = new UprightPiano();
+                    instruments.add(up);
+                    break;
+                case 4:
+                    //manque des trucs
+                    DigitalPiano dp = new DigitalPiano();
+                    instruments.add(dp);
+                    break;
+                case 5:
+                    //manque des trucs
+                    GrandPiano gp = new GrandPiano();
+                    instruments.add(gp);
+                    break;
+                case 6:
+                    WindInstru flute = new WindInstru(name,purchase_p, selling_p, "FLUTE");
+                    instruments.add(flute);
+                    break;
+                case 7:
+                    WindInstru clarinet = new WindInstru(name,purchase_p, selling_p, "CLARINET");
+                    instruments.add(clarinet);
+                    break;
+                case 8:
+                    WindInstru oboe = new WindInstru(name,purchase_p, selling_p, "OBOE");
+                    instruments.add(oboe);
+                    break;
+            }
+            System.out.println("Instrument "+(i+1)+", "+name+", has been added.");
+        }
+        System.out.println("All instruments have been added.");
+        return instruments;
     }
     /**
      * Functions to do the occupant booking of hotel room or apartment
