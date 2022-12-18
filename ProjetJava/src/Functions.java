@@ -360,6 +360,14 @@ public class Functions {
         printResult(!((Owner) test).getBuildings().contains(building) && ((Owner) test).getBuildings().size()==0);
         printResult(((Owner) owner2).getBuildings().contains(building) && ((Owner) owner2).getBuildings().size()==1);
         // test rental of a Hotel room
+        /**
+         * 1. test rent function
+         * 2. test stopRent function
+         * 3. test when the renter already has a room
+         * 4. test when the room is already rented
+         * 5. test if the occupant has the right room in both Occupant and Hotel classes
+         * 6. test when we try to rent a flat which is not in the building
+         */
         Building H1 = new Hotel("15 av Repu", 500, 3, (Owner)test);
         Building H2 = new Hotel("14 bd Monod", 12, 1, (Owner)test);
         Person JeanTest = new Occupant("Jean", "Dujardin");
@@ -377,16 +385,35 @@ public class Functions {
         }catch (Exception e){
             printResult(true); // suppose to throw an exception
         }
+        try{
+            ((Hotel)H1).rent((Occupant) JackTest, 10); // test rent when the room is already rented
+            printResult(false); // if the line bellow don't throw an exception
+        }catch (Exception e){
+            printResult(true); // suppose to throw an exception
+        }
         printResult(((Occupant)JeanTest).getRent() == H1 && ((Occupant)JeanTest).getNoRoom() == 10); // test if the occupant has the right room
         printResult(((Hotel)H1).getRentals().containsKey(10) && ((Hotel)H1).getRentals().containsValue(JeanTest)); // same in the Hotel class
+        try{
+            ((Hotel)H2).rent((Occupant)JackTest, 11); // test when we try to rent a flat which is not in the building
+            printResult(false); // if the line bellow don't throw an exception
+        }catch (Exception e){
+            printResult(true); // suppose to throw an exception
+        }
         try{
             ((Hotel)H1).stopRent((Occupant) JeanTest); // just to clear for the next tests (to use JeanTest and not create a new one)
         }catch (Exception e){
             printResult(false);
         }
         // test rental in an ApartmentBuilding
+        /**
+         * 1. test when we try to rent a flat which is not in the building
+         * 2. test rent
+         * 3. test stopRent
+         * 4. test rent when the renter already has a flat
+         * 5. test if the flat is already rented
+         * 6. test if the occupant has the right flat in both ApartmentBuilding and Occupant classes
+         */
         Building A1 = new ApartmentBuilding("15 av Repu", 500, 3, (Owner)test);
-        Building A2 = new ApartmentBuilding("12 av Gorki", 600, 10, (Owner)test);
         try{
             ((ApartmentBuilding)A1).rent((Occupant)JeanTest, 10); // suppose to throw an exception because the flat doesn't exist
         }catch (Exception e){
@@ -400,7 +427,7 @@ public class Functions {
             printResult(false);
         }
         try{
-            ((ApartmentBuilding)A1).rent((Occupant) JeanTest, 2); // test rent when the renter already has a flat
+            ((ApartmentBuilding)A1).rent((Occupant) JeanTest, 1); // test rent when the renter already has a flat
             printResult(false); // if the line bellow don't throw an exception
         }catch (Exception e){
             printResult(true); // suppose to throw an exception

@@ -122,6 +122,7 @@ public class Hotel extends Building {
      * Function to allow someone to rent a room in the hotel and throw an exception if the occupant already has a rent somewhere
      * @param occ : the occupant of the room
      * @param nb : the number of the room
+     * @throws Exception : if the occupant already has a rent somewhere, if the room is already occupied, if the number of the room is not in the hotel
      */
     public void rent(Occupant occ, int nb) throws Exception{
         if (occ.getRent()!=null || rentals.containsKey(nb)) // if he already has a rent send an error || if the room is occupied, send an error
@@ -138,6 +139,7 @@ public class Hotel extends Building {
     /**
      * Function to end a rental and change the hotel and occupant classes
      * @param occ : the occupant who want to stop his rental
+     * @throws Exception : if the occupant doesn't have a rent
      */
     public void stopRent(Occupant occ) throws Exception{
         if (occ.getRent() == null || occ.getRent() != this){

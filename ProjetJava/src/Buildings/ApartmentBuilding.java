@@ -58,13 +58,11 @@ public class ApartmentBuilding extends Building {
     /**
      * Method to stop renting an apartment
      * @param occ : the occupant who wants to stop renting
-     * @throws Exception : if the occupant doesn't rent an apartment or not in this building
+     * @throws Exception : if the occupant doesn't rent an apartment in this building
      */
     public void stopRent(Occupant occ) throws Exception{
-        if (occ.getRent() == null)
-            throw new Exception("occupant has no rent");
-        else if (occ.getRent() != this)
-            throw new Exception("occupant doesn't rent this building");
+        if (occ.getRent() == null || occ.getRent() != this) // in java, it doesn't check the second condition if the first is false, so we can do that
+            throw new Exception("occupant has no rent here");
         else{ // because we can't rent a flat when it doesn't exist, we don't need to test if nb < nbApart
             rentals.remove(occ.getNoRoom());
             occ.setRent(null);
