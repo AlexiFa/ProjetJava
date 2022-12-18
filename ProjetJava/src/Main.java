@@ -68,9 +68,9 @@ public class Main {
             System.out.println(">> Enter a digit to choose what to do:\n");
             System.out.println("0. Get a list of all people in Mele-Mele Island Residence");
             System.out.println("1. Get a list of all buildings existing in Mele-Mele Island Residence");
-            System.out.println("2. Own/Create/Buy a building (function incoming)");
-            System.out.println("3. Rent an apartment or a hotel room (function incoming)");
-            System.out.println("4. Buy an instrument in an existing store (not done)"); //to implement when all is done
+            System.out.println("2. Own/Create/Buy a building");
+            System.out.println("3. Rent an apartment or a hotel room");
+            System.out.println("4. Buy an instrument in an existing store (not available for now)"); //to implement when all is done
             System.out.println("5. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
@@ -83,15 +83,15 @@ public class Main {
             case 2:
                 Owner owner = new Owner(admin);
                 population.get(admin)[0] = owner;
-                menuCreateBuilding(sc, owner); //function menuCreateBuilding //TODO:
+                menuCreateBuilding(sc, owner); //function menuCreateBuilding creating the building in the name of the owner
                 break;
                 case 3:
                 Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
                 population.get(admin)[1] = occupant;
-                menuRentRoom(sc, occupant); //function menuRenting()                     //TODO:
+                menuRentRoom(sc, occupant); //function menuRenting()//TODO:
                 break;
             case 4:
-                menuBuyInStore(sc, admin); //function menuBuyInStore()          //TODO:
+                menuBuyInStore(sc, admin); //function menuBuyInStore()//TODO:
                 break;
             case 5: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");
@@ -115,7 +115,7 @@ public class Main {
         return stay_in_app; //return if breaking or not the main application loop
     }
 
-    public static void menuCreateBuilding(Scanner sc, Owner owner) throws InterruptedException {        //TODO:
+    public static void menuCreateBuilding(Scanner sc, Owner owner) throws InterruptedException {
         System.out.println("Which type of building do you want to own?");
         System.out.println();
         System.out.println("1. Create a house");
@@ -125,39 +125,48 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){ //Functions.infoBuilding(sc, population); //to redo, since population is not an arraylist anymore
             case 1:
-                House house = Functions.mCBHouse();
+                House house = Functions.mCBHouse(sc, owner);//TODO
                 residence.get("House").add(house);
                 break;
             case 2:
-                Hotel hotel = Functions.mCBHotel();
+                Hotel hotel = Functions.mCBHotel(sc, owner);//TODO
                 residence.get("Hotel").add(hotel);
                 break;
             case 3:
-                ApartmentBuilding ap_building = Functions.mCBApartment();
+                ApartmentBuilding ap_building = Functions.mCBApartment(sc, owner);//TODO
                 residence.get("Apartment Building").add(ap_building);
                 break;
             case 4:
-                Store store = Functions.mCBStore();
+                Store store = Functions.mCBStore(sc, owner);//TODO
                 residence.get("Store").add(store);
                 break;
         }
-        System.out.println("Your building has been successfully added to the residence !");
+        System.out.println("Your building has been successfully added to the residence !"); //todo: not yet actually
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
 
-    private static void menuRentRoom(Scanner sc, Occupant occupant) {
+    private static void menuRentRoom(Scanner sc, Occupant occupant) throws InterruptedException {
         System.out.println("What do you want to rent?");
         System.out.println();
         System.out.println("1. a Hotel room");
         System.out.println("2. an Apartment");
         int choice = sc.nextInt();
         switch (choice){
-            case 1:break;
-            case 2: break;
+            case 1:
+                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));//TODO
+                break;
+            case 2:
+                Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO
+                break;
         }
+        System.out.println("Your booking has been accepted !"); //todo: not yet actually
+        System.out.print("Going back to main menu");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+        TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
     private static void menuBuyInStore(Scanner sc, Person person){
         //

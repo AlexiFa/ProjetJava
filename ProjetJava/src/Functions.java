@@ -12,9 +12,10 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Functions {
+
     /**
-     * Function to print all people in the residence
-     * @param population : all the person added to the residence
+     * Function to print out all people in the residence
+     * @param population : all the persons added to the residence
      */
     public static void printAllPerson(HashMap<Person, Person[]> population) {
         System.out.println("\nPopulation List:");
@@ -29,7 +30,10 @@ public class Functions {
         }
         System.out.println("----------------------------------------------");
     }
-
+    /**
+     * Function to print out all building in the residence
+     * @param residence : all the buildings added to the residence
+     */
     public static void printAllBuildings(HashMap<String, ArrayList<Building>> residence) {
         System.out.println("\nBuildings List:");
         System.out.println("----------------------------------------------");
@@ -45,33 +49,39 @@ public class Functions {
         System.out.println("----------------------------------------------");
     }
     /**
-     * Function to ask for information on the specific building to create
-     * @param sc
-     * @param population
+     * Functions to create all type of buildings in the residence, and assign them to owner
      */
-    public static void infoBuilding(Scanner sc, HashMap<Person, Person[]> population){
-        System.out.println("Address :");
-        String address = sc.nextLine() + sc.nextLine(); // because after the nextInt, the line is not finished, so it takes the end of the line ("") so we add the nextLine()
-        System.out.println("Living space :");
-        String livingSpace = sc.nextLine();
-    }
-    public static House mCBHouse() {//creation of a house
+    public static House mCBHouse(Scanner sc, Owner owner) {//creation of a house and return it//TODO
         return null;
     }
-    public static Hotel mCBHotel(){//creation of a hotel
+    public static Hotel mCBHotel(Scanner sc, Owner owner){//creation of a hotel and return it //TODO
 
         return null;
     }
-    public static ApartmentBuilding mCBApartment(){// creation of an apartment building
+    public static ApartmentBuilding mCBApartment(Scanner sc, Owner owner){// creation of an apartment building and return it //TODO
 
         return null;
     }
-    public static Store mCBStore(){//creation of a store
+    public static Store mCBStore(Scanner sc, Owner owner){//creation of a store and return it //TODO
 
         return null;
     }
+    /**
+     * Functions to do the occupant booking of hotel room or apartment
+     * @param sc : scanner to get interaction with user/future occupant
+     * @param occupant : occupant objet storing user/future personal info
+     * @param hotel : arraylist of all hotel available
+     */
+    public static void mRRHotel(Scanner sc, Occupant occupant, ArrayList<Building> hotel) { //booking a room for occupant //TODO
+    }
 
-// TESTS
+    /**
+     * @param apartment_building: : arraylist of all apartment buildings available
+     */
+    public static void mRRApartment(Scanner sc, Occupant occupant, ArrayList<Building> apartment_building) {//booking an apt for occupant //TODO
+    }
+
+// TESTS //TODO: ALL TESTS ARE NOT MADE
 
     //method printing out the result of the test in console: '>' when all is good, '!' when a problem occurs
     private static void printResult(boolean check) throws InterruptedException {
