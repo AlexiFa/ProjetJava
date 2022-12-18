@@ -51,6 +51,22 @@ public class Functions {
     }
 
     /**
+     * TODO: this function has been tested in main but hasn't a proper like test auto (don't know if we need to do one, if not : delete this TODO comment)
+     * Function to printo out the buildings of a specific owner
+     * @param owner : the owner we want to print the buildings
+     */
+    public static void printBuildingsOwned(Owner owner){
+        System.out.println("\nBuildings List of "+owner+":");
+        System.out.println("----------------------------------------------");
+        int i = 1;
+        for (Building building : owner.getBuildings()){
+            System.out.println(" "+i+". "+ building.toString());
+            i++;
+        }
+        System.out.println("----------------------------------------------");
+    }
+
+    /**
      * Functions to create all type of buildings in the residence, and assign them to owner
      */
     public static House mCBHouse(Scanner sc, Owner owner) {//creation of a house and return it

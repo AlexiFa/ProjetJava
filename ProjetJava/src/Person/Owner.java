@@ -49,10 +49,7 @@ public class Owner extends Person{
         buildings.remove(building);
     }
 
-    /**
-     * Function to list all the buildings of an owner
-     * @return : the list of the buildings he owns
-     */
+    // getter
     public ArrayList<Building> getBuildings() {
         return buildings;
     }
