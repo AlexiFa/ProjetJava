@@ -154,11 +154,7 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){
             case 1:
-<<<<<<< Updated upstream
                 Functions.mRRHotel(sc, occupant, residence.get("Hotel"));
-=======
-                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));//TODO: @alexis
->>>>>>> Stashed changes
                 break;
             case 2:
                 Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO: @alexis
