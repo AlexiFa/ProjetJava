@@ -79,17 +79,30 @@ public class Functions {
         }
         System.out.println("----------------------------------------------");
     }
+    private static ArrayList<Owner> printAllExistingOwners(HashMap<Person,Person[]> population) {
+        ArrayList<Owner> owners = new ArrayList<Owner>();
+        int i=1;
+        for (Person person : population.keySet()){
+            if (population.get(person)[0] != null) {
+                owners.add((Owner) population.get(person)[0]);
+                System.out.println(" "+i+". "+ population.get(person)[0].toString());
+            }
+        }
+        return owners;
+    }
+
     public static void GiveOutBuilding(Scanner sc, Owner owner, HashMap<Person,Person[]> population) {
         printBuildingsOwned(owner);
         if(owner == null) return;
-        System.out.println("Choose your building to hand over: ");
+        System.out.println("Choose your building to hand over (Enter the corresponding digit): ");
         int chosen_b = sc.nextInt();
-        Building building = owner.getBuildings().get(chosen_b);
-        
-        Owner new_owner = null;
+        Building building = owner.getBuildings().get(chosen_b-1);
+        ArrayList<Owner> owners = printAllExistingOwners(population);
+        System.out.println("Chose the owner you want to hand the building over to (Enter the corresponding digit): ");
+        int chosen_o = sc.nextInt();
+        Owner new_owner = owners.get(chosen_o-1);
         building.setOwner(new_owner);
     }
-
     /**
      * Function to list all the rooms and flats rented
      * @param residence : all the buildings added to the residence
@@ -329,8 +342,7 @@ public class Functions {
             return false;
         }
         else {
-            boolean instr_in_store = store.removeInstrument(chosen_one);
-            if (!instr_in_store) return false;
+            store.removeInstrument(chosen_one);
             float new_budget = p_budget - i_price;
             person.setBudget(new_budget);
             person.addInstrument(chosen_one);
