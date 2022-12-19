@@ -165,11 +165,7 @@ public class Main {
                 Functions.mRRHotel(sc, occupant, residence.get("Hotel"));
                 break;
             case 2:
-<<<<<<< Updated upstream
-                Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO: @alexis
-=======
                 Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));
->>>>>>> Stashed changes
                 break;
         }
         System.out.println("Your booking has been accepted !");
