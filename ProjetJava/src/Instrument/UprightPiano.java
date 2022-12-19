@@ -33,4 +33,16 @@ public class UprightPiano extends Piano{
         }
         else System.out.println("Please choose the right type of strings: 'straight' (1) or 'crossed' (2)");
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof UprightPiano)) {
+            return false;
+        }
+        return super.equals(o) &&
+                silence == ((UprightPiano)o).silence &&
+                sType == ((UprightPiano)o).sType;
+    }
 }

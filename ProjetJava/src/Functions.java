@@ -62,7 +62,6 @@ public class Functions {
      * TODO : this function has been tested in main but hasn't a proper like test auto (don't know if we need to do one, if not : delete this TODO comment)
      * TODO : maybe add the functionality to do it in the main loop
      * Function to printo out the buildings of a specific owner
-     *
      * @param owner : the owner we want to print the buildings
      */
     public static void printBuildingsOwned(Owner owner) {

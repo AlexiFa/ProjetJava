@@ -70,26 +70,4 @@ public class ApartmentBuilding extends Building {
             occ.setNoRoom(0);
         }
     }
-
-    /*@Override
-    public boolean equals(Object o){
-        if (!super.equals(o))
-            return false;
-        if (o == this)
-            return true;
-        if (!(o instanceof ApartmentBuilding))
-            return  false;
-        ApartmentBuilding temp = (ApartmentBuilding) o;
-        if (rentals.isEmpty() && temp.rentals.isEmpty())
-            return temp.nbApart == nbApart;
-        else if (rentals.size() == temp.rentals.size()){
-            for (int i = 0; i < rentals.size(); i++){
-                if (!rentals.get(i).equals(temp.rentals.get(i)))
-                    return false;
-            }
-            return true;
-        }
-        else
-            return false;
-    }*/
 }

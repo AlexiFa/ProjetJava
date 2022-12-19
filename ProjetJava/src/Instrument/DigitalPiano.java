@@ -27,4 +27,18 @@ public class DigitalPiano extends Piano{
             default: System.out.println("Error: Please choose an existing sampling quality: 1, 2, or 3.");
         }
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof DigitalPiano)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return heavyTouch == ((DigitalPiano)o).heavyTouch &&
+                sampQ == ((DigitalPiano)o).sampQ;
+    }
 }

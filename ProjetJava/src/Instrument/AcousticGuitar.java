@@ -22,4 +22,18 @@ public class AcousticGuitar extends StringInstru {
                 " pull=" + pull +
                 ']';
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof AcousticGuitar)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return hand.equals(((AcousticGuitar)o).hand) &&
+                pull == ((AcousticGuitar)o).pull;
+    }
 }
