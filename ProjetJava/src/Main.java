@@ -69,6 +69,7 @@ public class Main {
             System.out.println("4. Rent an apartment or a hotel room");
             System.out.println("5. Buy an instrument in an existing store (not available for now)"); //to implement when all is done
             System.out.println("6. All your buildings");
+            System.out.println("7. Stop your rental");
             System.out.println("0. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
@@ -103,6 +104,17 @@ public class Main {
                 break;
             case 6:
                 Functions.printBuildingsOwned((Owner)population.get(admin)[0]);
+                break;
+            case 7:
+                if(population.get(admin)[1] == null) {
+                    System.out.println("You are not renting anything");
+                }
+                else{
+                    if (((Occupant)population.get(admin)[1]).getRent() instanceof Hotel)
+                        ((Hotel)((Occupant)population.get(admin)[1]).getRent()).stopRent((Occupant) population.get(admin)[1]);
+                    else if (((Occupant)population.get(admin)[1]).getRent() instanceof ApartmentBuilding)
+                        ((ApartmentBuilding)((Occupant)population.get(admin)[1]).getRent()).stopRent((Occupant) population.get(admin)[1]);
+                }
                 break;
             case 0: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");

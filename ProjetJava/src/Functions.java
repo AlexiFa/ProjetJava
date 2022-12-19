@@ -139,7 +139,7 @@ public class Functions {
                     System.out.print(" " + i + ",");
                 }
             }
-            System.out.println(" " + hotel.getNbRoom());
+            System.out.println((!hotel.getRentals().containsKey(hotel.getNbRoom())) ? " " + hotel.getNbRoom() : "");
         } else if (hotel.getNbStars() == 5) {
             System.out.println("Rooms :");
             for (int i = 1; i <= hotel.getNbRoom()-1; i++) { // for every room in the hotel
@@ -147,14 +147,14 @@ public class Functions {
                     System.out.print(" " + i + ",");
                 }
             }
-            System.out.println(" " + hotel.getNbRoom());
+            System.out.println((!hotel.getRentals().containsKey(hotel.getNbRoom())) ? " " + hotel.getNbRoom() : "");
             System.out.println("Suites :");
             for (int i = hotel.getNbRoom() + 1; i <= hotel.getNbRoom() + hotel.getNbSuite() - 1; i++) { // for every suite in the hotel
                 if (!hotel.getRentals().containsKey(i)) { // if the suite isn't in the rented list
                     System.out.print(" " + i + ",");
                 }
             }
-            System.out.println(" " + (hotel.getNbRoom() + hotel.getNbSuite()));
+            System.out.println((!hotel.getRentals().containsKey(hotel.getNbRoom() + hotel.getNbSuite())) ? " " + (hotel.getNbRoom() + hotel.getNbSuite()) : "");
         }
         System.out.println("----------------------------------------------");
     }
