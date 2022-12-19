@@ -17,10 +17,20 @@ public abstract class StringInstru extends Instrument {
     }
     @Override
     public String toString() {
-        return "StringInstru{" +
-                super.toString() +
-                "length=" + length +
-                "width=" + width +
-                '}';
+        return  super.toString() +
+                " length=" + length +
+                " width=" + width;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof StringInstru)) {
+            return false;
+        }
+        return super.equals(o) &&
+                length == ((StringInstru)o).length &&
+                width == ((StringInstru)o).width;
     }
 }

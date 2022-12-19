@@ -4,20 +4,32 @@
  */
 package Person;
 
+import Instrument.*;
+
+import java.util.ArrayList;
+
 public class Person {
-    String name;
-    String surname;
+    protected String name;
+    protected String surname;
+    protected float budget;
+    protected ArrayList<Instrument> my_instruments;
     public Person() {
         this.name="";
         this.surname="";
+        this.budget =0;
+        this.my_instruments = new ArrayList<Instrument>();
     }
     public Person(Person person){
         this.name = person.getName();
         this.surname = person.getSurname();
+        this.budget = person.getBudget();
+        this.my_instruments = new ArrayList<Instrument>();
     }
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
+        this.budget = 0;
+        this.my_instruments = new ArrayList<Instrument>();
     }
     @Override
     public String toString() {
@@ -33,13 +45,29 @@ public class Person {
     public String getSurname() {
         return surname;
     }
+    public float getBudget() {
+        return this.budget;
+    }
+    public ArrayList<Instrument> getMy_instruments(){
+        return this.my_instruments;
+    }
     public void setName(String name){
         this.name = name;
     }
     public void setSurname(String surname){
         this.surname = surname;
     }
+    public void setBudget(float budget){
+        this.budget = budget;
+    }
 
+    /**
+     * Function to add an instrument to the list of the instruments he owns
+     * @param instrument : instrument to add
+     */
+    public void addInstrument(Instrument instrument){
+        this.my_instruments.add(instrument);
+    }
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

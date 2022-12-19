@@ -12,7 +12,7 @@ public class ApartmentBuilding extends Building {
     int nbApart;
     HashMap<Integer, Occupant> rentals; // Int : the number of the apart | Occupant : the occupant of the apart
 
-    public ApartmentBuilding() {
+    public ApartmentBuilding() { // used in tests for empty buildings
     }
 
     public ApartmentBuilding(String address, float livingSpace, int nbApart, Owner owner) {
@@ -28,6 +28,7 @@ public class ApartmentBuilding extends Building {
                 ", nbApart=" + nbApart +
                 '}';
     }
+
     //getters
     public int getNbApart(){
         return this.nbApart;
@@ -58,39 +59,15 @@ public class ApartmentBuilding extends Building {
     /**
      * Method to stop renting an apartment
      * @param occ : the occupant who wants to stop renting
-     * @throws Exception : if the occupant doesn't rent an apartment or not in this building
+     * @throws Exception : if the occupant doesn't rent an apartment in this building
      */
     public void stopRent(Occupant occ) throws Exception{
-        if (occ.getRent() == null)
-            throw new Exception("occupant has no rent");
-        else if (occ.getRent() != this)
-            throw new Exception("occupant doesn't rent this building");
+        if (occ.getRent() == null || occ.getRent() != this) // in java, it doesn't check the second condition if the first is false, so we can do that
+            throw new Exception("occupant has no rent here");
         else{ // because we can't rent a flat when it doesn't exist, we don't need to test if nb < nbApart
             rentals.remove(occ.getNoRoom());
             occ.setRent(null);
             occ.setNoRoom(0);
         }
     }
-
-    /*@Override
-    public boolean equals(Object o){
-        if (!super.equals(o))
-            return false;
-        if (o == this)
-            return true;
-        if (!(o instanceof ApartmentBuilding))
-            return  false;
-        ApartmentBuilding temp = (ApartmentBuilding) o;
-        if (rentals.isEmpty() && temp.rentals.isEmpty())
-            return temp.nbApart == nbApart;
-        else if (rentals.size() == temp.rentals.size()){
-            for (int i = 0; i < rentals.size(); i++){
-                if (!rentals.get(i).equals(temp.rentals.get(i)))
-                    return false;
-            }
-            return true;
-        }
-        else
-            return false;
-    }*/
 }

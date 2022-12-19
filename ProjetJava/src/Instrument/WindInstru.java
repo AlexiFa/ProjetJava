@@ -25,9 +25,18 @@ public class WindInstru extends Instrument {
     }
     @Override
     public String toString() {
-        return "WindInstru{" +
-                super.toString() +
-                "type=" + type.getT() +
-                '}';
+        return type.getT() + " :" +
+                super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof WindInstru)) {
+            return false;
+        }
+        return super.equals(o) &&
+                type == ((WindInstru)o).type;
     }
 }

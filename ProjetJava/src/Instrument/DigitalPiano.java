@@ -11,9 +11,9 @@ public class DigitalPiano extends Piano{
 
     @Override
     public String toString() {
-        return "DigitalPiano{" +
+        return "DigitalPiano [" +
                 super.toString() +
-                '}';
+                ']';
     }
     public void setHeavyTouch(boolean ht){
         this.heavyTouch = ht;
@@ -26,5 +26,19 @@ public class DigitalPiano extends Piano{
             case 3: this.sampQ = sQuality.THREE; break;
             default: System.out.println("Error: Please choose an existing sampling quality: 1, 2, or 3.");
         }
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof DigitalPiano)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return heavyTouch == ((DigitalPiano)o).heavyTouch &&
+                sampQ == ((DigitalPiano)o).sampQ;
     }
 }

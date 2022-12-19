@@ -11,9 +11,9 @@ public class GrandPiano extends Piano{
 
     @Override
     public String toString() {
-        return "GrandPiano{" +
+        return "GrandPiano [" +
                 super.toString() +
-                '}';
+                ']';
     }
 
     public void setSize(int s){
@@ -24,5 +24,16 @@ public class GrandPiano extends Piano{
             case 4: this.size= sizeType.CRAPAUD; break;
             default: System.out.println("Please choose the right type of size: '4/4' (1), '1/2' (2), '1/4' (3) or 'Crapaud' (4)");
         }
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof GrandPiano)) {
+            return false;
+        }
+        return super.equals(o) &&
+                size == ((GrandPiano)o).size;
     }
 }

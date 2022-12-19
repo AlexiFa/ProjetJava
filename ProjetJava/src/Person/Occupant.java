@@ -4,8 +4,6 @@
 
 package Person;
 import Buildings.Building;
-import Rental.Rental;
-import java.util.HashMap;
 
 public class Occupant extends Person {
 //    Rental rental;
@@ -26,13 +24,6 @@ public class Occupant extends Person {
         rent = null;
     }
 
-//    public void setRental(Rental rental) {
-//        this.rental = rental;
-//    }
-//    public Rental getRental(){
-//        return this.rental;
-//    }
-
     public Building getRent() {
         return rent;
     }
@@ -51,6 +42,6 @@ public class Occupant extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + (rent != null ? ": has rented " + this.rent.toString() : " has no rent");
+        return super.toString() + (rent != null ? ": has rented the number "+ this.noRoom + " in " + this.rent.toString() : " has no rent");
     }
 }

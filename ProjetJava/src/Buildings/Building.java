@@ -6,6 +6,8 @@ package Buildings;
 import Person.Owner;
 
 public abstract class Building {
+    final static float RATEA = (float) 5.6;
+    final static float RATEB = (float) 1.5;
     protected String address;
     protected float livingSpace;
     protected Owner owner;
@@ -22,7 +24,8 @@ public abstract class Building {
     public String toString() {
         return "address='" + address + '\'' +
                 ", livingSpace=" + livingSpace +
-                ", owner=" + owner;
+                ", owner=" + owner +
+                ", tax=" + getTax();
     }
 
     /**
@@ -36,7 +39,8 @@ public abstract class Building {
         this.owner = owner;
         this.owner.addBuilding(this); // add this building in the properties of the owner
     }
-//getters for parameters
+
+    //getters for parameters
     public String getAddress(){
         return this.address;
     }
@@ -46,6 +50,9 @@ public abstract class Building {
     public Owner getOwner(){
         return this.owner;
     }
+    public float getTax(){
+        return RATEA * livingSpace;
+    }
 
     @Override
     public boolean equals(Object o){
@@ -53,7 +60,6 @@ public abstract class Building {
             return true;
         if (!(o instanceof Building))
             return  false;
-        Building temp = (Building) o;
-        return temp.address.equals(address) && temp.livingSpace == livingSpace && temp.owner.equals(owner);
+        return ((Building)o).address.equals(address) && ((Building)o).livingSpace == livingSpace && ((Building)o).owner.equals(owner);
     }
 }
