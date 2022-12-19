@@ -39,7 +39,12 @@ public class Main {
             population.putIfAbsent(admin, new Person[]{null,null}); //adding user to rez BUT verify if already registered, old information stays
 
             System.out.println("\n_____________________________________________________________");
-            stay_in_app = mainMenu(sc, admin);
+            try{
+                stay_in_app = mainMenu(sc, admin);
+            }catch (Exception e){
+                System.out.println("error in main loop, logging out");
+            }
+            //stay_in_app = mainMenu(sc, admin);
         }
     }
     public static boolean mainMenu(Scanner sc, Person admin) throws InterruptedException { //todo: for all menus, create a default case, for entering wrong digit

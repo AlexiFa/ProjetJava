@@ -105,13 +105,29 @@ public class Functions {
         System.out.println("----------------------------------------------");
     }
 
-    public void printRoomsAvailable(Hotel hotel){
-        System.out.println("\nAvailable Rooms:");
+    /**
+     * TODO : function not finished
+     * Function to list all the rooms and flats rented by a specific owner
+     * @param hotel : the owner we want to print the buildings
+     */
+    public static void printRoomsAvailable(Hotel hotel){
+        System.out.println("\nAvailable Rooms in " + hotel + ":");
         System.out.println("----------------------------------------------");
-        for (Integer noRoom : hotel.getRentals().keySet()) { // for each room rented in the hotel
-            if (hotel.getRentals().get(noRoom) == null) {
-                System.out.println(" " + noRoom + ". " + hotel.getRentals().get(noRoom).toString());
+        if (hotel.getNbStars()<5){
+            for (int i = 1; i <= hotel.getNbRoom(); i++) { // for every room in the hotel
+                if (!hotel.getRentals().containsKey(i)) { // if the room isn't in the rented list
+                    System.out.println(" " + i);
+                }
             }
+        } else if (hotel.getNbStars() == 5) {
+            System.out.println("Rooms :");
+            for (int i = 1; i <= hotel.getNbRoom(); i++) { // for every room in the hotel
+                if (!hotel.getRentals().containsKey(i)) { // if the room isn't in the rented list
+                    System.out.println(" " + i);
+                }
+            }
+            System.out.println("Suites :");
+            //for (int i = hotel.getNbRoom())
         }
         System.out.println("----------------------------------------------");
     }
