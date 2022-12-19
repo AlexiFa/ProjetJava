@@ -70,16 +70,25 @@ public class Main {
             System.out.println("5. See all your buildings");
             System.out.println("6. Hand over a building to another owner");
             System.out.println("7. Stop your rental");
-            System.out.println("8. Buy an instrument in an existing store"); //to implement when all is done
-            System.out.println("9. See all your instruments (not available for now)");
+            System.out.println("8. Get a list of all rented hotel rooms and apartments");
+            System.out.println("9. Buy an instrument in an existing store");
+            System.out.println("10. See all your instruments (not available for now)");
             System.out.println("0. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
             case 1://list all Persons, with reference to owner/occupant information.
                 Functions.printAllPerson(population);
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 2://list all buildings, with their description.
                 Functions.printAllBuildings(residence);
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 3:
                 Owner owner;
@@ -103,12 +112,20 @@ public class Main {
                 break;
             case 5:
                 Functions.printBuildingsOwned((Owner)population.get(admin)[0]);
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 6:
                 Functions.GiveOutBuilding(sc, (Owner)population.get(admin)[0], population);
                 if (population.get(admin)[0]!=null){
                     if(((Owner) population.get(admin)[0]).getBuildings().size()==0) population.get(admin)[0]=null;
                 }
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 7:
                 if(population.get(admin)[1] == null) {
@@ -120,11 +137,22 @@ public class Main {
                     else if (((Occupant)population.get(admin)[1]).getRent() instanceof ApartmentBuilding)
                         ((ApartmentBuilding)((Occupant)population.get(admin)[1]).getRent()).stopRent((Occupant) population.get(admin)[1]);
                 }
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 8:
-                menuBuyInStore(sc, admin);
+                Functions.printAllRented(residence);
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 9:
+                menuBuyInStore(sc, admin);
+                break;
+            case 10:
                 ArrayList<Instrument> all_ad_instru = admin.getMy_instruments();
                 if (all_ad_instru.size()!=0) {
                     int i=1;
@@ -135,6 +163,10 @@ public class Main {
                 else{
                     System.out.println("You have no instruments in your possession");
                 }
+                System.out.print("Going back to main menu");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
+                TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 0: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");
@@ -198,13 +230,24 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){
             case 1:
-                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));
+                if (residence.get("Hotel").size()==0){
+                    System.out.println("There no hotels available at the moment.");
+                }
+                else {
+                    Functions.mRRHotel(sc, occupant, residence.get("Hotel"));
+                    System.out.println("Your booking has been accepted !");
+                }
                 break;
             case 2:
-                Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));
+                if(residence.get("Apartment Building").size() ==0){
+                    System.out.println("There no apartment buildings available at the moment.");
+                }
+                else{
+                    Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));
+                    System.out.println("Your booking has been accepted !");
+                }
                 break;
         }
-        System.out.println("Your booking has been accepted !");
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
