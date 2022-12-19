@@ -190,24 +190,24 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
-    private static void menuBuyInStore(Scanner sc, Person person) throws InterruptedException { //TODO : ingoing
+    private static void menuBuyInStore(Scanner sc, Person person) throws InterruptedException {
         System.out.println("What would be your budget (in dollars)?");
         person.setBudget(sc.nextFloat());
         ArrayList<Building> stores = residence.get("Store");
         boolean shopping = true;
         while(shopping){
             System.out.println("Here are the stores available:");
-            Functions.mBISPrintAllStores(stores);                       //TODO
-            System.out.print("Which one do you want to shop in? Chose a number");
+            Functions.mBISPrintAllStores(stores);
+            System.out.print("Which one do you want to shop in? Chose a number: ");
             int choice = sc.nextInt();
             Store store_chosen = (Store) stores.get(choice - 1);
             ArrayList<Instrument> all_in_store = store_chosen.getInstruments();
             System.out.println("In this store, there is " + all_in_store.size() + " instruments:");
-            Functions.mBISPrintInstruInStore(all_in_store);             //TODO
-            System.out.print("Which one do you want to buy?");
+            Functions.mBISPrintInstruInStore(all_in_store);
+            System.out.print("Which one do you want to buy? Chose a number: ");
             choice = sc.nextInt();
             Instrument chosen_one = all_in_store.get(choice - 1);
-            boolean worked = Functions.mBISTry2Sell(person, chosen_one);
+            boolean worked = Functions.mBISTry2Sell(person, store_chosen, chosen_one);
             if (worked) {
                 System.out.println("Your purchase of " + chosen_one.getNameInstru() + " was successful !");
                 System.out.println("Your remaining budget is: " + person.getBudget());
@@ -215,7 +215,7 @@ public class Main {
                 if (sc.nextInt() != 1) shopping = false;
             } else {
                 System.out.println("Unfortunately, you cannot get " + chosen_one.getNameInstru()
-                        + ", because your remaining budget is not enough.");
+                        + ", because your remaining budget is not enough, or an error occurred.");
                 shopping = false;
             }
         }

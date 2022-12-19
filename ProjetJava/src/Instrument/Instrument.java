@@ -27,5 +27,8 @@ public abstract class Instrument {
     public String getNameInstru(){
         return this.nameInstru;
     }
-    
+
+    public float getSellingPrice(){
+        return this.sellingPrice;
+    }
 }

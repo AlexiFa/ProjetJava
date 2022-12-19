@@ -152,7 +152,11 @@ public class Store extends Building {
         System.out.println("\nAll instruments have been added.");
     }
 
-    public void removeInstrument(Instrument instrument){
-        this.instruments.remove(instrument);
+    public boolean removeInstrument(Instrument instrument){
+        if(this.instruments.contains(instrument)) {
+            this.instruments.remove(instrument);
+            return true;
+        }
+        else return false;
     }
 }

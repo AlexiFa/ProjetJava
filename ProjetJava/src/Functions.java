@@ -312,7 +312,19 @@ public class Functions {
         System.out.println("----------------------------------------------");
     }
 
-    public static boolean mBISTry2Sell(Person person, Instrument chosen_one) { //TODO
-        return false;
+    public static boolean mBISTry2Sell(Person person, Store store, Instrument chosen_one) {
+        float i_price = chosen_one.getSellingPrice();
+        float p_budget = person.getBudget();
+        if (i_price > p_budget) {
+            return false;
+        }
+        else {
+            boolean instr_in_store = store.removeInstrument(chosen_one);
+            if (!instr_in_store) return false;
+            float new_budget = p_budget - i_price;
+            person.setBudget(new_budget);
+            person.addInstrument(chosen_one);
+            return true;
+        }
     }
 }
