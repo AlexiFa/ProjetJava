@@ -169,7 +169,7 @@ public class Main {
                 TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 0: //quit the mainMenu() loop
-                System.out.println("Do you want to also exit the program? Enter 0 to confirm");
+                System.out.println("Do you want to also exit the program? Enter 0 to confirm or any other number to go back to the main menu");
                 int q = sc.nextInt();
                 if (q == 0) { //PATH TO QUIT PROGRAM
                     System.out.println("\nTHANK YOU FOR VISITING MELE-MELE ISLAND RESIDENCE!\n");
@@ -184,6 +184,9 @@ public class Main {
                     System.out.println("\n_____________________________________________________________");
                 }
                 loop = false;
+                break;
+            default:
+                System.out.println("Please enter a valid number");
                 break;
             }
         }
@@ -239,6 +242,9 @@ public class Main {
                     System.out.println("This address is already taken");
                 }
                 break;
+            default:
+                System.out.println("Please enter a valid number");
+                break;
         }
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
@@ -269,6 +275,9 @@ public class Main {
                     Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));
                     System.out.println("Your booking has been accepted !");
                 }
+                break;
+            default:
+                System.out.println("Please enter a valid number");
                 break;
         }
         System.out.print("Going back to main menu");
