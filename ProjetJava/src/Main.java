@@ -59,7 +59,7 @@ public class Main {
             //stay_in_app = mainMenu(sc, admin);
         }
     }
-    public static boolean mainMenu(Scanner sc, Person admin) throws Exception { //todo: for all menus, create a default case, for entering wrong digit
+    public static boolean mainMenu(Scanner sc, Person admin) throws Exception {
         boolean loop=true;
         System.out.println(admin.getName()+" "+ admin.getSurname()+", You have been successfully logged in !");
         while(loop){
