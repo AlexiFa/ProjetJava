@@ -12,11 +12,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Index of all the functions todo when all the functions are done
- *
- */
-
 public class Functions {
 
     /**
@@ -59,9 +54,7 @@ public class Functions {
     }
 
     /**
-     * TODO : this function has been tested in main but hasn't a proper like test auto (don't know if we need to do one, if not : delete this TODO comment)
-     * TODO : maybe add the functionality to do it in the main loop
-     * Function to printo out the buildings of a specific owner
+     * Function to print out the buildings of a specific owner
      * @param owner : the owner we want to print the buildings
      */
     public static void printBuildingsOwned(Owner owner) {
@@ -203,7 +196,7 @@ public class Functions {
         return new House(address, liv_area, nb_rooms, garden_area, owner);
     }
 
-    public static Hotel mCBHotel(Scanner sc, Owner owner) { //creation of a hotel and return it //TODO
+    public static Hotel mCBHotel(Scanner sc, Owner owner) { //creation of a hotel and return it
         System.out.println("You chose to build a Hotel.\nTo complete your demand, please give us the following information:");
         System.out.print("> The Address: ");
         String address = sc.nextLine();
@@ -274,7 +267,7 @@ public class Functions {
      * @param occupant : occupant objet storing user/future personal info
      * @param hotel    : arraylist of all hotel available
      */
-    public static void mRRHotel(Scanner sc, Occupant occupant, ArrayList<Building> hotel) throws Exception{ //booking a room for occupant //TODO: after mCBHotel()
+    public static void mRRHotel(Scanner sc, Occupant occupant, ArrayList<Building> hotel) throws Exception{ //booking a room for occupant
         System.out.println("You chose to book a room in a hotel.\nHere are all the hotels with rooms available:");
         System.out.println("----------------------------------------------");
         int i = 1;
@@ -300,7 +293,7 @@ public class Functions {
      * @param apartment_building: : arraylist of all apartment buildings available
      * @throws Exception : if the user enter a string instead of a number (for example)
      */
-    public static void mRRApartment(Scanner sc, Occupant occupant, ArrayList<Building> apartment_building) throws Exception{//booking an apt for occupant //TODO: after mCBHotel()
+    public static void mRRApartment(Scanner sc, Occupant occupant, ArrayList<Building> apartment_building) throws Exception{//booking an apt for occupant
         System.out.println("You chose to book an apartment in an apartment building.\nHere are all the apartment buildings:");
         System.out.println("----------------------------------------------");
         int i = 1;
