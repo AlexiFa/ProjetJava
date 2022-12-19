@@ -293,11 +293,23 @@ public class Functions {
         ((ApartmentBuilding)apartment_building.get(apartmentBuildingChoice - 1)).rent(occupant, aptChoice); // book the apartment
     }
 
-    public static void mBISPrintAllStores(ArrayList<Building> stores) { //TODO
-
+    public static void mBISPrintAllStores(ArrayList<Building> stores) {
+        int i=1;
+        System.out.println("----------------------------------------------");
+        for(Building store : stores){
+            System.out.println(" "+i+". "+store.toString());
+            i++;
+        }
+        System.out.println("----------------------------------------------");
     }
-
-    public static void mBISPrintInstruInStore(ArrayList<Instrument> instruments) { //TODO
+    public static void mBISPrintInstruInStore(ArrayList<Instrument> instruments) {
+        int i=1;
+        System.out.println("----------------------------------------------");
+        for(Instrument instrument : instruments){
+            System.out.println(" "+i+". "+instrument.toString());
+            i++;
+        }
+        System.out.println("----------------------------------------------");
     }
 
     public static boolean mBISTry2Sell(Person person, Instrument chosen_one) { //TODO
