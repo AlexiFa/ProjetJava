@@ -12,6 +12,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The Function class is used to complete the Main class method, to reduce the size of the files.
+ * it contains all the small methods used inside the "menus" of the Main class.
+ */
+
 public class Functions {
 
     /**

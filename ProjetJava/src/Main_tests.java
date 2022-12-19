@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * The Main_tests class is used to reunite all the tests-methods
+ * for all other classes and methods used in our application.
+ */
+
 public class Main_tests {
     // created to test the methods which just print, so we check manually if it works
     protected static HashMap<String, ArrayList<Building>> residence = new HashMap<String, ArrayList<Building>>();

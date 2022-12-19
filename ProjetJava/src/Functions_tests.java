@@ -5,6 +5,10 @@ import Person.*;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The Function_tests class is used to complete the Main_tests class, to simplify the file.
+ */
+
 public class Functions_tests {
     // TESTS //TODO: ALL TESTS ARE NOT MADE
     public static void LaunchingTests() throws InterruptedException {

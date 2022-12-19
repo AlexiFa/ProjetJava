@@ -10,10 +10,12 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-// if not used at the end of the project, we can remove the import
 /*
-* The main class is used to verify that the whole project is working without errors
+* The Main class is used to verify that the whole project is working without errors
+* It works as an interface, where users can log in, log out,
+* and interact with the different functionalities available in the residence.
 */
+
 public class Main {
     protected static HashMap<String, ArrayList<Building>> residence = new HashMap<String, ArrayList<Building>>();
     protected static HashMap<Person, Person[]> population = new HashMap<Person, Person[]>();
