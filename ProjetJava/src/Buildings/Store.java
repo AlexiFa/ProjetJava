@@ -41,8 +41,8 @@ public class Store extends Building {
     public void addInstruments(Scanner sc) {
         System.out.print("How many instruments do you want to add ?\nEnter a number: ");
         int nb = sc.nextInt();
-        sc.nextLine(); //PRIMORDIAL, to be able to read strings after reading an int/float
         for (int i = 0; i < nb; i++) {
+            sc.nextLine(); //PRIMORDIAL, to be able to read strings after reading an int/float
             System.out.println("Instrument " + (i + 1));
             System.out.print("Give it a name: ");
             String name = sc.nextLine();
@@ -100,6 +100,7 @@ public class Store extends Building {
                     System.out.print("Does it have a silent option? 1 (yes) or 2 (no): ");
                     up.setSilence(sc.nextInt() == 1);
                     System.out.print("Does it have straight or crossed strings? 1 (straight) or 2 (crossed)");
+                    up.setStrings(sc.nextInt());
                     this.instruments.add(up);
                     break;
                 case 4:
