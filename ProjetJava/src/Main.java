@@ -68,6 +68,7 @@ public class Main {
             System.out.println("3. Own/Create/Buy a building");
             System.out.println("4. Rent an apartment or a hotel room");
             System.out.println("5. Buy an instrument in an existing store (not available for now)"); //to implement when all is done
+            System.out.println("6. All your buildings");
             System.out.println("0. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
@@ -99,6 +100,9 @@ public class Main {
                 break;
             case 5:
                 menuBuyInStore(sc, admin); //function menuBuyInStore()//TODO: not started
+                break;
+            case 6:
+                Functions.printBuildingsOwned((Owner)population.get(admin)[0]);
                 break;
             case 0: //quit the mainMenu() loop
                 System.out.println("Do you want to also exit the program? Enter 0 to confirm");

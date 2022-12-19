@@ -66,6 +66,10 @@ public class Functions {
      * @param owner : the owner we want to print the buildings
      */
     public static void printBuildingsOwned(Owner owner) {
+        if (owner == null) {
+            System.out.println("You don't have any buildings");
+            return;
+        }
         System.out.println("\nBuildings List of " + owner + ":");
         System.out.println("----------------------------------------------");
         int i = 1;
