@@ -152,4 +152,20 @@ public class Hotel extends Building {
             // take the index and remove also in the room array or make hashmap (but personally idk how to do hashmap so ask the others)
         }
     }
+
+    /**
+     * Function to get the tax of the hotel
+     * @Override to only use this function instead of the one in the parent class
+     * @return : the tax of the hotel
+     */
+    @Override
+    public float getTax() {
+        if (nbStars == 5){
+            return super.getTax() + RATEB * nbPool;
+        }else if (nbStars == 4) {
+            return super.getTax() + RATEB * (nbSpa + 1);
+        }else{
+            return super.getTax();
+        }
+    }
 }

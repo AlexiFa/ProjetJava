@@ -30,4 +30,14 @@ public class House extends Building {
     public float getGardenArea(){
         return this.gardenArea;
     }
+
+    /**
+     * Function to calculate the tax of the house
+     * @Override to use this function instead of the one in the parent class
+     * @return : the tax of the house
+     */
+    @Override
+    public float getTax(){
+        return super.getTax() + RATEB * gardenArea;
+    }
 }

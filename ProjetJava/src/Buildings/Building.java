@@ -6,6 +6,8 @@ package Buildings;
 import Person.Owner;
 
 public abstract class Building {
+    final float RATEA = (float) 5.6;
+    final float RATEB = (float) 1.5;
     protected String address;
     protected float livingSpace;
     protected Owner owner;
@@ -22,7 +24,8 @@ public abstract class Building {
     public String toString() {
         return "address='" + address + '\'' +
                 ", livingSpace=" + livingSpace +
-                ", owner=" + owner;
+                ", owner=" + owner +
+                ", tax=" + getTax();
     }
 
     /**
@@ -45,6 +48,9 @@ public abstract class Building {
     }
     public Owner getOwner(){
         return this.owner;
+    }
+    public float getTax(){
+        return RATEA * livingSpace;
     }
 
     @Override
