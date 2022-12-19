@@ -27,17 +27,6 @@ public class Main {
         residence.put("Apartment Building", new ArrayList<Building>());
         residence.put("Store", new ArrayList<Building>());
 
-        // just for the tests
-        ApartmentBuilding a1 = new ApartmentBuilding("a1", 10, 50, new Owner("Alexis", "Faure"));
-        ApartmentBuilding a2 = new ApartmentBuilding("a2", 10, 100, new Owner("Alexis", "Faure"));
-        Hotel h2 = new Hotel("h2", 100, 2, new Owner("Alexis", "Faure"));
-        Hotel h3 = new Hotel("h3", 100, 5, new Owner("Alexis", "Faure"));
-        h3.setNbSuite(10); // 30 rooms and 10 suites
-        residence.get("Hotel").add(h2);
-        residence.get("Hotel").add(h3);
-        residence.get("Apartment Building").add(a1);
-        residence.get("Apartment Building").add(a2);
-
         while(stay_in_app){
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");
@@ -47,7 +36,16 @@ public class Main {
             System.out.print("Last Name : ");
             String lastName = sc.nextLine();
             Person admin = new Person(name, lastName);  //todo: régler l'apparition de doublons dans Hashmap
-            population.putIfAbsent(admin, new Person[]{null,null}); //adding user to rez BUT verify if already registered, old information stays
+            boolean isAlreadySign = false;
+            for (Person p : population.keySet()) {
+                if (p.equals(admin)) {
+                    isAlreadySign = true;
+                    admin = p;
+                    break;
+                }
+            }
+            if (!isAlreadySign)
+                population.put(admin, new Person[]{null,null});
 
             System.out.println("\n_____________________________________________________________");
             try{
@@ -80,13 +78,23 @@ public class Main {
                 Functions.printAllBuildings(residence);
                 break;
             case 3:
-                Owner owner = new Owner(admin);
-                population.get(admin)[0] = owner;
-                menuCreateBuilding(sc, owner); //function menuCreateBuilding creating the building in the name of the owner
+                Owner owner;
+                if (population.get(admin)[0]!=null){
+                    owner = (Owner) population.get(admin)[0];
+                }else{
+                    owner = new Owner(admin);
+                    population.get(admin)[0] = owner;
+                }
+                menuCreateBuilding(sc, owner); //function menuCreateBuilding creating the building in the name of the owner2
                 break;
             case 4:
-                Occupant occupant = new Occupant(admin.getName(), admin.getSurname());
-                population.get(admin)[1] = occupant;
+                Occupant occupant;
+                if (population.get(admin)[1]!=null){
+                    occupant = (Occupant) population.get(admin)[1];
+                }else{
+                    occupant = new Occupant(admin.getName(), admin.getSurname());
+                    population.get(admin)[1] = occupant;
+                }
                 menuRentRoom(sc, occupant); //function menuRenting()//TODO: ingoing
                 break;
             case 5:
@@ -157,10 +165,14 @@ public class Main {
                 Functions.mRRHotel(sc, occupant, residence.get("Hotel"));
                 break;
             case 2:
+<<<<<<< Updated upstream
                 Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO: @alexis
+=======
+                Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));
+>>>>>>> Stashed changes
                 break;
         }
-        System.out.println("Your booking has been accepted !"); //todo: not yet actually
+        System.out.println("Your booking has been accepted !");
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
