@@ -4,8 +4,6 @@
 
 package Person;
 import Buildings.Building;
-import Rental.Rental;
-import java.util.HashMap;
 
 public class Occupant extends Person {
 //    Rental rental;

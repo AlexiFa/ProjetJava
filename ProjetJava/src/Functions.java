@@ -76,9 +76,8 @@ public class Functions {
     }
 
     /**
-     * TODO : function finished i think (check if the tests in main are good enough)
-     * TODO : en fait pas sur car dans l'enoncé il met juste les appart et afficher les room/suites dispo (donc le modif pour ne faire que les appart)
      * Function to list all the rooms and flats rented
+     * @param residence : all the buildings added to the residence
      */
     public static void printAllRented(HashMap<String, ArrayList<Building>> residence) {
         System.out.println("\nRented Rooms and Flats:");
@@ -101,6 +100,17 @@ public class Functions {
                     }
                 }
                 System.out.println();
+            }
+        }
+        System.out.println("----------------------------------------------");
+    }
+
+    public void printRoomsAvailable(Hotel hotel){
+        System.out.println("\nAvailable Rooms:");
+        System.out.println("----------------------------------------------");
+        for (Integer noRoom : hotel.getRentals().keySet()) { // for each room rented in the hotel
+            if (hotel.getRentals().get(noRoom) == null) {
+                System.out.println(" " + noRoom + ". " + hotel.getRentals().get(noRoom).toString());
             }
         }
         System.out.println("----------------------------------------------");

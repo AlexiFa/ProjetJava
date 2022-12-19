@@ -19,8 +19,6 @@ public class Main {
     protected static HashMap<Person, Person[]> population = new HashMap<Person, Person[]>();
     protected static boolean stay_in_app =true;
     public static void main(String[] args) throws InterruptedException {
-        //first, testing that all classes, functions and variables are working correctly. All testing methods are in Functions
-        Functions_tests.LaunchingTests(); //TODO: tests functions not complete
         // MAIN LOOP: Start Application
         Scanner sc;
         System.out.println("\n#############################################################");
