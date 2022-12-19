@@ -201,22 +201,45 @@ public class Main {
         switch (choice){
             case 1:
                 House house = Functions.mCBHouse(sc, owner);
-                residence.get("House").add(house);
+                if (Functions.addressFree(house.getAddress(), residence.get("House")) && Functions.addressFree(house.getAddress(), residence.get("Hotel")) && Functions.addressFree(house.getAddress(), residence.get("ApartmentBuilding")) && Functions.addressFree(house.getAddress(), residence.get("Store"))){
+                    residence.get("House").add(house);
+                    System.out.println("House created successfully");
+                }
+                else{
+                    System.out.println("This address is already taken");
+                }
                 break;
             case 2:
                 Hotel hotel = Functions.mCBHotel(sc, owner);
-                residence.get("Hotel").add(hotel);
+                if (Functions.addressFree(hotel.getAddress(), residence.get("House")) && Functions.addressFree(hotel.getAddress(), residence.get("Hotel")) && Functions.addressFree(hotel.getAddress(), residence.get("ApartmentBuilding")) && Functions.addressFree(hotel.getAddress(), residence.get("Store"))){
+                    residence.get("Hotel").add(hotel);
+                    System.out.println("Hotel created successfully");
+                }
+                else{
+                    System.out.println("This address is already taken");
+                }
                 break;
             case 3:
                 ApartmentBuilding ap_building = Functions.mCBApartment(sc, owner);
-                residence.get("Apartment Building").add(ap_building);
+                if (Functions.addressFree(ap_building.getAddress(), residence.get("House")) && Functions.addressFree(ap_building.getAddress(), residence.get("Hotel")) && Functions.addressFree(ap_building.getAddress(), residence.get("ApartmentBuilding")) && Functions.addressFree(ap_building.getAddress(), residence.get("Store"))){
+                    residence.get("ApartmentBuilding").add(ap_building);
+                    System.out.println("Apartment building created successfully");
+                }
+                else{
+                    System.out.println("This address is already taken");
+                }
                 break;
             case 4:
                 Store store = Functions.mCBStore(sc, owner);
-                residence.get("Store").add(store);
+                if (Functions.addressFree(store.getAddress(), residence.get("House")) && Functions.addressFree(store.getAddress(), residence.get("Hotel")) && Functions.addressFree(store.getAddress(), residence.get("ApartmentBuilding")) && Functions.addressFree(store.getAddress(), residence.get("Store"))){
+                    residence.get("Store").add(store);
+                    System.out.println("Store created successfully");
+                }
+                else{
+                    System.out.println("This address is already taken");
+                }
                 break;
         }
-        System.out.println("Your building has been successfully added to the residence !");
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
