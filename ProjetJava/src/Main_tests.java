@@ -38,7 +38,7 @@ public class Main_tests {
             h2.rent(occupant, 1);
             h2.rent(occupant2, 2);
             a1.rent(occupant3, 1);
-            a1.rent(occupant4, 2);
+            h3.rent(occupant4, 32);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

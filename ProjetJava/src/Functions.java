@@ -107,28 +107,50 @@ public class Functions {
     }
 
     /**
-     * TODO : function not finished
+     * Function to list all the available flats in a building
+     * @param aptBuilding : building targeted
+     */
+    public static void printAptsAvailable(ApartmentBuilding aptBuilding) {
+        System.out.println("\nAvailable Apartments:");
+        System.out.println("----------------------------------------------");
+        for (int i = 1; i <= aptBuilding.getNbApart()-1; i++) {
+            if (!aptBuilding.getRentals().containsKey(i)) {
+                System.out.print(" " + i + ",");
+            }
+        }
+        System.out.println(" " + aptBuilding.getNbApart());
+        System.out.println("----------------------------------------------");
+    }
+
+    /**
      * Function to list all the rooms and flats rented by a specific owner
-     * @param hotel : the owner we want to print the buildings
+     * @param hotel : the hotel we want to print the rooms available
      */
     public static void printRoomsAvailable(Hotel hotel){
         System.out.println("\nAvailable Rooms in " + hotel + ":");
         System.out.println("----------------------------------------------");
         if (hotel.getNbStars()<5){
-            for (int i = 1; i <= hotel.getNbRoom(); i++) { // for every room in the hotel
+            for (int i = 1; i <= hotel.getNbRoom()-1; i++) { // for every room in the hotel
                 if (!hotel.getRentals().containsKey(i)) { // if the room isn't in the rented list
-                    System.out.println(" " + i);
+                    System.out.print(" " + i + ",");
                 }
             }
+            System.out.println(" " + hotel.getNbRoom());
         } else if (hotel.getNbStars() == 5) {
             System.out.println("Rooms :");
-            for (int i = 1; i <= hotel.getNbRoom(); i++) { // for every room in the hotel
+            for (int i = 1; i <= hotel.getNbRoom()-1; i++) { // for every room in the hotel
                 if (!hotel.getRentals().containsKey(i)) { // if the room isn't in the rented list
-                    System.out.println(" " + i);
+                    System.out.print(" " + i + ",");
                 }
             }
+            System.out.println(" " + hotel.getNbRoom());
             System.out.println("Suites :");
-            //for (int i = hotel.getNbRoom())
+            for (int i = hotel.getNbRoom() + 1; i <= hotel.getNbRoom() + hotel.getNbSuite() - 1; i++) { // for every suite in the hotel
+                if (!hotel.getRentals().containsKey(i)) { // if the suite isn't in the rented list
+                    System.out.print(" " + i + ",");
+                }
+            }
+            System.out.println(" " + (hotel.getNbRoom() + hotel.getNbSuite()));
         }
         System.out.println("----------------------------------------------");
     }
@@ -221,12 +243,49 @@ public class Functions {
      * @param occupant : occupant objet storing user/future personal info
      * @param hotel    : arraylist of all hotel available
      */
-    public static void mRRHotel(Scanner sc, Occupant occupant, ArrayList<Building> hotel) { //booking a room for occupant //TODO: after mCBHotel()
+    public static void mRRHotel(Scanner sc, Occupant occupant, ArrayList<Building> hotel) throws Exception{ //booking a room for occupant //TODO: after mCBHotel()
+        System.out.println("You chose to book a room in a hotel.\nHere are all the hotels with rooms available:");
+        System.out.println("----------------------------------------------");
+        int i = 1;
+        for (Building hotel1 : hotel){
+            System.out.println(" " + i + " " + hotel1);
+            i++;
+        }
+        System.out.println("----------------------------------------------");
+        System.out.println("Please enter the number of the hotel you want to book a room in:");
+        int hotelChoice = sc.nextInt();
+        sc.nextLine();
+        printRoomsAvailable((Hotel) hotel.get(hotelChoice - 1)); // print all the rooms available in the hotel
+        System.out.println("Please enter the number of the room you want to book:");
+        int roomChoice = sc.nextInt();
+        sc.nextLine();
+        ((Hotel)hotel.get(hotelChoice - 1)).rent(occupant, roomChoice); // book the room
     }
 
     /**
+     * Functions to do the occupant booking of an apartment
+     * @param sc : scanner to get interaction with user/future occupant
+     * @param occupant : occupant who book the flat
      * @param apartment_building: : arraylist of all apartment buildings available
+     * @throws Exception : if the user enter a string instead of a number (for example)
      */
-    public static void mRRApartment(Scanner sc, Occupant occupant, ArrayList<Building> apartment_building) {//booking an apt for occupant //TODO: after mCBHotel()
+    public static void mRRApartment(Scanner sc, Occupant occupant, ArrayList<Building> apartment_building) throws Exception{//booking an apt for occupant //TODO: after mCBHotel()
+        System.out.println("You chose to book an apartment in an apartment building.\nHere are all the apartment buildings:");
+        System.out.println("----------------------------------------------");
+        int i = 1;
+        for (Building apartment_building1 : apartment_building){
+            System.out.println(" " + i + " " + apartment_building1);
+            i++;
+        }
+        System.out.println("----------------------------------------------");
+        System.out.println("Please enter the number of the apartment building you want to book an apartment in:");
+        int apartmentBuildingChoice = sc.nextInt();
+        //sc.nextLine();
+
+        printAptsAvailable((ApartmentBuilding) apartment_building.get(apartmentBuildingChoice - 1)); // print all the apartments available in the apartment building
+        System.out.println("Please enter the number of the apartment you want to book:");
+        int aptChoice = sc.nextInt();
+        sc.nextLine();
+        ((ApartmentBuilding)apartment_building.get(apartmentBuildingChoice - 1)).rent(occupant, aptChoice); // book the apartment
     }
 }

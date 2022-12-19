@@ -27,6 +27,17 @@ public class Main {
         residence.put("Apartment Building", new ArrayList<Building>());
         residence.put("Store", new ArrayList<Building>());
 
+        // just for the tests
+        ApartmentBuilding a1 = new ApartmentBuilding("a1", 10, 50, new Owner("Alexis", "Faure"));
+        ApartmentBuilding a2 = new ApartmentBuilding("a2", 10, 100, new Owner("Alexis", "Faure"));
+        Hotel h2 = new Hotel("h2", 100, 2, new Owner("Alexis", "Faure"));
+        Hotel h3 = new Hotel("h3", 100, 5, new Owner("Alexis", "Faure"));
+        h3.setNbSuite(10); // 30 rooms and 10 suites
+        residence.get("Hotel").add(h2);
+        residence.get("Hotel").add(h3);
+        residence.get("Apartment Building").add(a1);
+        residence.get("Apartment Building").add(a2);
+
         while(stay_in_app){
             sc = new Scanner(System.in);
             System.out.println("\nWELCOME TO MELE-MELE ISLAND RESIDENCE\n");
@@ -43,11 +54,12 @@ public class Main {
                 stay_in_app = mainMenu(sc, admin);
             }catch (Exception e){
                 System.out.println("Error in your entries, logging out");
+                System.out.println(e.getMessage());
             }
             //stay_in_app = mainMenu(sc, admin);
         }
     }
-    public static boolean mainMenu(Scanner sc, Person admin) throws InterruptedException { //todo: for all menus, create a default case, for entering wrong digit
+    public static boolean mainMenu(Scanner sc, Person admin) throws Exception { //todo: for all menus, create a default case, for entering wrong digit
         boolean loop=true;
         System.out.println(admin.getName()+" "+ admin.getSurname()+", You have been successfully logged in !");
         while(loop){
@@ -134,7 +146,7 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
     }
-    private static void menuRentRoom(Scanner sc, Occupant occupant) throws InterruptedException {
+    private static void menuRentRoom(Scanner sc, Occupant occupant) throws Exception {
         System.out.println("What do you want to rent?");
         System.out.println();
         System.out.println("1. a Hotel room");
@@ -142,7 +154,7 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){
             case 1:
-                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));//TODO: not started
+                Functions.mRRHotel(sc, occupant, residence.get("Hotel"));
                 break;
             case 2:
                 Functions.mRRApartment(sc, occupant, residence.get("Apartment Building"));//TODO: not started
