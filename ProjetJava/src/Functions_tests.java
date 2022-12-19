@@ -133,7 +133,18 @@ public class Functions_tests {
         printResult(!Ho1.equals(Ho3));
 
         // House
+        House Ho4 = new House("12 av jsp", 152, 1, 100, James);
+        House Ho5 = new House("12 av jsp", 152, 1, 100, James);
+        House Ho6 = new House("12 av other", 152, 1, 200, James);
+        printResult(Ho4.equals(Ho5));
+        printResult(!Ho4.equals(Ho6));
 
+        //Store
+        Building St1 = new Store("12 av jsp", 152, James, insts);
+        Building St2 = new Store("12 av jsp", 152, James, insts);
+        Building St3 = new Store("12 av other", 152, James, insts);
+        printResult(St1.equals(St2));
+        printResult(!St1.equals(St3));
 
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
@@ -253,7 +264,59 @@ public class Functions_tests {
         System.out.print("   ");
         Instrument test = new AcousticGuitar();
 //        System.out.println(test.toString());
-        printResult(true);
+
+        //test equals
+        //AcousticGuitar
+        Instrument test2 = new AcousticGuitar("name", 123, 123, 1, 1, "right-handed", 1);
+        Instrument test3 = new AcousticGuitar("name", 123, 123, 1, 1, "right-handed", 1);
+        Instrument test4 = new AcousticGuitar("name", 123, 152, 1, 1, "right-handed", 1);
+        printResult(test2.equals(test3));
+        printResult(!test2.equals(test4));
+
+        //DigitalPiano
+        Instrument test5 = new DigitalPiano("name", 123, 123, 1, 1, 50);
+        Instrument test6 = new DigitalPiano("name", 123, 123, 1, 1, 50);
+        Instrument test7 = new DigitalPiano("name other", 123, 123, 1, 1, 50);
+        printResult(test5.equals(test6));
+        printResult(!test5.equals(test7));
+
+        //ElectricGuitar
+        Instrument test8 = new ElectricGuitar("name", 123, 123, 1, 1, true, false);
+        Instrument test9 = new ElectricGuitar("name", 123, 123, 1, 1, true, false);
+        Instrument test10 = new ElectricGuitar("name other", 123, 123, 1, 1, true, true);
+        printResult(test8.equals(test9));
+        printResult(!test8.equals(test10));
+
+        //GrandPiano
+        Instrument test11 = new GrandPiano("name", 123, 123, 1, 1, 50);
+        ((GrandPiano)test11).setSize(1);
+        Instrument test12 = new GrandPiano("name", 123, 123, 1, 1, 50);
+        ((GrandPiano)test12).setSize(1);
+        Instrument test13 = new GrandPiano("name", 123, 123, 1, 1, 50);
+        ((GrandPiano)test13).setSize(2);
+        printResult(test11.equals(test12));
+        printResult(!test11.equals(test13));
+
+        //UpRightPiano
+        Instrument test14 = new UprightPiano("name", 123, 123, 1, 1, 50);
+        ((UprightPiano)test14).setSilence(true);
+        ((UprightPiano)test14).setStrings(1);
+        Instrument test15 = new UprightPiano("name", 123, 123, 1, 1, 50);
+        ((UprightPiano)test15).setSilence(true);
+        ((UprightPiano)test15).setStrings(1);
+        Instrument test16 = new UprightPiano("name", 123, 123, 1, 1, 50);
+        ((UprightPiano)test16).setSilence(true);
+        ((UprightPiano)test16).setStrings(2);
+        printResult(test14.equals(test15));
+        printResult(!test14.equals(test16));
+
+        //WindInstru
+        Instrument test17 = new WindInstru("name", 123, 123, "FLUTE");
+        Instrument test18 = new WindInstru("name", 123, 123, "FLUTE");
+        Instrument test19 = new WindInstru("name", 123, 123, "CLARINET");
+        printResult(test17.equals(test18));
+        printResult(!test17.equals(test19));
+
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(" all checked\n");
     }
 

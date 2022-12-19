@@ -31,4 +31,16 @@ public abstract class Instrument {
     public float getSellingPrice(){
         return this.sellingPrice;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof Instrument)) {
+            return false;
+        }
+        return nameInstru.equals(((Instrument)o).nameInstru) &&
+                purchasePrice == ((Instrument)o).purchasePrice &&
+                sellingPrice == ((Instrument)o).sellingPrice;
+    }
 }

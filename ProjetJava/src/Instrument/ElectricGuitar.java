@@ -24,4 +24,18 @@ public class ElectricGuitar extends StringInstru {
                 "withPedals=" + withPedals +
                 ']';
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof ElectricGuitar)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return withAmpli == ((ElectricGuitar)o).withAmpli &&
+                withPedals == ((ElectricGuitar)o).withPedals;
+    }
 }

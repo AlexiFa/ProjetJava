@@ -28,4 +28,15 @@ public class WindInstru extends Instrument {
         return type.getT() + " :" +
                 super.toString();
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof WindInstru)) {
+            return false;
+        }
+        return super.equals(o) &&
+                type == ((WindInstru)o).type;
+    }
 }

@@ -41,5 +41,20 @@ public class House extends Building {
         return super.getTax() + RATEB * gardenArea;
     }
 
-    
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof House)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return address.equals(((House)o).address) &&
+                livingSpace == ((House)o).livingSpace &&
+                nbPart == ((House)o).nbPart &&
+                gardenArea == ((House)o).gardenArea &&
+                owner.equals(((House)o).owner);
+    }
 }

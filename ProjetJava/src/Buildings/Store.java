@@ -155,4 +155,11 @@ public class Store extends Building {
     public void removeInstrument(Instrument instrument){
             this.instruments.remove(instrument);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        return super.equals(o);
+    }
 }
