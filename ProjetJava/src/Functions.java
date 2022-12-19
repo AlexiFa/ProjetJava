@@ -16,7 +16,6 @@ public class Functions {
 
     /**
      * Function to print out all people in the residence
-     *
      * @param population : all the persons added to the residence
      */
     public static void printAllPerson(HashMap<Person, Person[]> population) {
@@ -35,7 +34,6 @@ public class Functions {
 
     /**
      * Function to print out all building in the residence
-     *
      * @param residence : all the buildings added to the residence
      */
     public static void printAllBuildings(HashMap<String, ArrayList<Building>> residence) {
@@ -72,6 +70,12 @@ public class Functions {
             System.out.println("----------------------------------------------");
         }
     }
+
+    /**
+     * Function to print all the owner of the residence
+     * @param population : all the persons added to the residence
+     * @return : the list of all the owners
+     */
     private static ArrayList<Owner> printAllExistingOwners(HashMap<Person,Person[]> population) {
         ArrayList<Owner> owners = new ArrayList<Owner>();
         int i=1;
@@ -85,6 +89,12 @@ public class Functions {
         return owners;
     }
 
+    /**
+     * give a building to a new owner
+     * @param sc : scanner to get the input
+     * @param owner : the owner who will give the building
+     * @param population : all the persons added to the residence
+     */
     public static void GiveOutBuilding(Scanner sc, Owner owner, HashMap<Person,Person[]> population) {
         printBuildingsOwned(owner);
         if(owner != null) {
@@ -196,6 +206,12 @@ public class Functions {
         return new House(address, liv_area, nb_rooms, garden_area, owner);
     }
 
+    /**
+     * Function to create a hotel
+     * @param sc
+     * @param owner
+     * @return
+     */
     public static Hotel mCBHotel(Scanner sc, Owner owner) { //creation of a hotel and return it
         System.out.println("You chose to build a Hotel.\nTo complete your demand, please give us the following information:");
         System.out.print("> The Address: ");
@@ -235,6 +251,12 @@ public class Functions {
         return hotel;
     }
 
+    /**
+     * Function to create an apartment building
+     * @param sc
+     * @param owner
+     * @return
+     */
     public static ApartmentBuilding mCBApartment(Scanner sc, Owner owner) { // creation of an apartment building and return it
         System.out.println("You chose to build an Apartment Building.\nTo complete your demand, please give us the following information:");
         System.out.print("> The Address: ");
@@ -247,6 +269,12 @@ public class Functions {
         return new ApartmentBuilding(address, liv_area, nb_rooms, owner);
     }
 
+    /**
+     * Function to create a store
+     * @param sc
+     * @param owner
+     * @return
+     */
     public static Store mCBStore(Scanner sc, Owner owner) { //creation of a store and return it
         System.out.println("You chose to build a Store.\nTo complete your demand, please give us the following information:");
         System.out.print("> The Address: ");
@@ -260,9 +288,9 @@ public class Functions {
         System.out.print("Thank you. ");
         return store;
     }
+
     /**
      * Functions to do the occupant booking of hotel room or apartment
-     *
      * @param sc       : scanner to get interaction with user/future occupant
      * @param occupant : occupant objet storing user/future personal info
      * @param hotel    : arraylist of all hotel available
@@ -313,6 +341,10 @@ public class Functions {
         ((ApartmentBuilding)apartment_building.get(apartmentBuildingChoice - 1)).rent(occupant, aptChoice); // book the apartment
     }
 
+    /**
+     * Function to print all the store to choose the store he want to buy
+     * @param stores : arraylist of all stores available
+     */
     public static void mBISPrintAllStores(ArrayList<Building> stores) {
         int i=1;
         System.out.println("----------------------------------------------");
@@ -332,6 +364,13 @@ public class Functions {
         System.out.println("----------------------------------------------");
     }
 
+    /**
+     * Function which check if the budget is good and add the instrument to Person
+     * @param person
+     * @param store
+     * @param chosen_one
+     * @return
+     */
     public static boolean mBISTry2Sell(Person person, Store store, Instrument chosen_one) {
         float i_price = chosen_one.getSellingPrice();
         float p_budget = person.getBudget();

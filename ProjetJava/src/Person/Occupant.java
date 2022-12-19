@@ -24,13 +24,6 @@ public class Occupant extends Person {
         rent = null;
     }
 
-//    public void setRental(Rental rental) {
-//        this.rental = rental;
-//    }
-//    public Rental getRental(){
-//        return this.rental;
-//    }
-
     public Building getRent() {
         return rent;
     }

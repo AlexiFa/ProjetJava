@@ -61,6 +61,10 @@ public class Person {
         this.budget = budget;
     }
 
+    /**
+     * Function to add an instrument to the list of the instruments he owns
+     * @param instrument : instrument to add
+     */
     public void addInstrument(Instrument instrument){
         this.my_instruments.add(instrument);
     }

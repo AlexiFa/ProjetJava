@@ -36,7 +36,7 @@ public class Store extends Building {
     /**
      * Function to implement instruments inside a store
      *
-     * @param sc
+     * @param sc : the scanner to get the user's input
      */
     public void addInstruments(Scanner sc) {
         System.out.print("> How many instruments do you want to add ? Enter a number: ");
@@ -155,6 +155,10 @@ public class Store extends Building {
         System.out.println("\nAll instruments have been added.");
     }
 
+    /**
+     * Method to remove an instrument from the list of the store
+     * @param instrument : the instrument to remove
+     */
     public void removeInstrument(Instrument instrument){
             this.instruments.remove(instrument);
     }
