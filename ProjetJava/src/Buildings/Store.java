@@ -146,6 +146,9 @@ public class Store extends Building {
                     WindInstru oboe = new WindInstru(name, purchase_p, selling_p, "OBOE");
                     this.instruments.add(oboe);
                     break;
+                default:
+                    System.out.println("Invalid choice, please try again.");
+                    break;
             }
             System.out.println("Instrument " + (i + 1) + ", " + name + ", has been added.");
         }

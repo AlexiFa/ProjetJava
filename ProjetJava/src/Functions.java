@@ -204,7 +204,7 @@ public class Functions {
         float liv_area = sc.nextFloat();
         System.out.print("> The number of stars your hotel has (between 1 and 5): ");
         int stars = sc.nextInt();
-        if(stars > 5 || stars <1){
+        while(stars > 5 || stars <1){
             System.out.print("An hotel with "+stars+" stars cannot exist in the rez. Please enter the right digit: ");
             stars = sc.nextInt();
         }
@@ -345,5 +345,23 @@ public class Functions {
             person.addInstrument(chosen_one);
             return true;
         }
+    }
+
+    /**
+     * Function to check if an address is already used by a building
+     * @param address : address to check
+     * @param buildings : arraylist of all buildings
+     * @return : false if the address is already used, true if not
+     */
+    public static boolean addressFree(String address, ArrayList<Building> buildings) {
+        if (buildings == null) {
+            return true;
+        }
+        for (Building building : buildings) {
+            if (building.getAddress().equals(address)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

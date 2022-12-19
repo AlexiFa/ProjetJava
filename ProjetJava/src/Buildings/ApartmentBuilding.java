@@ -12,7 +12,7 @@ public class ApartmentBuilding extends Building {
     int nbApart;
     HashMap<Integer, Occupant> rentals; // Int : the number of the apart | Occupant : the occupant of the apart
 
-    public ApartmentBuilding() {
+    public ApartmentBuilding() { // used in tests for empty buildings
     }
 
     public ApartmentBuilding(String address, float livingSpace, int nbApart, Owner owner) {
