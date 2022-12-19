@@ -106,6 +106,9 @@ public class Main {
                 break;
             case 6:
                 Functions.GiveOutBuilding(sc, (Owner)population.get(admin)[0], population);
+                if (population.get(admin)[0]!=null){
+                    if(((Owner) population.get(admin)[0]).getBuildings().size()==0) population.get(admin)[0]=null;
+                }
                 break;
             case 7:
                 if(population.get(admin)[1] == null) {

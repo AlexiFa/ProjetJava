@@ -68,16 +68,17 @@ public class Functions {
     public static void printBuildingsOwned(Owner owner) {
         if (owner == null) {
             System.out.println("You don't have any buildings");
-            return;
         }
-        System.out.println("\nYour Buildings List:");
-        System.out.println("----------------------------------------------");
-        int i = 1;
-        for (Building building : owner.getBuildings()) {
-            System.out.println(" " + i + ". " + building.toString());
-            i++;
+        else {
+            System.out.println("\nYour Buildings List:");
+            System.out.println("----------------------------------------------");
+            int i = 1;
+            for (Building building : owner.getBuildings()) {
+                System.out.println(" " + i + ". " + building.toString());
+                i++;
+            }
+            System.out.println("----------------------------------------------");
         }
-        System.out.println("----------------------------------------------");
     }
     private static ArrayList<Owner> printAllExistingOwners(HashMap<Person,Person[]> population) {
         ArrayList<Owner> owners = new ArrayList<Owner>();
@@ -86,6 +87,7 @@ public class Functions {
             if (population.get(person)[0] != null) {
                 owners.add((Owner) population.get(person)[0]);
                 System.out.println(" "+i+". "+ population.get(person)[0].toString());
+                i++;
             }
         }
         return owners;
@@ -93,15 +95,18 @@ public class Functions {
 
     public static void GiveOutBuilding(Scanner sc, Owner owner, HashMap<Person,Person[]> population) {
         printBuildingsOwned(owner);
-        if(owner == null) return;
-        System.out.println("Choose your building to hand over (Enter the corresponding digit): ");
-        int chosen_b = sc.nextInt();
-        Building building = owner.getBuildings().get(chosen_b-1);
-        ArrayList<Owner> owners = printAllExistingOwners(population);
-        System.out.println("Chose the owner you want to hand the building over to (Enter the corresponding digit): ");
-        int chosen_o = sc.nextInt();
-        Owner new_owner = owners.get(chosen_o-1);
-        building.setOwner(new_owner);
+        if(owner != null) {
+            System.out.println("Choose your building to hand over (Enter the corresponding digit): ");
+            int chosen_b = sc.nextInt();
+            Building building = owner.getBuildings().get(chosen_b - 1);
+            ArrayList<Owner> owners = printAllExistingOwners(population);
+            System.out.println("Chose the owner you want to hand the building over to (Enter the corresponding digit): ");
+            int chosen_o = sc.nextInt();
+            Owner new_owner = owners.get(chosen_o - 1);
+            building.setOwner(new_owner);
+            System.out.println("Your building has been successfully assigned to " + new_owner.getName() + " "
+                    + new_owner.getSurname() + " !");
+        }
     }
     /**
      * Function to list all the rooms and flats rented
