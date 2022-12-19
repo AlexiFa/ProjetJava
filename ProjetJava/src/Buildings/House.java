@@ -40,4 +40,6 @@ public class House extends Building {
     public float getTax(){
         return super.getTax() + RATEB * gardenArea;
     }
+
+    
 }

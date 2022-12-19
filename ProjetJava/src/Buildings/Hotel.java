@@ -168,4 +168,18 @@ public class Hotel extends Building {
             return super.getTax();
         }
     }
+
+    @Override
+    public boolean equals(Object o){
+        if (!super.equals(o)){
+            return false;
+        }
+        if (!(o instanceof Hotel)){
+            return false;
+        }
+        if (o == this){
+            return true;
+        }
+        return ((Hotel)o).nbPool == nbPool && ((Hotel)o).nbSpa == nbSpa && ((Hotel)o).nbSuite == nbSuite && ((Hotel)o).nbStars == nbStars;
+    }
 }

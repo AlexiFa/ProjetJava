@@ -28,6 +28,7 @@ public class ApartmentBuilding extends Building {
                 ", nbApart=" + nbApart +
                 '}';
     }
+
     //getters
     public int getNbApart(){
         return this.nbApart;
