@@ -17,10 +17,8 @@ public abstract class StringInstru extends Instrument {
     }
     @Override
     public String toString() {
-        return "StringInstru{" +
-                super.toString() +
-                "length=" + length +
-                "width=" + width +
-                '}';
+        return  super.toString() +
+                " length=" + length +
+                " width=" + width;
     }
 }

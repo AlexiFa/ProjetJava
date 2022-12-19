@@ -11,9 +11,9 @@ public class GrandPiano extends Piano{
 
     @Override
     public String toString() {
-        return "GrandPiano{" +
+        return "GrandPiano [" +
                 super.toString() +
-                '}';
+                ']';
     }
 
     public void setSize(int s){

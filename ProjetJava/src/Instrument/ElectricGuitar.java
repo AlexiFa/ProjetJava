@@ -18,11 +18,10 @@ public class ElectricGuitar extends StringInstru {
 
     @Override
     public String toString() {
-        return "ElectricGuitar{" +
+        return "ElectricGuitar[" +
                 super.toString() +
                 "withAmpli=" + withAmpli +
                 "withPedals=" + withPedals +
-
-                '}';
+                ']';
     }
 }

@@ -25,9 +25,7 @@ public class WindInstru extends Instrument {
     }
     @Override
     public String toString() {
-        return "WindInstru{" +
-                super.toString() +
-                "type=" + type.getT() +
-                '}';
+        return type.getT() + " :" +
+                super.toString();
     }
 }

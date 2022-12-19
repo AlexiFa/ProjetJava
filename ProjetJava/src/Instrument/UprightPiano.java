@@ -15,9 +15,9 @@ public class UprightPiano extends Piano{
 
     @Override
     public String toString() {
-        return "UprightPiano{" +
+        return "UprightPiano [" +
                 super.toString() +
-                '}';
+                ']';
     }
 
     public void setSilence(boolean silence){

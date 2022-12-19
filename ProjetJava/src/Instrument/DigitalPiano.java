@@ -11,9 +11,9 @@ public class DigitalPiano extends Piano{
 
     @Override
     public String toString() {
-        return "DigitalPiano{" +
+        return "DigitalPiano [" +
                 super.toString() +
-                '}';
+                ']';
     }
     public void setHeavyTouch(boolean ht){
         this.heavyTouch = ht;
