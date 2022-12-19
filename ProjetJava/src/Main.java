@@ -74,7 +74,7 @@ public class Main {
             System.out.println("7. Stop your rental");
             System.out.println("8. Get a list of all rented hotel rooms and apartments");
             System.out.println("9. Buy an instrument in an existing store");
-            System.out.println("10. See all your instruments (not available for now)");
+            System.out.println("10. See all your instruments");
             System.out.println("0. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
