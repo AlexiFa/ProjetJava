@@ -35,7 +35,7 @@ public class Main {
             String name = sc.nextLine();
             System.out.print("Last Name : ");
             String lastName = sc.nextLine();
-            Person admin = new Person(name, lastName);  //todo: régler l'apparition de doublons dans Hashmap
+            Person admin = new Person(name, lastName);
             boolean isAlreadySign = false;
             for (Person p : population.keySet()) {
                 if (p.equals(admin)) {
@@ -65,11 +65,13 @@ public class Main {
             System.out.println(">> Enter a digit to choose what to do:\n");
             System.out.println("1. Get a list of all people in Mele-Mele Island Residence");
             System.out.println("2. Get a list of all buildings existing in Mele-Mele Island Residence");
-            System.out.println("3. Own/Create/Buy a building");
+            System.out.println("3. Own/Build/Buy a building");
             System.out.println("4. Rent an apartment or a hotel room");
-            System.out.println("5. Buy an instrument in an existing store (not available for now)"); //to implement when all is done
-            System.out.println("6. All your buildings");
+            System.out.println("5. See all your buildings");
+            System.out.println("6. Hand over a building to another owner");
             System.out.println("7. Stop your rental");
+            System.out.println("8. Buy an instrument in an existing store"); //to implement when all is done
+            System.out.println("9. See all your instruments (not available for now)");
             System.out.println("0. Log out\n");
             int choice = sc.nextInt();
             switch (choice) {
@@ -97,13 +99,13 @@ public class Main {
                     occupant = new Occupant(admin.getName(), admin.getSurname());
                     population.get(admin)[1] = occupant;
                 }
-                menuRentRoom(sc, occupant); //function menuRenting()//TODO: ingoing
+                menuRentRoom(sc, occupant);
                 break;
             case 5:
-                menuBuyInStore(sc, admin); //function menuBuyInStore()//TODO: not started
+                Functions.printBuildingsOwned((Owner)population.get(admin)[0]);
                 break;
             case 6:
-                Functions.printBuildingsOwned((Owner)population.get(admin)[0]);
+                Functions.GiveOutBuilding(sc, (Owner)population.get(admin)[0], population);
                 break;
             case 7:
                 if(population.get(admin)[1] == null) {
@@ -114,6 +116,21 @@ public class Main {
                         ((Hotel)((Occupant)population.get(admin)[1]).getRent()).stopRent((Occupant) population.get(admin)[1]);
                     else if (((Occupant)population.get(admin)[1]).getRent() instanceof ApartmentBuilding)
                         ((ApartmentBuilding)((Occupant)population.get(admin)[1]).getRent()).stopRent((Occupant) population.get(admin)[1]);
+                }
+                break;
+            case 8:
+                menuBuyInStore(sc, admin);
+                break;
+            case 9:
+                ArrayList<Instrument> all_ad_instru = admin.getMy_instruments();
+                if (all_ad_instru.size()!=0) {
+                    int i=1;
+                    for( Instrument instrument: admin.getMy_instruments()){
+                        System.out.println(" "+i+". "+instrument.toString());
+                    }
+                }
+                else{
+                    System.out.println("You have no instruments in your possession");
                 }
                 break;
             case 0: //quit the mainMenu() loop

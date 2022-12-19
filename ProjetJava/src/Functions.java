@@ -70,7 +70,7 @@ public class Functions {
             System.out.println("You don't have any buildings");
             return;
         }
-        System.out.println("\nBuildings List of " + owner + ":");
+        System.out.println("\nYour Buildings List:");
         System.out.println("----------------------------------------------");
         int i = 1;
         for (Building building : owner.getBuildings()) {
@@ -78,6 +78,16 @@ public class Functions {
             i++;
         }
         System.out.println("----------------------------------------------");
+    }
+    public static void GiveOutBuilding(Scanner sc, Owner owner, HashMap<Person,Person[]> population) {
+        printBuildingsOwned(owner);
+        if(owner == null) return;
+        System.out.println("Choose your building to hand over: ");
+        int chosen_b = sc.nextInt();
+        Building building = owner.getBuildings().get(chosen_b);
+        
+        Owner new_owner = null;
+        building.setOwner(new_owner);
     }
 
     /**
