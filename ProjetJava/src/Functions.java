@@ -211,7 +211,7 @@ public class Functions {
         float liv_area = sc.nextFloat();
         System.out.print("> The number of stars your hotel has (between 1 and 5): ");
         int stars = sc.nextInt();
-        if(stars > 5 || stars <1){
+        while(stars > 5 || stars <1){
             System.out.print("An hotel with "+stars+" stars cannot exist in the rez. Please enter the right digit: ");
             stars = sc.nextInt();
         }
