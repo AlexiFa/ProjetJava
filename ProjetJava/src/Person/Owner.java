@@ -27,9 +27,9 @@ public class Owner extends Person{
                 ": owns " + buildings.size() +
                 " buildings";
     }
+
     /**
      * Function to add a building to the list of the buildings he own
-     *
      * @param building : building to add
      */
     public void addBuilding(Building building){
