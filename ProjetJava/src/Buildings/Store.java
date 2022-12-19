@@ -146,4 +146,8 @@ public class Store extends Building {
         }
         System.out.println("All instruments have been added.");
     }
+
+    public void removeInstrument(Instrument instrument){
+        this.instruments.remove(instrument);
+    }
 }

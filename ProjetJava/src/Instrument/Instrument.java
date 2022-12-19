@@ -23,5 +23,9 @@ public abstract class Instrument {
                 "purchasePrice=" + purchasePrice +
                 "sellingPrice=" + sellingPrice ;
     }
+
+    public String getNameInstru(){
+        return this.nameInstru;
+    }
     
 }

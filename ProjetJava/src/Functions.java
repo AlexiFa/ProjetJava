@@ -288,4 +288,15 @@ public class Functions {
         sc.nextLine();
         ((ApartmentBuilding)apartment_building.get(apartmentBuildingChoice - 1)).rent(occupant, aptChoice); // book the apartment
     }
+
+    public static void mBISPrintAllStores(ArrayList<Building> stores) { //TODO
+
+    }
+
+    public static void mBISPrintInstruInStore(ArrayList<Instrument> instruments) { //TODO
+    }
+
+    public static boolean mBISTry2Sell(Person person, Instrument chosen_one) { //TODO
+        return false;
+    }
 }
