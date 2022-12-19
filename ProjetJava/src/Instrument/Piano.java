@@ -4,7 +4,7 @@
  */
 package Instrument;
 
-public class Piano extends StringInstru {
+public  abstract class Piano extends StringInstru {
     private int nbKey;
 
     public Piano(){
@@ -19,9 +19,7 @@ public class Piano extends StringInstru {
 
     @Override
     public String toString() {
-        return "Piano{" +
-                super.toString() +
-                "nbKey=" + nbKey +
-                '}';
+        return  super.toString() +
+                "nbKey=" + nbKey;
     }
 }

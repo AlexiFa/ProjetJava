@@ -19,9 +19,9 @@ public abstract class Instrument {
 
     @Override
     public String toString() {
-        return "nameInstru=" + nameInstru +
-                "purchasePrice=" + purchasePrice +
-                "sellingPrice=" + sellingPrice ;
+        return " nameInstru=" + nameInstru +
+                " purchasePrice=" + purchasePrice +
+                " sellingPrice=" + sellingPrice ;
     }
 
     public String getNameInstru(){
