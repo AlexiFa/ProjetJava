@@ -8,6 +8,7 @@ import Instrument.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -150,8 +151,42 @@ public class Functions {
     }
 
     public static Hotel mCBHotel(Scanner sc, Owner owner) { //creation of a hotel and return it //TODO
-
-        return new Hotel();
+        System.out.println("You chose to build a Hotel.\nTo complete your demand, please give us the following information:");
+        System.out.print("> The Address: ");
+        String address = sc.nextLine();
+        System.out.print("> The size of the total living space: ");
+        float liv_area = sc.nextFloat();
+        System.out.print("> The number of stars your hotel has (between 1 and 5): ");
+        int stars = sc.nextInt();
+        if(stars > 5 || stars <1){
+            System.out.print("An hotel with "+stars+" stars cannot exist in the rez. Please enter the right digit: ");
+            stars = sc.nextInt();
+        }
+        Hotel hotel = new Hotel(address, liv_area, stars,owner);
+        switch(stars){
+            case 4:
+                System.out.println("Since your hotel has 4 stars, we need a few more details.");
+                System.out.print("> The number of spas: ");
+                int spas = sc.nextInt();
+                hotel.setNbSpa(spas);
+                hotel.setNbPool(1);
+                hotel.setNbSuite(0);
+                break;
+            case 5:
+                System.out.println("Since your hotel has 5 stars, we need a few more details.");
+                System.out.print("> The number of suites: ");
+                int suites = sc.nextInt();
+                System.out.print("> The number of pools: ");
+                int pools = sc.nextInt();
+                hotel.setNbSuite(suites);
+                hotel.setNbPool(pools);
+                hotel.setNbSpa(0);
+                break;
+            default:
+                break;
+        }
+        System.out.print("Thank you. ");
+        return hotel;
     }
 
     public static ApartmentBuilding mCBApartment(Scanner sc, Owner owner) { // creation of an apartment building and return it
@@ -172,7 +207,7 @@ public class Functions {
         String address = sc.nextLine();
         System.out.print("> The size of the total living space: ");
         float liv_area = sc.nextFloat();
-        System.out.print("Please chose a few instruments to add to your store:\n");
+        System.out.print("> Please chose a few instruments to add to your store:\n");
         ArrayList<Instrument> instruments = new ArrayList<Instrument>();
         Store store = new Store(address, liv_area, owner, instruments);
         store.addInstruments(sc);

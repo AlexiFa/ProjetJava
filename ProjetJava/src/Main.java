@@ -42,7 +42,7 @@ public class Main {
             try{
                 stay_in_app = mainMenu(sc, admin);
             }catch (Exception e){
-                System.out.println("error in main loop, logging out");
+                System.out.println("Error in your entries, logging out");
             }
             //stay_in_app = mainMenu(sc, admin);
         }
@@ -116,7 +116,7 @@ public class Main {
                 residence.get("House").add(house);
                 break;
             case 2:
-                Hotel hotel = Functions.mCBHotel(sc, owner);//TODO: ingoing
+                Hotel hotel = Functions.mCBHotel(sc, owner);
                 residence.get("Hotel").add(hotel);
                 break;
             case 3:
@@ -128,7 +128,7 @@ public class Main {
                 residence.get("Store").add(store);
                 break;
         }
-        System.out.println("Your building has been successfully added to the residence !"); //todo: not yet for hotels
+        System.out.println("Your building has been successfully added to the residence !");
         System.out.print("Going back to main menu");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
         TimeUnit.MILLISECONDS.sleep(250);System.out.print(".");
