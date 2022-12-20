@@ -5,7 +5,7 @@
 package Instrument;
 
 public class WindInstru extends Instrument {
-    protected enum WindI {
+    private enum WindI {
         FLUTE("flute, with a beveled side"),
         CLARINET("clarinet, with a single reed"),
         OBOE("oboe, with a double reed");

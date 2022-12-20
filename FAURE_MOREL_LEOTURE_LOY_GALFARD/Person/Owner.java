@@ -8,7 +8,7 @@ import Buildings.Building;
 import java.util.ArrayList;
 
 public class Owner extends Person{
-    private ArrayList<Building> buildings;
+    ArrayList<Building> buildings;
     public Owner() {
         super();
         buildings = new ArrayList<Building>();

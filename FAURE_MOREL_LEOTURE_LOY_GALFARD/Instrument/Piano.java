@@ -5,7 +5,7 @@
 package Instrument;
 
 public  abstract class Piano extends StringInstru {
-    protected int nbKey;
+    private int nbKey;
 
     public Piano(){
         super();

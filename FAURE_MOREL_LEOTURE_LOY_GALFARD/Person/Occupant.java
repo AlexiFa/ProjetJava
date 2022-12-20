@@ -7,8 +7,8 @@ import Buildings.Building;
 
 public class Occupant extends Person {
 //    Rental rental;
-    private Building rent;
-    private int noRoom;
+    Building rent;
+    int noRoom;
     public Occupant() {
         super();
         this.rent = null;

@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Hotel extends Building {
-    private int nbStars;
-    private int nbRoom;
-    private int nbSpa; // only for 4 stars hotel (else = 0)
-    private int nbPool; // only for 5 or 4 stars hotel (else = 0)
+    int nbStars;
+    int nbRoom;
+    int nbSpa; // only for 4 stars hotel (else = 0)
+    int nbPool; // only for 5 or 4 stars hotel (else = 0)
     // the number of the suite are nbRoom + (1, 2, ...)
     // for example, if there are 10 rooms, the suite are 11, 12, 13, ...
-    private int nbSuite; // idem for 5 stars
+    int nbSuite; // idem for 5 stars
 
     HashMap<Integer,Occupant> rentals; // Integer : the number of the room | Occupant : the occupant of the room
 

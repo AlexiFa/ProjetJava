@@ -3,7 +3,7 @@ package Instrument;
 import java.util.Objects;
 
 public class UprightPiano extends Piano{
-    protected enum stringsType {STRAIGHT, CROSSED};
+    private enum stringsType {STRAIGHT, CROSSED};
     protected boolean silence;
     protected stringsType sType;
 

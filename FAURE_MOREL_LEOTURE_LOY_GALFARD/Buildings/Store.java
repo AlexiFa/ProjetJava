@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Store extends Building {
-    private ArrayList<Instrument> instruments;
+    ArrayList<Instrument> instruments;
 
     public Store(){
         // super() is called by default if we don't call any constructor from super (if there is a default constructor)

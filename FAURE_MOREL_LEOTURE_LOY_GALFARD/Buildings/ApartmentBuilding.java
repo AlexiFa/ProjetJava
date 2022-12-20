@@ -9,7 +9,7 @@ import Person.Owner;
 import java.util.HashMap;
 
 public class ApartmentBuilding extends Building {
-    private int nbApart;
+    int nbApart;
     HashMap<Integer, Occupant> rentals; // Int : the number of the apart | Occupant : the occupant of the apart
 
     public ApartmentBuilding() { // used in tests for empty buildings

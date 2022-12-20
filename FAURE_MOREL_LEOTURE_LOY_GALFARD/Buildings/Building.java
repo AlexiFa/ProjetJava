@@ -6,8 +6,8 @@ package Buildings;
 import Person.Owner;
 
 public abstract class Building {
-    final static protected float RATEA = (float) 5.6;
-    final static protected float RATEB = (float) 1.5;
+    final static float RATEA = (float) 5.6;
+    final static float RATEB = (float) 1.5;
     protected String address;
     protected float livingSpace;
     protected Owner owner;

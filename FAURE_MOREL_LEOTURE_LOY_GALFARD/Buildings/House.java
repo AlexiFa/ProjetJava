@@ -5,8 +5,8 @@
 package Buildings;
 import Person.Owner;
 public class House extends Building {
-    private int nbPart;
-    private float gardenArea;
+    int nbPart;
+    float gardenArea;
     public House(){
     }
     public House(String address, float livingSpace, int nbPart, float gardenArea, Owner owner) {
