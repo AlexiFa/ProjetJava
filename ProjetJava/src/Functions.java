@@ -100,7 +100,7 @@ public class Functions {
      * @param owner : the owner who will give the building
      * @param population : all the persons added to the residence
      */
-    public static void GiveOutBuilding(Scanner sc, Owner owner, HashMap<Person,Person[]> population) {
+    public static void giveOutBuilding(Scanner sc, Owner owner, HashMap<Person,Person[]> population) {
         printBuildingsOwned(owner);
         if(owner != null) {
             System.out.println("Choose your building to hand over (Enter the corresponding digit): ");

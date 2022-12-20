@@ -120,7 +120,7 @@ public class Main {
                 TimeUnit.MILLISECONDS.sleep(250);System.out.print(".\n");
                 break;
             case 6:
-                Functions.GiveOutBuilding(sc, (Owner)population.get(admin)[0], population);
+                Functions.giveOutBuilding(sc, (Owner)population.get(admin)[0], population);
                 if (population.get(admin)[0]!=null){
                     if(((Owner) population.get(admin)[0]).getBuildings().size()==0) population.get(admin)[0]=null;
                 }
